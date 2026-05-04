@@ -34,7 +34,6 @@
     padding: 0 2rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     height: 60px;
     border-bottom: 2px solid var(--sage);
   }
@@ -54,25 +53,6 @@
     opacity: .75;
     display: block;
   }
-
-  nav a {
-    color: var(--cream);
-    text-decoration: none;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: .8rem;
-    font-weight: 300;
-    letter-spacing: .1em;
-    margin-left: 1.8rem;
-    opacity: .85;
-    transition: opacity .2s;
-  }
-  nav a:hover { opacity: 1; }
-  nav a[aria-current="page"] {
-    opacity: 1;
-    border-bottom: 1px solid var(--cream);
-    padding-bottom: 2px;
-  }
-  @media (max-width: 700px) { nav { display: none; } }
 
   /* ── ヒーロー ── */
   .hero {
@@ -375,12 +355,6 @@
     つむぎの自然派美容教室
     <span>Hair Salon Tsumugu / Natural Beauty Guide</span>
   </a>
-  <nav>
-    <a href="menu.html">メニュー</a>
-    <a href="henna-home.html">ヘナ</a>
-    <a href="shampoo.html">シャンプー</a>
-    <a href="welcome.html" aria-current="page">ご予約の方へ</a>
-  </nav>
 </header>
 
 <section class="hero">
@@ -410,6 +384,15 @@
         <div class="card-text">
           <h3>つむぎのメニュー</h3>
           <p>料金・所要時間・各メニューの特徴をまとめました</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="read-card" href="shampoo.html">
+        <div class="card-icon shampoo">🧴</div>
+        <div class="card-text">
+          <h3>シャンプーについて</h3>
+          <p>つむぎで選べる4種のシャンプーと、洗う頻度の話</p>
         </div>
         <span class="arrow">→</span>
       </a>
@@ -458,7 +441,7 @@
   <div class="cta">
     <h3>当日お会いできるのを楽しみにしています🌿</h3>
     <p>ご不明な点はお気軽にLINEでご連絡ください</p>
-    <a class="cta-btn" href="https://line.me/R/ti/p/%40qao8096a" target="_blank" rel="noopener">LINEで問い合わせる</a>
+    <a class="cta-btn" href="http://line.ee/yuTECX7">LINEで問い合わせる</a>
   </div>
 
 </div>
