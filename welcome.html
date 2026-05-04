@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ご予約の方へ | 自然派美容室つむぎ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --moss:    #4a5240;
+    --sage:    #7a8c6e;
+    --cream:   #f5f0e8;
+    --warm:    #ede6d6;
+    --earth:   #9c7c5a;
+    --charcoal:#2c2c28;
+    --dust:    #c8b99a;
+    --accent:  #7c6348;
+    --henna:   #c45c1a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Serif JP', serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.9;
+  }
+
+  header {
+    background: var(--moss);
+    color: var(--cream);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    border-bottom: 2px solid var(--sage);
+  }
+
+  .site-name {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.1rem;
+    letter-spacing: .15em;
+    text-decoration: none;
+    color: var(--cream);
+  }
+
+  .site-name span {
+    font-size: .7rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    opacity: .75;
+    display: block;
+  }
+
+  /* ── ヒーロー ── */
+  .hero {
+    background: linear-gradient(135deg, var(--moss) 0%, #3a4832 100%);
+    color: var(--cream);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '🌿';
+    position: absolute;
+    font-size: 14rem;
+    opacity: .05;
+    top: -2rem;
+    left: -2rem;
+    line-height: 1;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 100%; height: 50px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .hero-eyebrow {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .25em;
+    color: var(--dust);
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    line-height: 1.6;
+    letter-spacing: .08em;
+    margin-bottom: .8rem;
+  }
+
+  .hero p {
+    font-size: .88rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto;
+    opacity: .85;
+    line-height: 1.9;
+  }
+
+  /* ── コンテンツ ── */
+  .content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  /* ── ご挨拶 ── */
+  .greeting {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem 2.2rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 2px 16px rgba(74,82,64,.07);
+    border-left: 4px solid var(--sage);
+    animation: fadeUp .5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .greeting p {
+    font-size: .9rem;
+    line-height: 2.1;
+    color: #444;
+    margin-bottom: .8rem;
+  }
+
+  .greeting .sign {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: .95rem;
+    color: var(--moss);
+    text-align: right;
+    margin-top: 1.2rem;
+    margin-bottom: 0;
+  }
+
+  /* ── セクション見出し ── */
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .2em;
+    color: var(--sage);
+    margin-bottom: .8rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--sage);
+  }
+
+  h2 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.3rem;
+    letter-spacing: .06em;
+    color: var(--charcoal);
+    margin-bottom: 1.2rem;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid var(--dust);
+  }
+
+  /* ── 読んでおいてほしいカード ── */
+  .read-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .read-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.3rem 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(74,82,64,.06);
+    text-decoration: none;
+    color: inherit;
+    transition: transform .2s, box-shadow .2s;
+    animation: fadeUp .5s ease both;
+    border: 1px solid var(--dust);
+  }
+
+  .read-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74,82,64,.12);
+  }
+
+  .read-card:nth-child(2) { animation-delay: .1s; }
+  .read-card:nth-child(3) { animation-delay: .2s; }
+  .read-card:nth-child(4) { animation-delay: .3s; }
+  .read-card:nth-child(5) { animation-delay: .4s; }
+
+  .read-card .card-icon {
+    flex-shrink: 0;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+
+  .read-card .card-icon.henna { background: #fce8d8; }
+  .read-card .card-icon.shampoo { background: #d8f0f0; }
+  .read-card .card-icon.menu { background: var(--warm); }
+  .read-card .card-icon.color { background: #eae8f8; }
+
+  .read-card .card-text h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: .95rem;
+    color: var(--charcoal);
+    margin-bottom: .2rem;
+  }
+
+  .read-card .card-text p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  .read-card .arrow {
+    margin-left: auto;
+    color: var(--dust);
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* ── 来店前チェックリスト ── */
+  .checklist {
+    background: var(--warm);
+    border-radius: 8px;
+    padding: 1.5rem 1.8rem;
+    margin-bottom: 3rem;
+    border: 1px solid var(--dust);
+    animation: fadeUp .5s ease .3s both;
+  }
+
+  .checklist ul {
+    list-style: none;
+    margin-top: .8rem;
+  }
+
+  .checklist ul li {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .83rem;
+    line-height: 1.9;
+    padding-left: 1.6em;
+    position: relative;
+    color: #555;
+  }
+
+  .checklist ul li::before {
+    content: '□';
+    position: absolute;
+    left: 0;
+    color: var(--sage);
+  }
+
+  /* ── アクセス ── */
+  .access {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem 1.8rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 2px 12px rgba(74,82,64,.06);
+    animation: fadeUp .5s ease .4s both;
+  }
+
+  .access p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .83rem;
+    color: #555;
+    line-height: 1.9;
+    margin-bottom: .5rem;
+  }
+
+  .access p:last-child { margin-bottom: 0; }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--moss);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .cta h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.2rem;
+    color: var(--cream);
+    margin: 0 0 .6rem;
+  }
+
+  .cta p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    opacity: .85;
+    color: var(--cream);
+    margin-bottom: 1.2rem;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--moss);
+    padding: .7rem 2rem;
+    border-radius: 999px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: background .2s;
+  }
+
+  .cta-btn:hover { background: var(--warm); }
+
+  footer {
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    letter-spacing: .1em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="site-name" href="index.html">
+    つむぎの自然派美容教室
+    <span>Hair Salon Tsumugu / Natural Beauty Guide</span>
+  </a>
+</header>
+
+<section class="hero">
+  <p class="hero-eyebrow">WELCOME</p>
+  <h1>ご予約ありがとうございます。<br>来店前にぜひ読んでみてください🌿</h1>
+  <p>つむぎは一般の美容室とは少し違うメニューをご提供しています。<br>初めての方もそうでない方も、読んでおくと施術がもっと楽しくなりますよ😊</p>
+</section>
+
+<div class="content">
+
+  <!-- ご挨拶 -->
+  <div class="greeting">
+    <p>この度はつむぎにご予約いただきありがとうございます。</p>
+    <p>つむぎでは、髪や地肌にやさしい自然素材を使った施術を行っています。初めての方には「ヘナってなに？」「石けんシャンプーって何が違うの？」と感じることもあるかもしれません。</p>
+    <p>このページでは、来店前に知っておいていただきたいことをまとめました。ゆっくり読んでいただけると、当日の施術がよりスムーズで楽しいものになります。気になることがあれば当日スタッフに何でも聞いてくださいね。</p>
+    <p class="sign">自然派美容室つむぎ スタッフ一同</p>
+  </div>
+
+  <!-- 読んでおいてほしいページ -->
+  <section style="margin-bottom:3rem; animation: fadeUp .5s ease both;">
+    <p class="section-label">BEFORE YOUR VISIT</p>
+    <h2>来店前に読んでおいてほしいページ</h2>
+
+    <div class="read-cards">
+      <a class="read-card" href="menu.html">
+        <div class="card-icon menu">📋</div>
+        <div class="card-text">
+          <h3>つむぎのメニュー</h3>
+          <p>料金・所要時間・各メニューの特徴をまとめました</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="read-card" href="index.html">
+        <div class="card-icon color">🎨</div>
+        <div class="card-text">
+          <h3>白髪染めとジアミンアレルギーの話</h3>
+          <p>ヘアカラーのアレルゲンについて知っておいてほしいこと</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 来店前チェックリスト -->
+  <section style="margin-bottom:3rem; animation: fadeUp .5s ease .2s both;">
+    <p class="section-label">CHECKLIST</p>
+    <h2>来店前チェックリスト</h2>
+
+    <div class="checklist">
+      <ul>
+        <li>汚れても大丈夫な服装でお越しください（特にヘナの方）</li>
+        <li>ヘナ施術の方は所要時間が2〜3時間半です。時間に余裕をもってお越しください</li>
+        <li>直前に他のカラー剤を使用した場合はスタッフにお伝えください</li>
+        <li>頭皮や肌のアレルギーがある方は事前にご相談ください</li>
+        <li>ご来店後のカウンセリングで、お悩みや気になることをお聞きします。気軽にお話しください😊</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- アクセス -->
+  <section style="margin-bottom:3rem; animation: fadeUp .5s ease .3s both;">
+    <p class="section-label">ACCESS</p>
+    <h2>アクセス</h2>
+
+    <div class="access">
+      <p>📍 大阪市中央区南船場4丁目13-8　エステート心斎橋502</p>
+      <p>🚇 心斎橋駅・四ツ橋駅から徒歩5分</p>
+      <p>🕐 完全予約制・少人数制</p>
+      <p>📩 ご予約・お問い合わせはLINEまたはメール（yoyaku@salon-tumugi.net）にて</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>当日お会いできるのを楽しみにしています🌿</h3>
+    <p>ご不明な点はお気軽にLINEでご連絡ください</p>
+    <a class="cta-btn" href="#">LINEで問い合わせる</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>自然派美容室 つむぎ｜大阪市中央区南船場4丁目13-8 エステート心斎橋502</p>
+</footer>
+
+</body>
+</html>

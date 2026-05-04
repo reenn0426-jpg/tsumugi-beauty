@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>石けんシャンプー完全攻略 | つむぎの自然派美容教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --moss:    #4a5240;
+    --sage:    #7a8c6e;
+    --cream:   #f5f0e8;
+    --warm:    #ede6d6;
+    --earth:   #9c7c5a;
+    --charcoal:#2c2c28;
+    --dust:    #c8b99a;
+    --accent:  #7c6348;
+    --teal:    #3a8a8a;
+    --teal-light: #e0f0f0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Serif JP', serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.9;
+  }
+
+  header {
+    background: var(--moss);
+    color: var(--cream);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    border-bottom: 2px solid var(--sage);
+  }
+
+  .site-name {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.1rem;
+    letter-spacing: .15em;
+    text-decoration: none;
+    color: var(--cream);
+  }
+
+  .site-name span {
+    font-size: .7rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    opacity: .75;
+    display: block;
+  }
+
+  .breadcrumb {
+    padding: 1rem 2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: var(--earth);
+    letter-spacing: .08em;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .breadcrumb a { color: var(--sage); text-decoration: none; }
+
+  /* ── ヒーロー ── */
+  .hero {
+    background: linear-gradient(135deg, #2a6060 0%, #1a4a4a 100%);
+    color: var(--cream);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '🧴';
+    position: absolute;
+    font-size: 12rem;
+    opacity: .06;
+    top: -1rem;
+    right: -1rem;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 100%; height: 50px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .hero-eyebrow {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .25em;
+    color: #a8d8d8;
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: clamp(1.6rem, 5vw, 2.5rem);
+    line-height: 1.5;
+    letter-spacing: .08em;
+    margin-bottom: .8rem;
+  }
+
+  .hero p {
+    font-size: .88rem;
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto;
+    opacity: .85;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  /* ── コンテンツ ── */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  .section {
+    margin-bottom: 4rem;
+    animation: fadeUp .6s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section:nth-child(2) { animation-delay: .1s; }
+  .section:nth-child(3) { animation-delay: .2s; }
+  .section:nth-child(4) { animation-delay: .3s; }
+  .section:nth-child(5) { animation-delay: .4s; }
+  .section:nth-child(6) { animation-delay: .5s; }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .2em;
+    color: var(--teal);
+    margin-bottom: .8rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--teal);
+  }
+
+  h2 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.4rem;
+    letter-spacing: .06em;
+    color: var(--charcoal);
+    margin-bottom: 1.2rem;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid var(--dust);
+  }
+
+  h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.05rem;
+    color: var(--teal);
+    margin: 1.8rem 0 .7rem;
+    padding-left: .8rem;
+    border-left: 3px solid var(--teal);
+  }
+
+  p {
+    font-size: .88rem;
+    line-height: 2;
+    color: #444;
+    margin-bottom: 1rem;
+  }
+
+  /* ── 比較テーブル ── */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .compare-card {
+    border-radius: 6px;
+    padding: 1.2rem;
+    border: 1px solid var(--dust);
+  }
+
+  .compare-card.bad { background: #fdf0f0; border-color: #e8c0c0; }
+  .compare-card.good { background: var(--teal-light); border-color: #a0c8c8; }
+
+  .compare-card .label {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .7rem;
+    letter-spacing: .15em;
+    margin-bottom: .6rem;
+    font-weight: 400;
+  }
+
+  .compare-card.bad .label { color: #c05050; }
+  .compare-card.good .label { color: var(--teal); }
+
+  .compare-card .name {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1rem;
+    margin-bottom: .6rem;
+    color: var(--charcoal);
+  }
+
+  .compare-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .compare-card ul li {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .78rem;
+    line-height: 1.8;
+    color: #555;
+    padding-left: 1em;
+    position: relative;
+  }
+
+  .compare-card ul li::before {
+    content: '・';
+    position: absolute;
+    left: 0;
+  }
+
+  /* ── ステップ ── */
+  .steps { margin: 1.2rem 0; }
+
+  .step {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px dashed var(--dust);
+  }
+
+  .step:last-child { border-bottom: none; }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    margin-top: .2rem;
+  }
+
+  .step-body h4 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: .95rem;
+    color: var(--charcoal);
+    margin-bottom: .3rem;
+  }
+
+  .step-body p {
+    font-size: .83rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.8;
+  }
+
+  .step-tip {
+    display: inline-block;
+    background: var(--teal-light);
+    border-radius: 4px;
+    padding: .3rem .7rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    color: var(--teal);
+    margin-top: .4rem;
+  }
+
+  /* ── callout ── */
+  .callout {
+    background: var(--warm);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    color: var(--accent);
+    line-height: 1.9;
+    border: 1px solid var(--dust);
+  }
+
+  .callout strong {
+    display: block;
+    margin-bottom: .3rem;
+    font-size: .75rem;
+    letter-spacing: .1em;
+    color: var(--moss);
+  }
+
+  /* ── Q&A ── */
+  .qa-list { margin: 1rem 0; }
+
+  .qa-item {
+    border: 1px solid var(--dust);
+    border-radius: 6px;
+    margin-bottom: .8rem;
+    overflow: hidden;
+  }
+
+  .qa-q {
+    background: var(--warm);
+    padding: .9rem 1.2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .85rem;
+    color: var(--charcoal);
+    display: flex;
+    gap: .7rem;
+    align-items: flex-start;
+    cursor: pointer;
+  }
+
+  .qa-q .q-label {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .72rem;
+    margin-top: .1rem;
+  }
+
+  .qa-a {
+    padding: .9rem 1.2rem .9rem 3rem;
+    font-family: 'Noto Serif JP', serif;
+    font-size: .83rem;
+    line-height: 1.9;
+    color: #555;
+    border-top: 1px solid var(--dust);
+    background: white;
+    display: flex;
+    gap: .7rem;
+    align-items: flex-start;
+  }
+
+  .qa-a .a-label {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    background: var(--earth);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .72rem;
+    margin-top: .1rem;
+  }
+
+  /* ── くるみさんプロフ ── */
+  .profile {
+    background: var(--teal-light);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    margin: 1.5rem 0;
+    border: 1px solid #a0c8c8;
+  }
+
+  .profile .avatar {
+    flex-shrink: 0;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+  }
+
+  .profile .name {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1rem;
+    color: var(--charcoal);
+    margin-bottom: .3rem;
+  }
+
+  .profile p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .78rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.8;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--moss);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.2rem;
+    color: var(--cream);
+    margin: 0 0 .6rem;
+  }
+
+  .cta p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    opacity: .85;
+    color: var(--cream);
+    margin-bottom: 1.2rem;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--moss);
+    padding: .7rem 2rem;
+    border-radius: 999px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: background .2s;
+  }
+
+  .cta-btn:hover { background: var(--warm); }
+
+  footer {
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+  }
+
+  @media (max-width: 600px) {
+    .compare { grid-template-columns: 1fr; }
+    .profile { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="site-name" href="#">
+    つむぎの自然派美容教室
+    <span>Hair Salon Tsumugu / Natural Beauty Guide</span>
+  </a>
+</header>
+
+<div class="breadcrumb">
+  <a href="#">ホーム</a> &rsaquo; <a href="#">シャンプー・成分</a> &rsaquo; 石けんシャンプー完全攻略
+</div>
+
+<section class="hero">
+  <p class="hero-eyebrow">SOAP SHAMPOO GUIDE</p>
+  <h1>石けんシャンプーを使いこなして<br>サラツヤ素髪を手に入れよう</h1>
+  <p>やまもとくるみが10年の試行錯誤から生まれた<br>石けんシャンプー完全攻略マニュアル</p>
+</section>
+
+<div class="content">
+
+  <!-- くるみさんプロフ -->
+  <section class="section">
+    <p class="section-label">AUTHOR</p>
+    <h2>このマニュアルについて</h2>
+
+    <div class="profile">
+      <div class="avatar">🌿</div>
+      <div>
+        <p class="name">やまもとくるみ</p>
+        <p>自然派美容室つむぎ スタイリスト。石けんシャンプーとの出会いから10年、挫折を経てつむぎでプロの指導を受けてから劇的に変化。今では週1回しか髪を濡らさない生活でも絶好調。背中のブツブツが消え、円形脱毛症がなくなり、薄毛も気にならなくなった体験をもとに、このマニュアルを作りました。</p>
+      </div>
+    </div>
+
+    <p>石けんシャンプーに挑戦される方へ、快適な毎日が送れるよう自然派美容師としてのノウハウをまとめました。迷ったとき、「これでいいのかな？」と思ったときに、ぜひこのページを指針にしてください。</p>
+  </section>
+
+  <!-- 成分の違い -->
+  <section class="section">
+    <p class="section-label">INGREDIENTS</p>
+    <h2>そもそも何が違うの？成分の話</h2>
+
+    <div class="compare">
+      <div class="compare-card bad">
+        <p class="label">⚠️ 市販のシャンプー</p>
+        <p class="name">合成界面活性剤系</p>
+        <ul>
+          <li>主成分：ラウリル硫酸ナトリウム等</li>
+          <li>洗浄力が強すぎて必要な皮脂まで取る</li>
+          <li>石油由来・分子が小さく経皮吸収されやすい</li>
+          <li>アレルギーや皮膚トラブルの原因になることも</li>
+          <li>分解しにくく皮膚に残留しやすい</li>
+        </ul>
+      </div>
+      <div class="compare-card good">
+        <p class="label">✅ 石けんシャンプー</p>
+        <p class="name">脂肪酸カリウム系</p>
+        <ul>
+          <li>主成分：脂肪酸カリウム</li>
+          <li>洗浄力は強めだが汚れに反応して界面活性力が失われる</li>
+          <li>頭皮や髪への刺激は少ない</li>
+          <li>化学物質が少なくアレルギーが起きにくい</li>
+          <li>水に流しても分解される（地球にやさしい）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 洗い方 -->
+  <section class="section">
+    <p class="section-label">HOW TO WASH</p>
+    <h2>石けんシャンプーの洗い方・ポイント</h2>
+
+    <p>石けんシャンプーは上手に使うために少しだけコツがいります！そのコツを掴めば「失敗して挫折する…」を回避できます😊</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>お湯で予洗いする</h4>
+          <p>ゴシゴシはしないけど、全体をしっかり濡らす。予洗いで汚れの大半が落ちます。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>手のひらにシャンプー液を適量取る</h4>
+          <p>ショートで2〜3プッシュくらい。長さ・毛量・汚れ具合で調整してください。</p>
+          <span class="step-tip">💡 少なすぎると泡立たないのでケチらないで！</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>手のひらでは泡立てない</h4>
+          <p>手のひら全体に液をのばして、根元から毛先まで一気にシャンプー液を付ける。泡立てた時点で界面活性力が発揮されるので、手のひらでは液をのばすのみ。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>頭の上でダイナミックに泡立てる</h4>
+          <p>「シャンプー液」「水」「空気」を混ぜ合わせるように頭の上で手を大きく動かして泡立てる。</p>
+          <span class="step-tip">💡 泡立ちが悪い時は一度洗い流して②から繰り返す</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h4>泡だったらすぐすすぐ</h4>
+          <p>しっかり泡だったら汚れが取れているサイン。ゴシゴシ不要！摩擦させないで素早くすすぎましょう。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <h4>酸性リンスで中和する（重要！）</h4>
+          <p>シャンプー泡をすすいだら、髪の水気を切って酸性リンスを根元から毛先までしっかりかけて中和する。</p>
+          <span class="step-tip">⚠️ 毛先だけではなく、根元からまんべんなくかけること！</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-body">
+          <h4>滑らかになったらお湯でしっかりすすぐ</h4>
+          <p>酸性リンスで中和できると、シャンプーすすぎ後より滑らかな手触りになります。そうなったら完了のサイン。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">8</div>
+        <div class="step-body">
+          <h4>早めにドライヤーで根元から乾かす</h4>
+          <p>シャンプー後はなるべく早めにドライヤーで根元からしっかり乾かしてね。雑菌の繁殖を防ぎます。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>🔬 酸性リンスが必要な理由</strong>
+      石けんシャンプーの主成分は泡立てのときに水道水のミネラル成分と結びついて「金属石鹸（石けんカス）」が発生します。これはすすぐだけでは取り除けません。酸性リンスで中和することで石けんカスが脂肪酸に変わり、お湯で流れやすい性質になります。また、アルカリ性に傾いた髪を弱酸性に戻しキューティクルを閉める役割もあります。
+    </div>
+  </section>
+
+  <!-- Q&A -->
+  <section class="section">
+    <p class="section-label">Q &amp; A</p>
+    <h2>よくある疑問・質問</h2>
+
+    <div class="qa-list">
+
+      <div class="qa-item">
+        <div class="qa-q">
+          <span class="q-label">Q</span>
+          素早く洗った方がいいって聞いたけど、ゆっくり洗うのはなぜよくないの？
+        </div>
+        <div class="qa-a">
+          <span class="a-label">A</span>
+          <span>石けんシャンプーはアルカリ性なので、髪の毛の上に置きすぎるとアルカリ膨潤して痛みやすい状態になります。石けんカスも絡みつきやすくなって仕上がりも悪くなるので、シャンプーするときは素早く洗いましょう。</span>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q">
+          <span class="q-label">Q</span>
+          酸性リンスを毛先中心に付けてるけど、所々ベタベタしてスッキリしない。
+        </div>
+        <div class="qa-a">
+          <span class="a-label">A</span>
+          <span>毛先だけでは根元の中和ができず、石けんカスがついたままになってベタつきや痒みの原因になります。酸性リンスは髪の根元から毛先まで均等に付けてあげましょう！</span>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q">
+          <span class="q-label">Q</span>
+          酸性リンスの代わりに市販のリンスを使っても大丈夫ですか？
+        </div>
+        <div class="qa-a">
+          <span class="a-label">A</span>
+          <span>酸性リンスの役割は市販のリンスとは異なります。中和してあげないと石けんカスがついたままリンスのコーティング剤を上から乗せることになります。市販のリンスを使いたいときは「石けんシャンプー」→「酸性リンス」→「市販リンス」の順番で使いましょう。</span>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q">
+          <span class="q-label">Q</span>
+          ロングヘアで毛先だけパサつきが気になります。石けんシャンプー使わない方がいい？
+        </div>
+        <div class="qa-a">
+          <span class="a-label">A</span>
+          <span>ロングヘアだと頭皮の油分が毛先まで行き届ききらないのでパサつきやすいです。酸性リンスのあとに市販のリンスやトリートメントを付けて流す工程を追加しましょう。ハナヘナトリートメントはコーティング剤を使用しないのでオススメです。また、毎日ブラッシングして頭皮の皮脂を毛先まで届けてあげることも大切です（タングルティーザーがオススメ！）</span>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q">
+          <span class="q-label">Q</span>
+          髪の毛が日に日に固くゴワゴワになってきた。使い方が悪い？
+        </div>
+        <div class="qa-a">
+          <span class="a-label">A</span>
+          <span>シャンプーの頻度が多すぎて油分が取れすぎています。毎日洗っているなら洗わない日を間に入れてみましょう。頭皮のバランスが整ってくると毎日洗わなくてもベタつかないし、においもありません。くるみ自身は週1しか髪を濡らしませんが髪の状態は絶好調です！</span>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q">
+          <span class="q-label">Q</span>
+          パーマをかけました。石けんシャンプーは使えますか？
+        </div>
+        <div class="qa-a">
+          <span class="a-label">A</span>
+          <span>ダメージ具合によります。当日はシャンプー自体お控えください。ダメージが強い場合は石けんシャンプーはやめた方がいいですが、健康毛の場合でウェーブを強く出したいときは石けんシャンプーの方がリッジが出やすくなるメリットもあります。</span>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q">
+          <span class="q-label">Q</span>
+          カラーリングやマニキュアをしました。石けんシャンプーは使えますか？
+        </div>
+        <div class="qa-a">
+          <span class="a-label">A</span>
+          <span>おすすめしません。カラーリングやマニキュアで入れた色味は石けんシャンプーで落ちます。ただし、ヘナで染めた髪との相性は良好です😊</span>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q">
+          <span class="q-label">Q</span>
+          縮毛矯正・ストレートパーマのあとは使えますか？
+        </div>
+        <div class="qa-a">
+          <span class="a-label">A</span>
+          <span>ダメージ具合によります。当日はシャンプー自体控えましょう。痛みが激しい場合は他のシャンプーを使用した方がよいですが、特に痛みが激しくなければ石けんシャンプーを使用しても大丈夫です。</span>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="font-family:'Noto Sans JP',sans-serif;font-size:.8rem;color:#888;margin-top:1rem;">まだまだ気になるご質問や疑問がありましたらお気軽にご連絡ください。Q&Aを一緒に充実させていきましょう💬</p>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>石けんシャンプー、試してみませんか？</h3>
+    <p>つむぎではお店でのシャンプーレッスンも行っています。<br>気になる方はLINEからお気軽にご相談ください🌿</p>
+    <a class="cta-btn" href="#">LINEで相談する</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>つむぎの自然派美容教室｜自然派美容室 つむぎ・大阪 心斎橋</p>
+</footer>
+
+</body>
+</html>
