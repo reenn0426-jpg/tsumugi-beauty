@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: reenn0426-jpg/tsumugi-beauty
+  branch: main
+
+media_folder: images
+public_folder: /images
+
+locale: ja
+
+collections:
+  - name: posts
+    label: 記事
+    folder: posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: タイトル, name: title, widget: string }
+      - { label: カテゴリ, name: category, widget: select, options: ["ヘアカラー・白髪染め", "シャンプー・成分", "頭皮ケア・育毛", "アレルギー・過敏症", "食事と髪"] }
+      - { label: 公開日, name: date, widget: datetime }
+      - { label: 概要（一覧に表示される短い説明）, name: excerpt, widget: text }
+      - { label: 本文, name: body, widget: markdown }
