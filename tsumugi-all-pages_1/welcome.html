@@ -34,6 +34,7 @@
     padding: 0 2rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 60px;
     border-bottom: 2px solid var(--sage);
   }
@@ -53,6 +54,25 @@
     opacity: .75;
     display: block;
   }
+
+  nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    margin-left: 1.8rem;
+    opacity: .85;
+    transition: opacity .2s;
+  }
+  nav a:hover { opacity: 1; }
+  nav a[aria-current="page"] {
+    opacity: 1;
+    border-bottom: 1px solid var(--cream);
+    padding-bottom: 2px;
+  }
+  @media (max-width: 700px) { nav { display: none; } }
 
   /* ── ヒーロー ── */
   .hero {
@@ -355,6 +375,12 @@
     つむぎの自然派美容教室
     <span>Hair Salon Tsumugu / Natural Beauty Guide</span>
   </a>
+  <nav>
+    <a href="menu.html">メニュー</a>
+    <a href="henna-home.html">ヘナ</a>
+    <a href="shampoo.html">シャンプー</a>
+    <a href="welcome.html" aria-current="page">ご予約の方へ</a>
+  </nav>
 </header>
 
 <section class="hero">
