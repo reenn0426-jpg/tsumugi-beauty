@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>頭皮は「畑」 | つむぎの自然派美容教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --moss:    #4a5240;
+    --sage:    #7a8c6e;
+    --cream:   #f5f0e8;
+    --warm:    #ede6d6;
+    --earth:   #9c7c5a;
+    --charcoal:#2c2c28;
+    --dust:    #c8b99a;
+    --accent:  #7c6348;
+    --henna:   #c45c1a;
+    --henna-light: #f5e6d8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Serif JP', serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.9;
+  }
+
+  header {
+    background: var(--moss);
+    color: var(--cream);
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid var(--sage);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .site-name {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.1rem;
+    letter-spacing: .15em;
+    text-decoration: none;
+    color: var(--cream);
+  }
+
+  .site-name span {
+    font-size: .7rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    opacity: .75;
+    display: block;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100vw - 80px);
+  }
+
+  nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    margin-left: 1.8rem;
+    opacity: .85;
+    transition: opacity .2s;
+  }
+  nav a:hover { opacity: 1; }
+  nav a[aria-current="page"] {
+    opacity: 1;
+    border-bottom: 1px solid var(--cream);
+    padding-bottom: 2px;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: .5rem;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--cream);
+    border-radius: 2px;
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    background: var(--moss);
+    z-index: 99;
+    padding-top: 70px;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--sage);
+  }
+  .mobile-nav.open { display: block; }
+  .mobile-nav a {
+    display: block;
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .9rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    padding: .8rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  .breadcrumb {
+    padding: 1rem 2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: var(--earth);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .breadcrumb a { color: var(--sage); text-decoration: none; }
+
+  /* ── ヒーロー ── */
+  .hero {
+    background: linear-gradient(135deg, var(--moss) 0%, #3a4832 100%);
+    color: var(--cream);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '🌱';
+    position: absolute;
+    font-size: 14rem;
+    opacity: .07;
+    top: -2rem; right: -1rem;
+    line-height: 1;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 100%; height: 50px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-eyebrow {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .15em;
+    color: var(--dust);
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: clamp(1.6rem, 5vw, 2.8rem);
+    letter-spacing: .08em;
+    line-height: 1.5;
+    margin-bottom: .8rem;
+  }
+  .hero p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .88rem;
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto;
+    opacity: .85;
+    line-height: 1.9;
+    text-align: left;
+  }
+
+  /* ── 記事メタ ── */
+  .article-meta {
+    display: flex;
+    gap: .8rem;
+    align-items: center;
+    padding: 1.5rem 2rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: #999;
+  }
+  .article-meta .cat {
+    background: rgba(74,82,64,.1);
+    color: var(--moss);
+    padding: .2rem .7rem;
+    border-radius: 3px;
+    letter-spacing: .08em;
+  }
+
+  /* ── コンテンツ ── */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 5rem;
+  }
+
+  .section { margin-bottom: 3rem; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .2em;
+    color: var(--sage);
+    margin-bottom: .8rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--sage);
+  }
+
+  h2 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.35rem;
+    letter-spacing: .06em;
+    color: var(--charcoal);
+    margin-bottom: 1.2rem;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid var(--dust);
+  }
+
+  h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.05rem;
+    color: var(--moss);
+    margin: 2rem 0 .8rem;
+    padding-left: .8rem;
+    border-left: 3px solid var(--sage);
+  }
+
+  p {
+    font-size: .9rem;
+    line-height: 2.1;
+    color: #444;
+    margin-bottom: 1.2rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+    line-height: 2.2;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .callout {
+    background: #edf2e8;
+    border-left: 3px solid var(--sage);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0;
+    font-family: 'Noto Serif JP', serif;
+    font-size: .88rem;
+    color: #3a4a2a;
+    line-height: 2;
+  }
+
+  .callout-earth {
+    background: var(--warm);
+    border-left: 3px solid var(--earth);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0;
+    font-family: 'Noto Serif JP', serif;
+    font-size: .88rem;
+    color: #5a3a20;
+    line-height: 2;
+  }
+
+  /* ── 比較ボックス ── */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .compare-box {
+    border-radius: 8px;
+    padding: 1.2rem;
+  }
+  .compare-box.bad {
+    background: #f8f0e8;
+    border: 1px solid #dcc8a8;
+  }
+  .compare-box.good {
+    background: #edf2e8;
+    border: 1px solid #b8cca8;
+  }
+  .compare-box .c-label {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    margin-bottom: .6rem;
+    color: #888;
+  }
+  .compare-box h4 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: .95rem;
+    margin-bottom: .6rem;
+    color: var(--charcoal);
+  }
+  .compare-box ul {
+    list-style: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .78rem;
+    color: #555;
+    line-height: 2;
+  }
+  .compare-box ul li::before { content: '・'; }
+
+  /* ── ケアポイントカード ── */
+  .care-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .care-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: white;
+    border-radius: 8px;
+    padding: 1.2rem 1.4rem;
+    box-shadow: 0 2px 10px rgba(74,82,64,.07);
+    border-left: 4px solid var(--sage);
+    animation: fadeUp .5s ease both;
+  }
+
+  .care-card .c-num {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--moss);
+    color: var(--cream);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: .1rem;
+  }
+
+  .care-card h4 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: .98rem;
+    color: var(--charcoal);
+    margin-bottom: .3rem;
+  }
+
+  .care-card p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    color: #555;
+    line-height: 1.9;
+    margin: 0;
+  }
+
+  /* ── 関連ページ ── */
+  .related {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .related a {
+    background: white;
+    border-radius: 10px;
+    padding: 1.3rem 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(74,82,64,.06);
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--dust);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .related a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74,82,64,.12);
+  }
+  .r-icon {
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: #edf2e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+  }
+  .related h4 { font-family: 'Zen Antique Soft', serif; font-size: .95rem; color: var(--charcoal); margin-bottom: .2rem; }
+  .related p { font-family: 'Noto Sans JP', sans-serif; font-size: .75rem; color: #888; margin: 0; line-height: 1.5; }
+  .arrow { margin-left: auto; color: var(--dust); font-size: 1rem; flex-shrink: 0; }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--moss);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .cta h3 { font-family: 'Zen Antique Soft', serif; font-size: 1.2rem; color: var(--cream); margin: 0 0 .6rem; }
+  .cta p { font-family: 'Noto Sans JP', sans-serif; font-size: .82rem; opacity: .85; color: var(--cream); margin-bottom: 1.2rem; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--moss);
+    padding: .7rem 2rem;
+    border-radius: 999px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .cta-btn:hover { background: var(--warm); }
+
+  .author-line {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .78rem;
+    color: #aaa;
+    margin-top: 2.5rem;
+    text-align: right;
+  }
+
+  footer {
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    letter-spacing: .1em;
+  }
+
+  @media (max-width: 700px) {
+    nav:not(.mobile-nav) { display: none; }
+    .hamburger { display: flex; }
+    .compare { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="site-name" href="index.html">
+    つむぎの自然派美容教室
+    <span>Hair Salon Tsumugu / Natural Beauty Guide</span>
+  </a>
+  <nav>
+    <a href="menu.html">メニュー</a>
+    <a href="henna.html">ヘナ</a>
+    <a href="shampoo.html">シャンプー</a>
+    <a href="welcome.html">ご予約の方へ</a>
+    <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener">ショップ</a>
+  </nav>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMenu()">ホーム</a>
+  <a href="menu.html" onclick="toggleMenu()">メニュー</a>
+  <a href="henna.html" onclick="toggleMenu()">ヘナ</a>
+  <a href="shampoo.html" onclick="toggleMenu()">シャンプー</a>
+  <a href="welcome.html" onclick="toggleMenu()">ご予約の方へ</a>
+  <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener" onclick="toggleMenu()">ショップ</a>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">ホーム</a> &rsaquo; 頭皮は「畑」
+</div>
+
+<section class="hero">
+  <p class="hero-eyebrow">SCALP CARE</p>
+  <h1>頭皮は「畑」——<br>土が豊かじゃないと、<br>いい毛は育たない</h1>
+  <p>髪の悩みの多くは、実は頭皮の環境が原因です。農業でいう「土づくり」と同じ考え方で、頭皮ケアをとらえ直してみましょう。</p>
+</section>
+
+<div class="article-meta">
+  <span class="cat">頭皮ケア・育毛</span>
+  <span>2025年2月</span>
+</div>
+
+<div class="content">
+
+  <!-- 導入 -->
+  <section class="section" style="animation: fadeUp .5s ease both;">
+
+    <p class="lead">「抜け毛が増えた」「髪が細くなってきた」「なかなか伸びない気がする」——そんな悩みを持つ方は多いと思います。</p>
+
+    <p>でも、そのほとんどの場合、問題は「毛そのもの」ではなく「毛が生えている土台＝頭皮の環境」にあります。</p>
+
+    <p>私は農業に関わる中で「土が豊かでなければ、いい作物は育たない」という当たり前のことを、改めて実感しました。それは頭皮にも、そのままあてはまる話だと思っています。</p>
+
+    <div class="callout">
+      どんなにいいシャンプーを使っても、どんなに高いトリートメントをしても、「頭皮」という土台が整っていなければ根本的な解決にはなりません。順番が大事なんです。
+    </div>
+  </section>
+
+  <!-- 頭皮の役割 -->
+  <section class="section" style="animation: fadeUp .5s ease .1s both;">
+    <p class="section-label">SCALP BASICS</p>
+    <h2>頭皮ってどんな役割をしているの？</h2>
+
+    <p>頭皮は単なる「皮膚」ではありません。毛根を保護し、毛包（毛の根っこを包む組織）に栄養や酸素を送り込む、いわば「根っこの土」です。</p>
+
+    <p>健康な頭皮は、適度な皮脂と水分のバランスが保たれていて、毛穴が詰まらず、血流がよく、常在菌のバランスが整っています。農業でいえば、ミネラルが豊富でふかふかした土壌のイメージです。</p>
+
+    <div class="compare">
+      <div class="compare-box bad">
+        <p class="c-label">😔 荒れた頭皮（痩せた土）</p>
+        <h4>毛が育ちにくい状態</h4>
+        <ul>
+          <li>毛穴が皮脂や汚れで詰まっている</li>
+          <li>血流が悪く栄養が届きにくい</li>
+          <li>乾燥またはベタつきの偏り</li>
+          <li>常在菌バランスが崩れている</li>
+          <li>炎症・かゆみが出やすい</li>
+        </ul>
+      </div>
+      <div class="compare-box good">
+        <p class="c-label">😊 健康な頭皮（豊かな土）</p>
+        <h4>毛が育ちやすい状態</h4>
+        <ul>
+          <li>毛穴がきれいに開いている</li>
+          <li>血流がよく栄養が届く</li>
+          <li>皮脂と水分のバランスがよい</li>
+          <li>常在菌が共存している</li>
+          <li>炎症なく落ち着いている</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頭皮を荒らしているもの -->
+  <section class="section" style="animation: fadeUp .5s ease .15s both;">
+    <p class="section-label">CAUSES</p>
+    <h2>知らず知らず、頭皮を荒らしているもの</h2>
+
+    <p>現代の生活の中には、頭皮環境を乱す要素がたくさんあります。</p>
+
+    <h3>洗浄力が強すぎるシャンプー</h3>
+    <p>市販の多くのシャンプーには、強力な界面活性剤（硫酸系）が含まれています。汚れをしっかり落とすのはいいことですが、同時に頭皮に必要な皮脂や常在菌まで洗い流してしまいます。「毎日しっかり洗っているのに頭皮のコンディションが悪い」という方は、洗いすぎているのかもしれません。</p>
+
+    <h3>ヘアカラーの繰り返し</h3>
+    <p>酸化染料（ジアミン系）を使ったカラーは、頭皮に化学刺激を与えます。1回でもアレルゲンに触れることになり、繰り返すほど頭皮環境に影響が蓄積されやすくなります。</p>
+
+    <h3>血流の悪化</h3>
+    <p>ストレス・睡眠不足・運動不足・偏った食事は、血流を悪くします。血流が滞ると、毛根に届く栄養が減り、毛の成長に影響が出ます。髪の悩みは「頭の問題」だけでなく、全身の問題でもあります。</p>
+
+    <div class="callout-earth">
+      面白いことに、農業でも「農薬をたくさん使うほど土が痩せる」「薬品に頼るほど自然の力が失われる」という現象が起きます。頭皮も同じで、強い薬品に頼るほど、自分で健康を保つ力が弱くなっていきます。
+    </div>
+  </section>
+
+  <!-- 土をよくする方法 -->
+  <section class="section" style="animation: fadeUp .5s ease .2s both;">
+    <p class="section-label">CARE</p>
+    <h2>頭皮という「土」をよくするために</h2>
+
+    <p>農業で土を豊かにするように、頭皮ケアも「引き算の発想」から始めることが大切です。まずは余計なものを取り除き、自然な状態に近づけていくイメージ。</p>
+
+    <div class="care-list">
+      <div class="care-card">
+        <div class="c-num">1</div>
+        <div>
+          <h4>シャンプーを見直す</h4>
+          <p>強すぎる洗浄力のシャンプーを、頭皮にやさしいものに変える。石けんシャンプーや低刺激処方のものを選ぶことで、常在菌のバランスを崩さずに洗うことができます。</p>
+        </div>
+      </div>
+      <div class="care-card" style="animation-delay:.1s">
+        <div class="c-num">2</div>
+        <div>
+          <h4>洗いすぎない</h4>
+          <p>毎日シャンプーしなくてもいいケースも多い。湯シャン（お湯だけで洗う）を取り入れることで、必要な皮脂を守りながら清潔を保つことができます。自分の頭皮のペースを観察することが大切です。</p>
+        </div>
+      </div>
+      <div class="care-card" style="animation-delay:.2s">
+        <div class="c-num">3</div>
+        <div>
+          <h4>頭皮マッサージで血流を促す</h4>
+          <p>シャンプー中や乾いた状態で、指の腹を使って頭皮をやさしく動かすマッサージ。血流がよくなり、毛根への栄養が届きやすくなります。1日数分でも続けることが大切です。</p>
+        </div>
+      </div>
+      <div class="care-card" style="animation-delay:.3s">
+        <div class="c-num">4</div>
+        <div>
+          <h4>ヘナで頭皮を整える</h4>
+          <p>ヘナには植物由来の収れん作用・抗菌作用があり、頭皮環境を整える効果があります。白髪ケアと同時に、頭皮の「土づくり」ができるのがヘナの特徴のひとつです。</p>
+        </div>
+      </div>
+      <div class="care-card" style="animation-delay:.4s">
+        <div class="c-num">5</div>
+        <div>
+          <h4>食事と睡眠を見直す</h4>
+          <p>髪の材料はタンパク質・亜鉛・ビタミン類。偏った食事が続くと、毛を作る材料が不足します。また、成長ホルモンが分泌される睡眠中に毛が育つため、睡眠の質も重要です。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      どれかひとつを劇的に変えるより、毎日の小さな積み重ねが大切です。農業と同じで、土を豊かにするには時間がかかります。でも、続けた先に「髪質が変わってきた」という実感が待っています🌱
+    </div>
+  </section>
+
+  <!-- 美容師として -->
+  <section class="section" style="animation: fadeUp .5s ease .25s both;">
+    <p class="section-label">FROM KEIKO</p>
+    <h2>美容師として、農業を通して感じること</h2>
+
+    <p>私は美容師であると同時に、京北エリアで農業にも携わっています。土を触り、作物の育ちを観察する中で、毎回気づかされることがあります。「自然には、自然のリズムがある」ということです。</p>
+
+    <p>農薬や化学肥料に頼らなくても、土の力を引き出してやれば作物は育つ。同じように、頭皮にも「自分で健康を保とうとする力」があります。それを信じて、邪魔しないこと。それが一番大事なケアなのかもしれません。</p>
+
+    <p>「抜け毛が増えた」「髪が細くなった」と感じている方は、ぜひ頭皮という「土」に目を向けてみてください。何年もかけてケアを続けた方が「髪が変わってきた」とおっしゃる瞬間は、美容師として本当に嬉しい瞬間です。</p>
+
+    <p class="author-line">つむぎ・野下圭子</p>
+  </section>
+
+  <!-- ショップ誘導 -->
+  <div style="background:#f2f5ef;border:1px solid #b8c8a8;border-radius:8px;padding:1.5rem 1.8rem;margin:2rem 0;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;">
+    <span style="font-size:2rem;flex-shrink:0;">🛒</span>
+    <div style="flex:1;min-width:180px;">
+      <p style="font-family:'Zen Antique Soft',serif;font-size:1rem;color:#3a4a2a;margin-bottom:.3rem;">頭皮ケアアイテムはショップで</p>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:#888;line-height:1.7;margin:0;">ゼノア石けんシャンプー・クエン酸リンスなど、頭皮にやさしいアイテムをお届けします。</p>
+    </div>
+    <a href="https://salontumugi.shopselect.net/categories/731541" target="_blank" rel="noopener" style="flex-shrink:0;display:inline-block;background:#4a5240;color:#f5f0e8;padding:.6rem 1.4rem;border-radius:999px;font-family:'Noto Sans JP',sans-serif;font-size:.78rem;letter-spacing:.08em;text-decoration:none;">シャンプーをみる →</a>
+  </div>
+
+  <!-- 関連ページ -->
+  <section class="section">
+    <p class="section-label">NEXT</p>
+    <h2>あわせて読む</h2>
+    <div class="related">
+      <a href="shampoo.html">
+        <div class="r-icon">🧴</div>
+        <div>
+          <h4>シャンプーについて</h4>
+          <p>つむぎで選べる4種のシャンプーと、洗う頻度の話</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="soap-shampoo.html">
+        <div class="r-icon">🫧</div>
+        <div>
+          <h4>石けんシャンプー完全攻略</h4>
+          <p>正しい使い方・クエン酸リンスの必要性・よくある失敗</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="henna.html">
+        <div class="r-icon">🌿</div>
+        <div>
+          <h4>ヘナについて</h4>
+          <p>頭皮ケアにもなる天然ヘナの魅力</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>頭皮のこと、一緒に考えましょう🌱</h3>
+    <p>「自分の頭皮、どんな状態なんだろう？」<br>カウンセリングで一緒に見ていきます。</p>
+    <a class="cta-btn" href="https://lin.ee/9ADwREL" target="_blank" rel="noopener">LINEで相談する</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>つむぎの自然派美容教室｜自然派美容室 つむぎ・大阪 心斎橋</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>

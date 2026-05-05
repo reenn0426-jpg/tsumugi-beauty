@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ヘナのあれこれ | つむぎの自然派美容教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --moss:    #4a5240;
+    --sage:    #7a8c6e;
+    --cream:   #f5f0e8;
+    --warm:    #ede6d6;
+    --earth:   #9c7c5a;
+    --charcoal:#2c2c28;
+    --dust:    #c8b99a;
+    --accent:  #7c6348;
+    --henna:   #c45c1a;
+    --henna-light: #f5e6d8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Serif JP', serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.9;
+  }
+
+  header {
+    background: var(--moss);
+    color: var(--cream);
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid var(--sage);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .site-name {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.1rem;
+    letter-spacing: .15em;
+    text-decoration: none;
+    color: var(--cream);
+  }
+
+  .site-name span {
+    font-size: .7rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    opacity: .75;
+    display: block;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100vw - 80px);
+  }
+
+  nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    margin-left: 1.8rem;
+    opacity: .85;
+    transition: opacity .2s;
+  }
+  nav a:hover { opacity: 1; }
+  nav a[aria-current="page"] {
+    opacity: 1;
+    border-bottom: 1px solid var(--cream);
+    padding-bottom: 2px;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: .5rem;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--cream);
+    border-radius: 2px;
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    background: var(--moss);
+    z-index: 99;
+    padding-top: 70px;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--sage);
+  }
+  .mobile-nav.open { display: block; }
+  .mobile-nav a {
+    display: block;
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .9rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    padding: .8rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  .breadcrumb {
+    padding: 1rem 2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: var(--earth);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .breadcrumb a { color: var(--sage); text-decoration: none; }
+
+  /* ── ヒーロー ── */
+  .hero {
+    background: linear-gradient(135deg, #3a2a1a 0%, #5a3a20 100%);
+    color: var(--cream);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '🌿';
+    position: absolute;
+    font-size: 14rem;
+    opacity: .06;
+    top: -2rem; right: -1rem;
+    line-height: 1;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 100%; height: 50px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-eyebrow {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .15em;
+    color: var(--dust);
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    letter-spacing: .1em;
+    margin-bottom: .8rem;
+  }
+  .hero p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .88rem;
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto;
+    opacity: .85;
+    line-height: 1.9;
+    text-align: left;
+  }
+
+  /* ── コンテンツ ── */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  .section { margin-bottom: 3.5rem; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .2em;
+    color: var(--henna);
+    margin-bottom: .8rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--henna);
+  }
+
+  h2 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.35rem;
+    letter-spacing: .06em;
+    color: var(--charcoal);
+    margin-bottom: 1.2rem;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid var(--dust);
+  }
+
+  h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.05rem;
+    color: var(--moss);
+    margin: 1.8rem 0 .6rem;
+    padding-left: .8rem;
+    border-left: 3px solid var(--sage);
+  }
+
+  p {
+    font-size: .88rem;
+    line-height: 2.1;
+    color: #444;
+    margin-bottom: 1rem;
+  }
+
+  .callout {
+    background: var(--henna-light);
+    border-left: 3px solid var(--henna);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0;
+    font-family: 'Noto Serif JP', serif;
+    font-size: .85rem;
+    color: var(--accent);
+    line-height: 1.9;
+  }
+
+  .callout-sage {
+    background: #edf2e8;
+    border-left: 3px solid var(--sage);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0;
+    font-family: 'Noto Serif JP', serif;
+    font-size: .85rem;
+    color: #3a4a2a;
+    line-height: 1.9;
+  }
+
+  /* ── トピックカード ── */
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .topic-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 10px rgba(74,82,64,.07);
+    border-top: 3px solid var(--henna);
+    animation: fadeUp .5s ease both;
+  }
+
+  .topic-card .t-icon { font-size: 1.6rem; margin-bottom: .5rem; }
+  .topic-card h4 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: .95rem;
+    color: var(--charcoal);
+    margin-bottom: .4rem;
+  }
+  .topic-card p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    color: #777;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ── 事例カード ── */
+  .case-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+  }
+
+  .case-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.4rem 1.6rem;
+    box-shadow: 0 2px 10px rgba(74,82,64,.07);
+    border-left: 4px solid var(--earth);
+    animation: fadeUp .5s ease both;
+  }
+
+  .case-card .before-after {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: .8rem;
+    flex-wrap: wrap;
+  }
+
+  .case-card .tag {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .7rem;
+    letter-spacing: .08em;
+    padding: .2rem .7rem;
+    border-radius: 3px;
+  }
+  .tag-before { background: #eee; color: #666; }
+  .tag-after  { background: var(--henna-light); color: var(--henna); }
+
+  .case-card p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    color: #555;
+    line-height: 1.9;
+    margin: 0;
+  }
+
+  /* ── においアドバイス ── */
+  .smell-steps {
+    counter-reset: step;
+    list-style: none;
+    margin: 1.2rem 0;
+  }
+
+  .smell-steps li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .smell-steps li::before {
+    counter-increment: step;
+    content: counter(step);
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--henna);
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: .2rem;
+  }
+
+  .smell-steps li span {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .85rem;
+    color: #444;
+    line-height: 1.9;
+  }
+
+  /* ── 関連ページ ── */
+  .related {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .related a {
+    background: white;
+    border-radius: 10px;
+    padding: 1.3rem 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(74,82,64,.06);
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--dust);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .related a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74,82,64,.12);
+  }
+  .r-icon {
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--henna-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+  }
+  .related h4 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: .95rem;
+    color: var(--charcoal);
+    margin-bottom: .2rem;
+  }
+  .related p { font-family: 'Noto Sans JP', sans-serif; font-size: .75rem; color: #888; margin: 0; line-height: 1.5; }
+  .arrow { margin-left: auto; color: var(--dust); font-size: 1rem; flex-shrink: 0; }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--moss);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .cta h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.2rem;
+    color: var(--cream);
+    margin: 0 0 .6rem;
+  }
+  .cta p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    opacity: .85;
+    color: var(--cream);
+    margin-bottom: 1.2rem;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--moss);
+    padding: .7rem 2rem;
+    border-radius: 999px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .cta-btn:hover { background: var(--warm); }
+
+  footer {
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    letter-spacing: .1em;
+  }
+
+  @media (max-width: 700px) {
+    nav:not(.mobile-nav) { display: none; }
+    .hamburger { display: flex; }
+    .topic-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="site-name" href="index.html">
+    つむぎの自然派美容教室
+    <span>Hair Salon Tsumugu / Natural Beauty Guide</span>
+  </a>
+  <nav>
+    <a href="menu.html">メニュー</a>
+    <a href="henna.html" aria-current="page">ヘナ</a>
+    <a href="shampoo.html">シャンプー</a>
+    <a href="welcome.html">ご予約の方へ</a>
+    <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener">ショップ</a>
+  </nav>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMenu()">ホーム</a>
+  <a href="menu.html" onclick="toggleMenu()">メニュー</a>
+  <a href="henna.html" onclick="toggleMenu()">ヘナ</a>
+  <a href="shampoo.html" onclick="toggleMenu()">シャンプー</a>
+  <a href="welcome.html" onclick="toggleMenu()">ご予約の方へ</a>
+  <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener" onclick="toggleMenu()">ショップ</a>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">ホーム</a> &rsaquo; <a href="henna.html">ヘナ</a> &rsaquo; ヘナのあれこれ
+</div>
+
+<section class="hero">
+  <p class="hero-eyebrow">HENNA TOPICS</p>
+  <h1>ヘナのあれこれ</h1>
+  <p>においのこと、色のこと、よかった事例。ヘナをもっと使いこなすためのあれこれをまとめました。</p>
+</section>
+
+<div class="content">
+
+  <!-- においについて -->
+  <section class="section" style="animation: fadeUp .5s ease both;">
+    <p class="section-label">SMELL</p>
+    <h2>ヘナのにおいが気になる方へ</h2>
+
+    <p>ヘナを始めたばかりの方からよく聞かれるのが「においが独特ですね」という声。そう、ヘナには草や土を思わせる独特の香りがあります。慣れると気にならなくなる方がほとんどですが、最初は戸惑う方もいます。</p>
+
+    <p>においの原因はヘナに含まれる植物成分そのもの。天然であるがゆえのにおいで、化学物質が入っていない証でもあります。</p>
+
+    <div class="callout">
+      においが強く感じる時期は、染めた直後〜2〜3日間が多いです。その後は空気に触れて落ち着いてきます。焦らず数日待ってみてください🌿
+    </div>
+
+    <h3>においを和らげる方法</h3>
+
+    <ol class="smell-steps">
+      <li><span><strong>柑橘系オイルで溶く</strong><br>ヘナペーストを作るときに、レモン汁やオレンジ水を少し加えると、においが和らぎやすくなります。発色も少し良くなる効果も。</span></li>
+      <li><span><strong>ハナヘナシャンプーで洗う</strong><br>ヘナ専用に開発されたハナヘナシャンプーには、紅茶エキスが配合されており、ヘナの残臭を抑える効果があります。</span></li>
+      <li><span><strong>ドライヤーでしっかり乾かす</strong><br>施術後、半乾きのままにしておくとにおいが残りやすいです。根元までしっかり乾かすのがポイント。</span></li>
+      <li><span><strong>時間が解決してくれる</strong><br>ヘナを繰り返すうちに、においへの感覚が変わってくる方がほとんど。「最近気にならなくなった」という声をよく聞きます。</span></li>
+    </ol>
+
+    <div class="callout-sage">
+      においが気になって続けられない、という方はご相談ください。ハーブブレンドの調整など、個別に対応することもできます😊
+    </div>
+  </section>
+
+  <!-- 使い続けてよかった事例 -->
+  <section class="section" style="animation: fadeUp .5s ease .1s both;">
+    <p class="section-label">STORIES</p>
+    <h2>ヘナを使い続けてよかったこと</h2>
+
+    <p>お客様から聞いた「続けてよかった」という声をいくつかご紹介します。ヘナの効果は一度では実感しにくいこともあるけれど、続けていくうちにじわじわと変化を感じていただいている方が多いです。</p>
+
+    <div class="case-list">
+      <div class="case-card">
+        <div class="before-after">
+          <span class="tag tag-before">以前</span>
+          <span>→</span>
+          <span class="tag tag-after">続けた後</span>
+        </div>
+        <p>「カラーのたびに頭皮がヒリヒリしていたのが、ヘナに変えてからまったくなくなった。肌が楽になった感じがします。」（50代・女性）</p>
+      </div>
+      <div class="case-card" style="animation-delay:.1s">
+        <div class="before-after">
+          <span class="tag tag-before">以前</span>
+          <span>→</span>
+          <span class="tag tag-after">続けた後</span>
+        </div>
+        <p>「細くてぺたんとしていた髪が、繰り返すうちにだんだんハリが出てきた。美容師さんにも『髪質変わりましたね』と言われた。」（60代・女性）</p>
+      </div>
+      <div class="case-card" style="animation-delay:.2s">
+        <div class="before-after">
+          <span class="tag tag-before">以前</span>
+          <span>→</span>
+          <span class="tag tag-after">続けた後</span>
+        </div>
+        <p>「ヘナの時間が自分のリセットタイムになっている。置いている間ぼーっとしているだけなのに、なんかすっきりする。」（40代・女性）</p>
+      </div>
+      <div class="case-card" style="animation-delay:.3s">
+        <div class="before-after">
+          <span class="tag tag-before">以前</span>
+          <span>→</span>
+          <span class="tag tag-after">続けた後</span>
+        </div>
+        <p>「市販カラーをやめてヘナに切り替えたら、頭皮のかゆみがほぼなくなった。体がケミカルを拒否していたんだと思う。」（50代・女性）</p>
+      </div>
+    </div>
+
+    <p>もちろん全員に同じ効果が出るわけではありませんが、化学カラーに疑問を感じている方の「別の選択肢」として、ヘナは十分な可能性を持っていると感じています。</p>
+  </section>
+
+  <!-- ヘナと他の施術の相性 -->
+  <section class="section" style="animation: fadeUp .5s ease .2s both;">
+    <p class="section-label">COMBINATION</p>
+    <h2>ヘナと他の施術・素材との相性</h2>
+
+    <p>「今までのカラーと混ぜても大丈夫？」「縮毛矯正はできる？」という質問をよくいただきます。ヘナは天然素材だからこそ、組み合わせには少し気をつけが必要です。</p>
+
+    <h3>化学カラーとの切り替え</h3>
+    <p>化学カラーからヘナへの切り替えは徐々に行うのが理想です。いきなり全部ヘナにすると、ムラが出やすいことがあります。まずはリタッチ（根元だけ）から始めて、カットのたびに化学カラー部分を落としていく「移行期間」を設けるのが、きれいに移行できるコツです。</p>
+
+    <h3>縮毛矯正・パーマとの関係</h3>
+    <p>縮毛矯正やパーマをかけている髪にヘナを重ねることは基本的にできますが、タイミングが重要です。矯正・パーマ直後にヘナを行うと色ムラや定着不良になることがあるため、最低でも2〜3週間の間隔を空けることをおすすめしています。</p>
+
+    <div class="callout">
+      他の施術をされている方は、カウンセリング時に必ずお伝えください。状態を見ながら最適なプランをご提案します🌿
+    </div>
+
+    <h3>市販ヘナとの違い</h3>
+    <p>「市販のヘナでやってからつむぎに来た」という方もいます。市販品の中には金属塩系染料が混入しているものもあり、その上にハナヘナを重ねると化学反応が起きて、髪にダメージを与えることがあります。使用したことがある方は事前にお伝えいただけると助かります。</p>
+  </section>
+
+  <!-- ショップ誘導 -->
+  <div style="background:#fef6f0;border:1px solid #e8c4a8;border-radius:8px;padding:1.5rem 1.8rem;margin:2rem 0;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;">
+    <span style="font-size:2rem;flex-shrink:0;">🛒</span>
+    <div style="flex:1;min-width:180px;">
+      <p style="font-family:'Zen Antique Soft',serif;font-size:1rem;color:#5a3a20;margin-bottom:.3rem;">ハナヘナ・専用シャンプーはショップで</p>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:#888;line-height:1.7;margin:0;">においケアに役立つハナヘナシャンプー・クエン酸リンスも揃っています。</p>
+    </div>
+    <a href="https://salontumugi.shopselect.net/categories/731540" target="_blank" rel="noopener" style="flex-shrink:0;display:inline-block;background:#c45c1a;color:#fff;padding:.6rem 1.4rem;border-radius:999px;font-family:'Noto Sans JP',sans-serif;font-size:.78rem;letter-spacing:.08em;text-decoration:none;">ヘナをみる →</a>
+  </div>
+
+  <!-- 関連ページ -->
+  <section class="section">
+    <p class="section-label">NEXT</p>
+    <h2>あわせて読む</h2>
+    <div class="related">
+      <a href="henna-about.html">
+        <div class="r-icon">🌱</div>
+        <div>
+          <h4>ヘナってなに？</h4>
+          <p>ヘナの基礎知識・普通のカラーとの違い・色の種類</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="henna-home.html">
+        <div class="r-icon">🖌️</div>
+        <div>
+          <h4>おうちヘナのやり方</h4>
+          <p>セルフヘナの手順・くるみさんの動画・塗り方のコツ</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="henna-faq.html">
+        <div class="r-icon">❓</div>
+        <div>
+          <h4>よくある質問</h4>
+          <p>ヘナについてよく聞かれることをまとめました</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>もっと聞きたいことがあれば🌿</h3>
+    <p>「自分のケースはどうなんだろう？」気になることはLINEでお気軽に。</p>
+    <a class="cta-btn" href="https://lin.ee/9ADwREL" target="_blank" rel="noopener">LINEで相談する</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>つむぎの自然派美容教室｜自然派美容室 つむぎ・大阪 心斎橋</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>

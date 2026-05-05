@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>よくある質問 | つむぎの自然派美容教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --moss:    #4a5240;
+    --sage:    #7a8c6e;
+    --cream:   #f5f0e8;
+    --warm:    #ede6d6;
+    --earth:   #9c7c5a;
+    --charcoal:#2c2c28;
+    --dust:    #c8b99a;
+    --accent:  #7c6348;
+    --henna:   #c45c1a;
+    --henna-light: #f5e6d8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Serif JP', serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.9;
+  }
+
+  header {
+    background: var(--moss);
+    color: var(--cream);
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid var(--sage);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .site-name {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.1rem;
+    letter-spacing: .15em;
+    text-decoration: none;
+    color: var(--cream);
+  }
+
+  .site-name span {
+    font-size: .7rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    opacity: .75;
+    display: block;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100vw - 80px);
+  }
+
+  nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    margin-left: 1.8rem;
+    opacity: .85;
+    transition: opacity .2s;
+  }
+  nav a:hover { opacity: 1; }
+  nav a[aria-current="page"] {
+    opacity: 1;
+    border-bottom: 1px solid var(--cream);
+    padding-bottom: 2px;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: .5rem;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--cream);
+    border-radius: 2px;
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    background: var(--moss);
+    z-index: 99;
+    padding-top: 70px;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--sage);
+  }
+  .mobile-nav.open { display: block; }
+  .mobile-nav a {
+    display: block;
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .9rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    padding: .8rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  .breadcrumb {
+    padding: 1rem 2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: var(--earth);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .breadcrumb a { color: var(--sage); text-decoration: none; }
+
+  /* ── ヒーロー ── */
+  .hero {
+    background: linear-gradient(135deg, #3a2a1a 0%, #5a3a20 100%);
+    color: var(--cream);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '❓';
+    position: absolute;
+    font-size: 12rem;
+    opacity: .05;
+    top: -1rem; right: 1rem;
+    line-height: 1;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 100%; height: 50px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-eyebrow {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .15em;
+    color: var(--dust);
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    letter-spacing: .1em;
+    margin-bottom: .8rem;
+  }
+  .hero p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .88rem;
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto;
+    opacity: .85;
+    line-height: 1.9;
+    text-align: left;
+  }
+
+  /* ── コンテンツ ── */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  .section { margin-bottom: 3rem; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .2em;
+    color: var(--henna);
+    margin-bottom: .8rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--henna);
+  }
+
+  h2 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.35rem;
+    letter-spacing: .06em;
+    color: var(--charcoal);
+    margin-bottom: 1.2rem;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid var(--dust);
+  }
+
+  /* ── アコーディオンFAQ ── */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    margin-top: 1rem;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(74,82,64,.07);
+    overflow: hidden;
+    animation: fadeUp .5s ease both;
+    border: 1px solid rgba(200,185,154,.3);
+  }
+
+  .faq-q {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .faq-q:hover { background: var(--warm); }
+
+  .faq-q .q-badge {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--henna);
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: .1rem;
+  }
+
+  .faq-q .q-text {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: .98rem;
+    color: var(--charcoal);
+    line-height: 1.6;
+    flex: 1;
+    text-align: left;
+  }
+
+  .faq-q .faq-arrow {
+    flex-shrink: 0;
+    color: var(--dust);
+    font-size: .8rem;
+    transition: transform .2s;
+    margin-top: .3rem;
+  }
+
+  .faq-item.open .faq-arrow { transform: rotate(90deg); }
+
+  .faq-a {
+    display: none;
+    padding: 0 1.5rem 1.4rem 4rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .85rem;
+    color: #555;
+    line-height: 2;
+    border-top: 1px dashed var(--dust);
+    padding-top: 1rem;
+  }
+  .faq-item.open .faq-a { display: block; }
+
+  .faq-a a { color: var(--henna); text-decoration: underline; }
+
+  .callout {
+    background: var(--henna-light);
+    border-left: 3px solid var(--henna);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0;
+    font-family: 'Noto Serif JP', serif;
+    font-size: .85rem;
+    color: var(--accent);
+    line-height: 1.9;
+  }
+
+  /* ── 関連ページ ── */
+  .related {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .related a {
+    background: white;
+    border-radius: 10px;
+    padding: 1.3rem 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(74,82,64,.06);
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--dust);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .related a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74,82,64,.12);
+  }
+  .r-icon {
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--henna-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+  }
+  .related h4 { font-family: 'Zen Antique Soft', serif; font-size: .95rem; color: var(--charcoal); margin-bottom: .2rem; }
+  .related p { font-family: 'Noto Sans JP', sans-serif; font-size: .75rem; color: #888; margin: 0; line-height: 1.5; }
+  .arrow { margin-left: auto; color: var(--dust); font-size: 1rem; flex-shrink: 0; }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--moss);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .cta h3 { font-family: 'Zen Antique Soft', serif; font-size: 1.2rem; color: var(--cream); margin: 0 0 .6rem; }
+  .cta p { font-family: 'Noto Sans JP', sans-serif; font-size: .82rem; opacity: .85; color: var(--cream); margin-bottom: 1.2rem; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--moss);
+    padding: .7rem 2rem;
+    border-radius: 999px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .cta-btn:hover { background: var(--warm); }
+
+  footer {
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    letter-spacing: .1em;
+  }
+
+  @media (max-width: 700px) {
+    nav:not(.mobile-nav) { display: none; }
+    .hamburger { display: flex; }
+    .faq-a { padding-left: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="site-name" href="index.html">
+    つむぎの自然派美容教室
+    <span>Hair Salon Tsumugu / Natural Beauty Guide</span>
+  </a>
+  <nav>
+    <a href="menu.html">メニュー</a>
+    <a href="henna.html" aria-current="page">ヘナ</a>
+    <a href="shampoo.html">シャンプー</a>
+    <a href="welcome.html">ご予約の方へ</a>
+    <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener">ショップ</a>
+  </nav>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMenu()">ホーム</a>
+  <a href="menu.html" onclick="toggleMenu()">メニュー</a>
+  <a href="henna.html" onclick="toggleMenu()">ヘナ</a>
+  <a href="shampoo.html" onclick="toggleMenu()">シャンプー</a>
+  <a href="welcome.html" onclick="toggleMenu()">ご予約の方へ</a>
+  <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener" onclick="toggleMenu()">ショップ</a>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">ホーム</a> &rsaquo; <a href="henna.html">ヘナ</a> &rsaquo; よくある質問
+</div>
+
+<section class="hero">
+  <p class="hero-eyebrow">FAQ</p>
+  <h1>よくある質問</h1>
+  <p>ヘナについて、お客様からよく聞かれることをまとめました。気になることがあればLINEでも気軽にどうぞ😊</p>
+</section>
+
+<div class="content">
+
+  <!-- ヘナ全般 -->
+  <section class="section" style="animation: fadeUp .5s ease both;">
+    <p class="section-label">ABOUT HENNA</p>
+    <h2>ヘナ全般について</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span class="q-text">ヘナは初めてです。どんな人に向いていますか？</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a">
+          ヘアカラーのたびに頭皮がピリピリする・かゆくなるという方、アレルギーが心配な方、髪のダメージが気になる方にとくに向いています。また「できるだけ自然なものを使いたい」という価値観を大切にしている方にもおすすめです。反対に、明るい色や鮮やかな色にしたい方、短時間で仕上げたい方には向かないこともあります。まずはカウンセリングでご相談ください。
+        </div>
+      </div>
+
+      <div class="faq-item" style="animation-delay:.05s">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span class="q-text">ヘナはどのくらいの頻度でするものですか？</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a">
+          根元の白髪が気になってきたタイミングで、月1〜2か月に1回が目安の方が多いです。ヘナは化学カラーと違って「ダメージ」という概念がないので、気になったらこまめにするのも問題ありません。むしろ繰り返すほど髪にハリとツヤが出てくるという嬉しい特徴があります。
+        </div>
+      </div>
+
+      <div class="faq-item" style="animation-delay:.1s">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span class="q-text">白髪が100%でも染まりますか？</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a">
+          染まります。ただし、白髪の量が多い場合は色の見え方がはっきりするので、1回目の施術でオレンジが強く出ることがあります。「思ったより明るい！」と感じても、数日で落ち着いた色味に変わっていくので焦らずに。繰り返すたびに深みが増し、自然な色合いになっていきます。
+        </div>
+      </div>
+
+      <div class="faq-item" style="animation-delay:.15s">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span class="q-text">ヘナで黒くなりますか？真っ白な白髪を黒くしたいのですが。</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a">
+          純粋なヘナだけでは黒くはなりません。ヘナの発色はオレンジ〜赤茶系です。黒に近い色を出したい場合は、インディゴという別の植物染料を組み合わせた「2度染め」という方法で対応します。1回目にヘナ（オレンジ）、2回目にインディゴを重ねることで暗いブラウン〜ブラックに近い色味が出せます。ご希望の方はカウンセリング時にお伝えください。
+        </div>
+      </div>
+
+      <div class="faq-item" style="animation-delay:.2s">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span class="q-text">ヘナのにおいが気になるのですが…</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a">
+          ヘナ特有の草のようなにおいが気になる方はいます。施術直後がいちばん強く、2〜3日で落ち着いてくることがほとんどです。ヘナ専用シャンプー（ハナヘナシャンプー）を使うと残臭が抑えられやすいです。においへの対処法は<a href="henna-topics.html">ヘナのあれこれ</a>のページにもまとめています。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 施術について -->
+  <section class="section" style="animation: fadeUp .5s ease .1s both;">
+    <p class="section-label">TREATMENT</p>
+    <h2>施術についての質問</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span class="q-text">所要時間はどのくらいかかりますか？</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a">
+          カウンセリング〜塗布〜放置〜洗い流しまで、トータルで2〜3時間半ほどいただいています。髪の長さや状態、施術内容によって多少変わります。来店される日は時間に余裕をもってお越しください。読み物やゆったり過ごせるものを持参される方も多いです😊
+        </div>
+      </div>
+
+      <div class="faq-item" style="animation-delay:.05s">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span class="q-text">妊娠中・授乳中でもヘナはできますか？</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a">
+          天然100%のヘナは化学染料を使わないため、一般的なヘアカラーより負担は少ないと言われています。ただし体質や体調によって異なるため、妊娠中・授乳中の施術については必ず事前にかかりつけの医師にご相談ください。ご不安な場合はカウンセリングの際にご相談いただければ、一緒に判断します。
+        </div>
+      </div>
+
+      <div class="faq-item" style="animation-delay:.1s">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span class="q-text">縮毛矯正やパーマをかけていますが、ヘナはできますか？</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a">
+          できますが、縮毛矯正・パーマ直後は2〜3週間間隔を空けてからが理想です。施術直後に重ねると、髪が不安定な状態で色ムラが出やすくなることがあります。現在の施術状況はカウンセリング時に詳しくお聞かせください。
+        </div>
+      </div>
+
+      <div class="faq-item" style="animation-delay:.15s">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span class="q-text">市販のヘナや化学カラーから切り替えたいのですが、すぐできますか？</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a">
+          切り替えは可能ですが、化学カラーが残っている髪の上にヘナを重ねると色ムラが出やすくなることがあります。理想は徐々に移行すること。まずは根元だけヘナにして、カットのたびに化学カラー部分を落としていく方法が自然で綺麗に移行できます。市販ヘナを使っていた場合は金属塩が混入している可能性があるため、必ず事前にお伝えください。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- おうちヘナ -->
+  <section class="section" style="animation: fadeUp .5s ease .2s both;">
+    <p class="section-label">HOME HENNA</p>
+    <h2>おうちヘナについて</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span class="q-text">自分でヘナをするのは難しいですか？</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a">
+          コツをつかめば大丈夫です。慣れるまでは塗りムラや量の調整に戸惑うこともありますが、くるみさんの動画を参考にしながら練習すると上手になります。つむぎでは「ヘナレッスン」もご案内しているので、初めての方はひと通り教えてもらってから自宅でやるのがおすすめです。詳しくは<a href="henna-home.html">おうちヘナのやり方</a>のページをどうぞ。
+        </div>
+      </div>
+
+      <div class="faq-item" style="animation-delay:.05s">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span class="q-text">どこでヘナを買えますか？</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a">
+          つむぎオンラインショップからお買い求めいただけます。ハナヘナナチュラル（オレンジ）・ハーバルブラウン・マホガニーなど、用途に合わせた種類を取り扱っています。はじめてで量や種類が分からない場合は、LINEでご相談いただければ一緒に選びます😊
+        </div>
+      </div>
+
+      <div class="faq-item" style="animation-delay:.1s">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-badge">Q</span>
+          <span class="q-text">ヘナを置いている時間はどのくらいが目安ですか？</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a">
+          最低30分、長く置けば置くほどツヤとしっとり感が増します。「何時間でもOK」と言われるほど放置しすぎてもダメージになることはありません。理想は1〜2時間ですが、忙しい日は30分でも十分効果はあります。ラップで包んで置いておくと乾きにくく、染まりも良くなります。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      おうちヘナのくわしい手順は<a href="henna-home.html" style="color:var(--henna);">おうちヘナのやり方</a>のページにまとめています。くるみさんの動画つきで分かりやすく解説していますよ🌿
+    </div>
+  </section>
+
+  <!-- ショップ誘導 -->
+  <div style="background:#fef6f0;border:1px solid #e8c4a8;border-radius:8px;padding:1.5rem 1.8rem;margin:2rem 0;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;">
+    <span style="font-size:2rem;flex-shrink:0;">🛒</span>
+    <div style="flex:1;min-width:180px;">
+      <p style="font-family:'Zen Antique Soft',serif;font-size:1rem;color:#5a3a20;margin-bottom:.3rem;">ヘナ・おうちヘナアイテムはショップで</p>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:#888;line-height:1.7;margin:0;">ハナヘナ各種・専用ハケ・ロングコットンなど、セルフヘナに必要なアイテムが揃っています。</p>
+    </div>
+    <a href="https://salontumugi.shopselect.net/categories/731540" target="_blank" rel="noopener" style="flex-shrink:0;display:inline-block;background:#c45c1a;color:#fff;padding:.6rem 1.4rem;border-radius:999px;font-family:'Noto Sans JP',sans-serif;font-size:.78rem;letter-spacing:.08em;text-decoration:none;">ヘナをみる →</a>
+  </div>
+
+  <!-- 関連ページ -->
+  <section class="section">
+    <p class="section-label">NEXT</p>
+    <h2>あわせて読む</h2>
+    <div class="related">
+      <a href="henna-about.html">
+        <div class="r-icon">🌱</div>
+        <div>
+          <h4>ヘナってなに？</h4>
+          <p>ヘナの基礎知識・普通のカラーとの違い・色の種類</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="henna-topics.html">
+        <div class="r-icon">📖</div>
+        <div>
+          <h4>ヘナのあれこれ</h4>
+          <p>においの消し方・使い続けてよかった事例・他施術との相性</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="henna-home.html">
+        <div class="r-icon">🖌️</div>
+        <div>
+          <h4>おうちヘナのやり方</h4>
+          <p>セルフヘナの手順・くるみさんの動画・塗り方のコツ</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>答えが見つからなかった方へ🌿</h3>
+    <p>どんなことでもLINEでお気軽にどうぞ。<br>一緒に「自分に合う方法」を考えます😊</p>
+    <a class="cta-btn" href="https://lin.ee/9ADwREL" target="_blank" rel="noopener">LINEで相談する</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>つむぎの自然派美容教室｜自然派美容室 つむぎ・大阪 心斎橋</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  // 他を閉じる
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+
+</body>
+</html>
