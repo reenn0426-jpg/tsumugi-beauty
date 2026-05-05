@@ -58,6 +58,68 @@
     letter-spacing: .1em;
   }
 
+  nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    margin-left: 1.8rem;
+    opacity: .85;
+    transition: opacity .2s;
+  }
+  nav a:hover { opacity: 1; }
+  nav a[aria-current="page"] {
+    opacity: 1;
+    border-bottom: 1px solid var(--cream);
+    padding-bottom: 2px;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: .5rem;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--cream);
+    border-radius: 2px;
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0;
+    width: 100%;
+    background: var(--moss);
+    z-index: 99;
+    padding: .5rem 0 1rem;
+    border-bottom: 2px solid var(--sage);
+  }
+  .mobile-nav.open { display: block; }
+  .mobile-nav a {
+    display: block;
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .9rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    padding: .8rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+  .mobile-nav a[aria-current="page"] { background: rgba(255,255,255,.08); }
+
+  @media (max-width: 700px) {
+    nav:not(.mobile-nav) { display: none; }
+    .hamburger { display: flex; }
+  }
+
   /* ── パンくず ── */
   .breadcrumb {
     padding: 1rem 2rem;
@@ -422,14 +484,31 @@
 <body>
 
 <header>
-  <a class="site-name" href="http://line.ee/yuTECX7">
+  <a class="site-name" href="index.html">
     つむぎの自然派美容教室
     <span>Hair Salon Tsumugu / Natural Beauty Guide</span>
   </a>
+  <nav>
+    <a href="menu.html">メニュー</a>
+    <a href="henna.html" aria-current="page">ヘナ</a>
+    <a href="shampoo.html">シャンプー</a>
+    <a href="welcome.html">ご予約の方へ</a>
+  </nav>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMenu()">ホーム</a>
+  <a href="menu.html" onclick="toggleMenu()">メニュー</a>
+  <a href="henna.html" onclick="toggleMenu()" aria-current="page">ヘナ</a>
+  <a href="shampoo.html" onclick="toggleMenu()">シャンプー</a>
+  <a href="welcome.html" onclick="toggleMenu()">ご予約の方へ</a>
+</nav>
+
 <div class="breadcrumb">
-  <a href="http://line.ee/yuTECX7">ホーム</a> &rsaquo; <a href="http://line.ee/yuTECX7">ヘナ</a> &rsaquo; おうちヘナのやり方
+  <a href="index.html">ホーム</a> &rsaquo; <a href="henna.html">ヘナ</a> &rsaquo; おうちヘナのやり方
 </div>
 
 <section class="hero">
@@ -595,7 +674,7 @@
   <div class="cta">
     <h3>もっと詳しく知りたい方へ</h3>
     <p>ヘナの種類・自分の髪に合う染め方など<br>お気軽につむぎにご相談ください🌿</p>
-    <a class="cta-btn" href="http://line.ee/yuTECX7">LINEで相談する</a>
+    <a class="cta-btn" href="https://lin.ee/9ADwREL" target="_blank" rel="noopener">LINEで相談する</a>
   </div>
 
 </div>
@@ -603,6 +682,12 @@
 <footer>
   <p>つむぎの自然派美容教室｜自然派美容室 つむぎ・大阪 心斎橋</p>
 </footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+</script>
 
 </body>
 </html>

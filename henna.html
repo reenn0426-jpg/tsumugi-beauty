@@ -68,6 +68,11 @@
     transition: opacity .2s;
   }
   nav a:hover { opacity: 1; }
+  nav a[aria-current="page"] {
+    opacity: 1;
+    border-bottom: 1px solid var(--cream);
+    padding-bottom: 2px;
+  }
 
   /* ── ハンバーガー ── */
   .hamburger {
@@ -369,7 +374,7 @@
   <nav>
     <a href="index.html">ホーム</a>
     <a href="menu.html">メニュー</a>
-    <a href="henna.html">ヘナ</a>
+    <a href="henna.html" aria-current="page">ヘナ</a>
     <a href="shampoo.html">シャンプー</a>
     <a href="welcome.html">ご予約の方へ</a>
   </nav>
@@ -420,7 +425,7 @@
     <h2>ヘナについてもっと知る</h2>
 
     <div class="page-list">
-      <a class="page-card" href="#">
+      <a class="page-card" href="henna-about.html">
         <div class="card-icon">🌱</div>
         <div class="card-text">
           <h3>ヘナってなに？</h3>

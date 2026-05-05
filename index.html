@@ -487,10 +487,49 @@
     margin-bottom: .5rem;
   }
 
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: .5rem;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--cream);
+    border-radius: 2px;
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0;
+    width: 100%;
+    background: var(--moss);
+    z-index: 99;
+    padding: .5rem 0 1rem;
+    border-bottom: 2px solid var(--sage);
+  }
+  .mobile-nav.open { display: block; }
+  .mobile-nav a {
+    display: block;
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .9rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    padding: .8rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
   @media (max-width: 700px) {
     .layout { grid-template-columns: 1fr; }
     aside { display: none; }
-    nav { display: none; }
+    nav:not(.mobile-nav) { display: none; }
+    .hamburger { display: flex; }
   }
 </style>
 </head>
@@ -504,11 +543,22 @@
   </div>
   <nav>
     <a href="menu.html">メニュー</a>
-    <a href="henna-home.html">ヘナ</a>
-    <a href="soap-shampoo.html">シャンプー</a>
+    <a href="henna.html">ヘナ</a>
+    <a href="shampoo.html">シャンプー</a>
     <a href="welcome.html">ご予約の方へ</a>
   </nav>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMenu()">ホーム</a>
+  <a href="menu.html" onclick="toggleMenu()">メニュー</a>
+  <a href="henna.html" onclick="toggleMenu()">ヘナ</a>
+  <a href="shampoo.html" onclick="toggleMenu()">シャンプー</a>
+  <a href="welcome.html" onclick="toggleMenu()">ご予約の方へ</a>
+</nav>
 
 <!-- ヒーロー -->
 <section class="hero">
@@ -544,7 +594,7 @@
           <p class="card-excerpt">
             「染めるたびに頭皮がピリピリする」「最近なんとなく体がだるい」——もしかしたらそれ、ヘアカラーのアレルゲンが原因かもしれません。美容室で何十年も使われてきた酸化染料の成分と、その問題点をていねいに解説します。
           </p>
-          <a class="read-more" href="http://line.ee/yuTECX7">続きを読む →</a>
+          <a class="read-more" href="#">続きを読む →</a>
         </div>
       </article>
 
@@ -572,7 +622,7 @@
           </div>
           <h2 class="card-title">頭皮は「畑」——土が豊かじゃないと、いい毛は育たない</h2>
           <p class="card-excerpt">髪の悩みの多くは、実は頭皮の環境が原因です。農業でいう「土づくり」と同じ考え方で、頭皮ケアをとらえ直してみましょう。</p>
-          <a class="read-more" href="http://line.ee/yuTECX7">続きを読む →</a>
+          <a class="read-more" href="#">続きを読む →</a>
         </div>
       </article>
 
@@ -680,6 +730,9 @@
 </div>
 
 <script>
+  function toggleMenu() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
   function openModal() {
     document.getElementById('modal').classList.add('open');
     document.body.style.overflow = 'hidden';
