@@ -31,11 +31,13 @@
   header {
     background: var(--moss);
     color: var(--cream);
-    padding: 0 2rem;
+    padding: 0 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
+    min-height: 60px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
     border-bottom: 2px solid var(--sage);
   }
 
@@ -53,6 +55,11 @@
     font-weight: 300;
     opacity: .75;
     display: block;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100vw - 80px);
   }
 
   nav a {
@@ -91,7 +98,8 @@
   .mobile-nav {
     display: none;
     position: fixed;
-    top: 60px; left: 0;
+    top: 0;
+    padding-top: 70px; left: 0;
     width: 100%;
     background: var(--moss);
     z-index: 99;
@@ -449,6 +457,7 @@
     <a href="henna.html">ヘナ</a>
     <a href="shampoo.html">シャンプー</a>
     <a href="welcome.html">ご予約の方へ</a>
+    <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener">ショップ</a>
   </nav>
   <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
     <span></span><span></span><span></span>
@@ -461,6 +470,7 @@
   <a href="henna.html" onclick="toggleMenu()">ヘナ</a>
   <a href="shampoo.html" onclick="toggleMenu()">シャンプー</a>
   <a href="welcome.html" onclick="toggleMenu()">ご予約の方へ</a>
+  <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener" onclick="toggleMenu()">ショップ</a>
 </nav>
 
 <div class="breadcrumb">
@@ -680,6 +690,16 @@
     つむぎは完全予約制・少人数制です。ご予約はLINEまたはメール（yoyaku@salon-tumugi.net）にてご希望日程・メニュー・お名前をお送りください。初めての方はカウンセリングをさせていただきます。
   </div>
 
+
+  <!-- ショップ誘導 -->
+  <div style="background:#f2f5ef;border:1px solid #b8c8a8;border-radius:8px;padding:1.5rem 1.8rem;margin:2rem 0;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;">
+    <span style="font-size:2rem;flex-shrink:0;">🛒</span>
+    <div style="flex:1;min-width:180px;">
+      <p style="font-family:'Zen Antique Soft',serif;font-size:1rem;color:#3a4a2a;margin-bottom:.3rem;">つむぎオンラインショップ</p>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:#888;line-height:1.7;margin:0;">ヘナ・シャンプー・スキンケアなど、つむぎおすすめのノンケミカルアイテムが揃っています。</p>
+    </div>
+    <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener" style="flex-shrink:0;display:inline-block;background:#4a5240;color:#f5f0e8;padding:.6rem 1.4rem;border-radius:999px;font-family:'Noto Sans JP',sans-serif;font-size:.78rem;letter-spacing:.08em;text-decoration:none;">ショップをみる →</a>
+  </div>
   <!-- CTA -->
   <div class="cta">
     <h3>ご予約・お問い合わせ</h3>

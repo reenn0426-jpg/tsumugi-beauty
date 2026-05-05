@@ -49,7 +49,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 60px;
+    min-min-height: 60px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
     height: auto;
     padding-top: .5rem;
     padding-bottom: .5rem;
@@ -63,7 +65,7 @@
   }
 
   .site-name span {
-    font-size: .75rem;
+    font-size: .7rem;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 300;
     opacity: .75;
@@ -555,6 +557,7 @@
     <a href="henna.html">ヘナ</a>
     <a href="shampoo.html">シャンプー</a>
     <a href="welcome.html">ご予約の方へ</a>
+    <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener">ショップ</a>
   </nav>
   <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
     <span></span><span></span><span></span>
@@ -567,6 +570,7 @@
   <a href="henna.html" onclick="toggleMenu()">ヘナ</a>
   <a href="shampoo.html" onclick="toggleMenu()">シャンプー</a>
   <a href="welcome.html" onclick="toggleMenu()">ご予約の方へ</a>
+  <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener" onclick="toggleMenu()">ショップ</a>
 </nav>
 
 <!-- ヒーロー -->
@@ -671,6 +675,16 @@
 </div>
 
 <!-- フッター -->
+
+  <!-- ショップ誘導 -->
+  <div style="background:#f2f5ef;border:1px solid #b8c8a8;border-radius:8px;padding:1.5rem 1.8rem;margin:2rem 0;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;">
+    <span style="font-size:2rem;flex-shrink:0;">🛒</span>
+    <div style="flex:1;min-width:180px;">
+      <p style="font-family:'Zen Antique Soft',serif;font-size:1rem;color:#3a4a2a;margin-bottom:.3rem;">つむぎオンラインショップ</p>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:#888;line-height:1.7;margin:0;">ヘナ・シャンプー・スキンケアなど、つむぎおすすめのノンケミカルアイテムが揃っています。</p>
+    </div>
+    <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener" style="flex-shrink:0;display:inline-block;background:#4a5240;color:#f5f0e8;padding:.6rem 1.4rem;border-radius:999px;font-family:'Noto Sans JP',sans-serif;font-size:.78rem;letter-spacing:.08em;text-decoration:none;">ショップをみる →</a>
+  </div>
 <footer>
   <div class="footer-logo">つむぎの自然派美容教室</div>
   <p>自然派美容室 つむぎ｜大阪・心斎橋</p>
