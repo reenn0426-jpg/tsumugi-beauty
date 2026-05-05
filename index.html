@@ -42,14 +42,17 @@
   header {
     background: var(--moss);
     color: var(--cream);
-    padding: 0 2rem;
+    padding: 0 1.5rem;
     position: sticky;
     top: 0;
     z-index: 100;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
+    min-height: 60px;
+    height: auto;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
     border-bottom: 2px solid var(--sage);
   }
 
@@ -65,7 +68,11 @@
     font-weight: 300;
     opacity: .75;
     display: block;
-    letter-spacing: .1em;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100vw - 80px);
   }
 
   nav a {
@@ -105,7 +112,7 @@
   .hero-eyebrow {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: .72rem;
-    letter-spacing: .25em;
+    letter-spacing: .1em;
     color: var(--dust);
     margin-bottom: 1.2rem;
   }
@@ -125,6 +132,7 @@
     margin: 0 auto 2rem;
     opacity: .85;
     font-family: 'Noto Sans JP', sans-serif;
+    text-align: left;
   }
 
   /* ── カテゴリ帯 ── */
@@ -505,12 +513,13 @@
   .mobile-nav {
     display: none;
     position: fixed;
-    top: 60px; left: 0;
+    top: 0; left: 0;
     width: 100%;
     background: var(--moss);
     z-index: 99;
     padding: .5rem 0 1rem;
     border-bottom: 2px solid var(--sage);
+    padding-top: 70px;
   }
   .mobile-nav.open { display: block; }
   .mobile-nav a {
@@ -564,7 +573,7 @@
 <section class="hero">
   <p class="hero-eyebrow">大阪心斎橋 自然派美容室つむぎ</p>
   <h1>髪と地肌のことを、<br>もっとちゃんと知ってほしい。</h1>
-  <p>市販品の成分、白髪染めの真実、頭皮ケアの基本——<br>美容師の目線で、わかりやすくお伝えします。</p>
+  <p>市販品の成分、白髪染めの真実、頭皮ケアの基本——美容師の目線で、わかりやすくお伝えします。</p>
 </section>
 
 <!-- カテゴリタグ -->
