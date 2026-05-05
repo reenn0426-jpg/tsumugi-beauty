@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>メニュー | 自然派美容室つむぎ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --moss:    #4a5240;
+    --sage:    #7a8c6e;
+    --cream:   #f5f0e8;
+    --warm:    #ede6d6;
+    --earth:   #9c7c5a;
+    --charcoal:#2c2c28;
+    --dust:    #c8b99a;
+    --accent:  #7c6348;
+    --henna:   #c45c1a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Serif JP', serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.9;
+  }
+
+  header {
+    background: var(--moss);
+    color: var(--cream);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    border-bottom: 2px solid var(--sage);
+  }
+
+  .site-name {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.1rem;
+    letter-spacing: .15em;
+    text-decoration: none;
+    color: var(--cream);
+  }
+
+  .site-name span {
+    font-size: .7rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    opacity: .75;
+    display: block;
+  }
+
+  nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    margin-left: 1.8rem;
+    opacity: .85;
+    transition: opacity .2s;
+  }
+  nav a:hover { opacity: 1; }
+  nav a[aria-current="page"] {
+    opacity: 1;
+    border-bottom: 1px solid var(--cream);
+    padding-bottom: 2px;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: .5rem;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--cream);
+    border-radius: 2px;
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0;
+    width: 100%;
+    background: var(--moss);
+    z-index: 99;
+    padding: .5rem 0 1rem;
+    border-bottom: 2px solid var(--sage);
+  }
+  .mobile-nav.open { display: block; }
+  .mobile-nav a {
+    display: block;
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .9rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    padding: .8rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+  .mobile-nav a[aria-current="page"] { background: rgba(255,255,255,.08); }
+
+  @media (max-width: 700px) {
+    nav:not(.mobile-nav) { display: none; }
+    .hamburger { display: flex; }
+  }
+
+  .breadcrumb {
+    padding: 1rem 2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: var(--earth);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .breadcrumb a { color: var(--sage); text-decoration: none; }
+
+  /* ── ヒーロー ── */
+  .hero {
+    background: linear-gradient(135deg, var(--moss) 0%, #3a4832 100%);
+    color: var(--cream);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 100%; height: 50px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .hero-eyebrow {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .25em;
+    color: var(--dust);
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: clamp(1.6rem, 5vw, 2.5rem);
+    letter-spacing: .08em;
+    margin-bottom: .8rem;
+  }
+
+  .hero p {
+    font-size: .88rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    max-width: 520px;
+    margin: 0 auto;
+    opacity: .85;
+    line-height: 1.9;
+  }
+
+  /* ── コンテンツ ── */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  /* ── フィロソフィー ── */
+  .philosophy {
+    background: var(--warm);
+    border-radius: 8px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 3rem;
+    border-left: 4px solid var(--sage);
+    animation: fadeUp .5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .philosophy p {
+    font-size: .88rem;
+    line-height: 2.1;
+    color: #555;
+  }
+
+  /* ── セクション見出し ── */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .section-title h2 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.3rem;
+    letter-spacing: .08em;
+    color: var(--charcoal);
+  }
+
+  .section-title .icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--moss);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  /* ── メニューカード ── */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .menu-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.4rem 1.5rem;
+    box-shadow: 0 2px 12px rgba(74,82,64,.07);
+    border-top: 3px solid var(--sage);
+    animation: fadeUp .5s ease both;
+  }
+
+  .menu-card.henna { border-top-color: var(--henna); }
+  .menu-card.color { border-top-color: #7a6abf; }
+  .menu-card.care  { border-top-color: #3a8a8a; }
+  .menu-card.style { border-top-color: var(--earth); }
+
+  .menu-card h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1rem;
+    color: var(--charcoal);
+    margin-bottom: .5rem;
+    letter-spacing: .05em;
+  }
+
+  .menu-card .desc {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .78rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: .8rem;
+  }
+
+  .menu-card .time {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: var(--sage);
+    margin-bottom: .6rem;
+  }
+
+  /* ── 料金テーブル ── */
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+  }
+
+  .price-table td {
+    padding: .35rem .5rem;
+    border-bottom: 1px dashed var(--dust);
+    color: var(--charcoal);
+  }
+
+  .price-table td:last-child {
+    text-align: right;
+    color: var(--accent);
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  /* ── ゴッドクリーナー ── */
+  .god-cleaner {
+    background: linear-gradient(135deg, #1a4a4a 0%, #2a6060 100%);
+    color: var(--cream);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-top: 3rem;
+    animation: fadeUp .5s ease both;
+  }
+
+  .god-cleaner h2 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.3rem;
+    letter-spacing: .08em;
+    margin-bottom: .5rem;
+    color: var(--cream);
+  }
+
+  .god-cleaner .subtitle {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    letter-spacing: .15em;
+    color: #a8d8d8;
+    margin-bottom: 1.2rem;
+  }
+
+  .god-cleaner p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .83rem;
+    line-height: 1.9;
+    opacity: .9;
+    margin-bottom: 1rem;
+  }
+
+  .god-cleaner .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: .8rem;
+    margin: 1.2rem 0;
+  }
+
+  .god-cleaner .feature {
+    background: rgba(255,255,255,.1);
+    border-radius: 6px;
+    padding: .8rem 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .78rem;
+    line-height: 1.7;
+  }
+
+  .god-cleaner .feature .f-title {
+    font-size: .7rem;
+    letter-spacing: .1em;
+    color: #a8d8d8;
+    margin-bottom: .3rem;
+  }
+
+  .god-cleaner .price-box {
+    background: rgba(255,255,255,.15);
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    display: inline-block;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    margin-top: .5rem;
+  }
+
+  /* ── 注意事項 ── */
+  .note {
+    background: var(--warm);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    margin-top: 2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    color: #666;
+    line-height: 1.9;
+    border: 1px solid var(--dust);
+  }
+
+  .note strong {
+    display: block;
+    color: var(--moss);
+    margin-bottom: .3rem;
+    font-size: .75rem;
+    letter-spacing: .1em;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--moss);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.2rem;
+    color: var(--cream);
+    margin: 0 0 .6rem;
+  }
+
+  .cta p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    opacity: .85;
+    color: var(--cream);
+    margin-bottom: 1.2rem;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--moss);
+    padding: .7rem 2rem;
+    border-radius: 999px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: background .2s;
+  }
+
+  .cta-btn:hover { background: var(--warm); }
+
+  footer {
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    letter-spacing: .1em;
+  }
+
+  @media (max-width: 600px) {
+    .menu-grid { grid-template-columns: 1fr; }
+    .god-cleaner .features { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="site-name" href="index.html">
+    つむぎの自然派美容教室
+    <span>Hair Salon Tsumugu / Natural Beauty Guide</span>
+  </a>
+  <nav>
+    <a href="menu.html" aria-current="page">メニュー</a>
+    <a href="henna.html">ヘナ</a>
+    <a href="shampoo.html">シャンプー</a>
+    <a href="welcome.html">ご予約の方へ</a>
+  </nav>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMenu()">ホーム</a>
+  <a href="menu.html" onclick="toggleMenu()" aria-current="page">メニュー</a>
+  <a href="henna.html" onclick="toggleMenu()">ヘナ</a>
+  <a href="shampoo.html" onclick="toggleMenu()">シャンプー</a>
+  <a href="welcome.html" onclick="toggleMenu()">ご予約の方へ</a>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">ホーム</a> &rsaquo; メニュー
+</div>
+
+<section class="hero">
+  <p class="hero-eyebrow">MENU</p>
+  <h1>つむぎのメニュー</h1>
+  <p>肌にも髪にも、地球にも。<br>ケミカルな薬剤を極力使わず、自然素材で美しさを引き出すメニューをご用意しています。</p>
+</section>
+
+<div class="content">
+
+  <div class="philosophy">
+    <p>つむぎのヘアメニューは、なるべく肌や髪の毛に負担をかけないもの、自然な素材で可能なことに挑戦しています。髪の毛が本来もつしなやかさや美しさを引き出すことをテーマに取り組んでおり、一般の美容室にある通常のヘアカラーや白髪染めは取り扱いせず、天然100%ヘナや石けんを使用したヘアケアを中心にお届けしております。</p>
+  </div>
+
+  <!-- カット -->
+  <div class="section-title">
+    <div class="icon">✂️</div>
+    <h2>カット（シャンプー込み）</h2>
+  </div>
+
+  <div class="menu-grid">
+    <div class="menu-card">
+      <h3>カット各種</h3>
+      <p class="desc">カット後のシャンプーは石けんシャンプー・湯シャン・ミックスハーブ（アーユルヴェーダのヘアケア）よりお選びいただけます。おうちでも自然なケアを取り入れたい方には、一人一人に合わせてケアをご説明します。</p>
+      <table class="price-table">
+        <tr><td>レディースカット</td><td>5,500円</td></tr>
+        <tr><td>メンズカット</td><td>4,400円</td></tr>
+        <tr><td>キッズカット（小学生以下）</td><td>3,300円</td></tr>
+        <tr><td>キッズカット（シャンプーなし）</td><td>2,200円</td></tr>
+        <tr><td>前髪カット</td><td>1,100円</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ヘナ -->
+  <div class="section-title">
+    <div class="icon">🌿</div>
+    <h2>ハナヘナ（シャンプー込み）</h2>
+  </div>
+
+  <div class="menu-grid">
+    <div class="menu-card henna">
+      <h3>ハナヘナ</h3>
+      <p class="desc">天然100%手選別のハナヘナは、トリートメントとして、頭皮のケアとして、癒しとしても大活躍。化学物質は一切使用しません。白髪をぼかしたい・髪の毛を元気にしたい方に。</p>
+      <p class="time">⏱ 所要時間：2時間〜2時間半</p>
+      <table class="price-table">
+        <tr><td>S</td><td>6,600円</td></tr>
+        <tr><td>M</td><td>7,700円</td></tr>
+        <tr><td>L</td><td>8,800円</td></tr>
+        <tr><td>LL</td><td>11,000円</td></tr>
+      </table>
+    </div>
+
+    <div class="menu-card henna">
+      <h3>ハナヘナ２度染め</h3>
+      <p class="desc">ヘナを2回に分けて染めることで白髪をしっかり染めることが可能。白髪と分からないように染めたい方におすすめ。</p>
+      <p class="time">⏱ 所要時間：3時間〜3時間半</p>
+      <table class="price-table">
+        <tr><td>S</td><td>12,100円</td></tr>
+        <tr><td>M</td><td>13,200円</td></tr>
+        <tr><td>L</td><td>14,300円</td></tr>
+        <tr><td>LL</td><td>16,500円</td></tr>
+      </table>
+    </div>
+
+    <div class="menu-card henna">
+      <h3>ヘナレッスン</h3>
+      <p class="desc">セルフヘナを学びたい方のためのマンツーマンレッスン。汚れても大丈夫な服装でお越しください。</p>
+      <p class="time">⏱ 所要時間：3時間</p>
+      <table class="price-table">
+        <tr><td>マンツーマン</td><td>13,200円</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- カラー -->
+  <div class="section-title">
+    <div class="icon">🎨</div>
+    <h2>カラー（ジアミンフリー）</h2>
+  </div>
+
+  <div class="menu-grid">
+    <div class="menu-card color">
+      <h3>リフトアップカラー（シャンプー込み）</h3>
+      <p class="desc">ジアミンを一切使用しない、髪を明るくするためのカラー。色は入りません。地肌にはほとんど薬剤をつけない塗り方でピリピリした刺激を感じにくいです。ジアミンアレルギーのスタッフもこの方法で明るくしています。ハナヘナとの組み合わせが人気です。</p>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-size:.75rem;color:var(--moss);margin-bottom:.6rem;">リタッチのみ</p>
+      <table class="price-table">
+        <tr><td>S</td><td>5,500円</td></tr>
+        <tr><td>M</td><td>6,050円</td></tr>
+        <tr><td>L</td><td>6,600円</td></tr>
+        <tr><td>LL</td><td>7,700円</td></tr>
+      </table>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-size:.75rem;color:var(--moss);margin:.8rem 0 .4rem;">全体</p>
+      <table class="price-table">
+        <tr><td>S</td><td>6,600円</td></tr>
+        <tr><td>M</td><td>7,700円</td></tr>
+        <tr><td>L</td><td>8,800円</td></tr>
+        <tr><td>LL</td><td>11,000円</td></tr>
+      </table>
+    </div>
+
+    <div class="menu-card color">
+      <h3>ハイライトカラー（シャンプー・ブロー別）</h3>
+      <p class="desc">ホイルワークで薬剤を肌に付けず染められます。ライン状に染めるのでプリンになりにくく、ヘナをしているけど明るさやデザインがほしい方に好評です。ジアミンは使いません。</p>
+      <table class="price-table">
+        <tr><td>分量により</td><td>3,780円〜</td></tr>
+        <tr><td></td><td>5,500円〜</td></tr>
+        <tr><td></td><td>7,700円〜</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- パーマ・縮毛 -->
+  <div class="section-title">
+    <div class="icon">💫</div>
+    <h2>パーマ・縮毛矯正</h2>
+  </div>
+
+  <div class="menu-grid">
+    <div class="menu-card">
+      <h3>パーマ</h3>
+      <p class="desc">昔ながらのコールドパーマで、ハナヘナや湯シャン派の方もパーマをあてることができます。パーマ液には現在安心なものはありません。薬剤を使用した施術になります。健康毛のみ対応。</p>
+      <table class="price-table">
+        <tr><td>S</td><td>6,600円</td></tr>
+        <tr><td>M</td><td>7,700円</td></tr>
+        <tr><td>L</td><td>8,800円</td></tr>
+        <tr><td>LL</td><td>11,000円</td></tr>
+        <tr><td>point</td><td>5,500円</td></tr>
+      </table>
+    </div>
+
+    <div class="menu-card">
+      <h3>縮毛矯正（カット込み）</h3>
+      <p class="desc">ヘナと縮毛矯正は相性がよく、同日に施術可能です。薬剤を地肌に付けずに施術します。薬剤はケミカルなものです。健康毛のみ対応。</p>
+      <table class="price-table">
+        <tr><td>S</td><td>16,500円</td></tr>
+        <tr><td>M</td><td>18,700円</td></tr>
+        <tr><td>L</td><td>20,900円</td></tr>
+        <tr><td>LL</td><td>23,100円</td></tr>
+        <tr><td>前髪</td><td>5,500円</td></tr>
+        <tr><td>部分</td><td>8,800円</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- スタイリング・着付け -->
+  <div class="section-title">
+    <div class="icon">✨</div>
+    <h2>スタイリング・その他</h2>
+  </div>
+
+  <div class="menu-grid">
+    <div class="menu-card style">
+      <h3>ヘアアレンジ・セット</h3>
+      <p class="desc">ノンケミカルのスタイリング剤を使用してアレンジします。湯シャンで落とせるもの、石けんで落とせるものがあります。</p>
+      <table class="price-table">
+        <tr><td>S</td><td>3,850円</td></tr>
+        <tr><td>M・L</td><td>4,950円</td></tr>
+      </table>
+    </div>
+
+    <div class="menu-card style">
+      <h3>着付け👘</h3>
+      <p class="desc">浴衣から振り袖まで対応しています。</p>
+      <table class="price-table">
+        <tr><td>浴衣</td><td>3,300円</td></tr>
+        <tr><td>訪問着・留め袖</td><td>5,500円</td></tr>
+        <tr><td>振り袖</td><td>7,700円</td></tr>
+        <tr><td>袴</td><td>5,500円</td></tr>
+      </table>
+    </div>
+
+    <div class="menu-card style">
+      <h3>美容に関するご相談</h3>
+      <p class="desc">自然派美容について、お一人お一人のお悩みに合わせてご相談をお受けします。</p>
+      <table class="price-table">
+        <tr><td>30分</td><td>3,300円</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ゴッドクリーナー -->
+  <div class="god-cleaner">
+    <p class="subtitle">DETOX TREATMENT</p>
+    <h2>⚡ ゴッドクリーナー</h2>
+    <p>体の中から排出しにくいと言われている重金属や添加物などの化学物質を体外にデトックスしてくれるマシンです。ヘナの置き時間などに人気のメニューで、ゴッドクリーナーだけのご来店もウェルカムです😊</p>
+
+    <div class="features">
+      <div class="feature">
+        <p class="f-title">🔬 対象となるもの</p>
+        水銀・鉛・カドミウムなどの重金属、添加物・化学物質のデトックスをサポート
+      </div>
+      <div class="feature">
+        <p class="f-title">⏱ タイミング</p>
+        ヘナの置き時間（1〜2時間）に同時施術するのが人気。単独でのご来店もOK
+      </div>
+      <div class="feature">
+        <p class="f-title">💡 こんな方に</p>
+        なんとなくだるい・疲れやすい・肌や髪のコンディションが気になる方
+      </div>
+    </div>
+
+    <p>重金属は食べ物・空気・皮膚など日常のさまざまな経路から少しずつ体に蓄積していくと言われています。現代の生活の中で完全に避けることは難しいからこそ、定期的にデトックスすることが大切かもしれません。</p>
+
+    <div class="price-box">
+      💰 4,210円
+    </div>
+  </div>
+
+  <!-- 注意事項 -->
+  <div class="note">
+    <strong>📋 ご予約・ご来店にあたって</strong>
+    つむぎは完全予約制・少人数制です。ご予約はLINEまたはメール（yoyaku@salon-tumugi.net）にてご希望日程・メニュー・お名前をお送りください。初めての方はカウンセリングをさせていただきます。
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>ご予約・お問い合わせ</h3>
+    <p>メニューについてのご質問もお気軽に😊<br>LINEよりご連絡ください🌿</p>
+    <a class="cta-btn" href="https://lin.ee/9ADwREL" target="_blank" rel="noopener">LINEで予約・相談する</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>自然派美容室 つむぎ｜大阪市中央区南船場4丁目13-8 エステート心斎橋502</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>

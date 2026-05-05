@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ヘナについて | つむぎの自然派美容教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --moss:    #4a5240;
+    --sage:    #7a8c6e;
+    --cream:   #f5f0e8;
+    --warm:    #ede6d6;
+    --earth:   #9c7c5a;
+    --charcoal:#2c2c28;
+    --dust:    #c8b99a;
+    --accent:  #7c6348;
+    --henna:   #c45c1a;
+    --henna-light: #f5e6d8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Serif JP', serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.9;
+  }
+
+  header {
+    background: var(--moss);
+    color: var(--cream);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    border-bottom: 2px solid var(--sage);
+  }
+
+  .site-name {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.1rem;
+    letter-spacing: .15em;
+    text-decoration: none;
+    color: var(--cream);
+  }
+
+  .site-name span {
+    font-size: .7rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    opacity: .75;
+    display: block;
+  }
+
+  nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    margin-left: 1.8rem;
+    opacity: .85;
+    transition: opacity .2s;
+  }
+  nav a:hover { opacity: 1; }
+  nav a[aria-current="page"] {
+    opacity: 1;
+    border-bottom: 1px solid var(--cream);
+    padding-bottom: 2px;
+  }
+
+  /* ── ハンバーガー ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: .5rem;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--cream);
+    border-radius: 2px;
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0;
+    width: 100%;
+    background: var(--moss);
+    z-index: 99;
+    padding: .5rem 0 1rem;
+    border-bottom: 2px solid var(--sage);
+  }
+  .mobile-nav.open { display: block; }
+  .mobile-nav a {
+    display: block;
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .9rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    padding: .8rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  .breadcrumb {
+    padding: 1rem 2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: var(--earth);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .breadcrumb a { color: var(--sage); text-decoration: none; }
+
+  /* ── ヒーロー ── */
+  .hero {
+    background: linear-gradient(135deg, #3a2a1a 0%, #5a3a20 100%);
+    color: var(--cream);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '🌿';
+    position: absolute;
+    font-size: 14rem;
+    opacity: .06;
+    top: -2rem; right: -1rem;
+    line-height: 1;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 100%; height: 50px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .hero-eyebrow {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .25em;
+    color: var(--dust);
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    letter-spacing: .1em;
+    margin-bottom: .8rem;
+  }
+
+  .hero p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .88rem;
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto;
+    opacity: .85;
+    line-height: 1.9;
+  }
+
+  /* ── コンテンツ ── */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── ヘナってなに？ ── */
+  .intro {
+    margin-bottom: 3rem;
+    animation: fadeUp .5s ease both;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .2em;
+    color: var(--henna);
+    margin-bottom: .8rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--henna);
+  }
+
+  h2 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.35rem;
+    letter-spacing: .06em;
+    color: var(--charcoal);
+    margin-bottom: 1.2rem;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid var(--dust);
+  }
+
+  p {
+    font-size: .88rem;
+    line-height: 2.1;
+    color: #444;
+    margin-bottom: 1rem;
+  }
+
+  .callout {
+    background: var(--henna-light);
+    border-left: 3px solid var(--henna);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0;
+    font-family: 'Noto Serif JP', serif;
+    font-size: .85rem;
+    color: var(--accent);
+    line-height: 1.9;
+  }
+
+  /* ── ページ一覧カード ── */
+  .page-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .page-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.4rem 1.6rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(74,82,64,.07);
+    text-decoration: none;
+    color: inherit;
+    border-left: 4px solid var(--henna);
+    transition: transform .2s, box-shadow .2s;
+    animation: fadeUp .5s ease both;
+  }
+
+  .page-card:nth-child(2) { animation-delay: .1s; border-left-color: var(--sage); }
+  .page-card:nth-child(3) { animation-delay: .2s; border-left-color: var(--earth); }
+  .page-card:nth-child(4) { animation-delay: .3s; border-left-color: var(--moss); }
+
+  .page-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74,82,64,.12);
+  }
+
+  .page-card .card-icon {
+    flex-shrink: 0;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background: var(--henna-light);
+  }
+
+  .page-card:nth-child(2) .card-icon { background: #e8f2e8; }
+  .page-card:nth-child(3) .card-icon { background: var(--warm); }
+  .page-card:nth-child(4) .card-icon { background: #e8ece4; }
+
+  .page-card .card-text h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1rem;
+    color: var(--charcoal);
+    margin-bottom: .2rem;
+  }
+
+  .page-card .card-text p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    color: #888;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .page-card .arrow {
+    margin-left: auto;
+    color: var(--dust);
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--moss);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.2rem;
+    color: var(--cream);
+    margin: 0 0 .6rem;
+  }
+
+  .cta p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    opacity: .85;
+    color: var(--cream);
+    margin-bottom: 1.2rem;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--moss);
+    padding: .7rem 2rem;
+    border-radius: 999px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: background .2s;
+  }
+
+  footer {
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    letter-spacing: .1em;
+  }
+
+  @media (max-width: 700px) {
+    nav { display: none; }
+    .hamburger { display: flex; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="site-name" href="index.html">
+    つむぎの自然派美容教室
+    <span>Hair Salon Tsumugu / Natural Beauty Guide</span>
+  </a>
+  <nav>
+    <a href="index.html">ホーム</a>
+    <a href="menu.html">メニュー</a>
+    <a href="henna.html" aria-current="page">ヘナ</a>
+    <a href="shampoo.html">シャンプー</a>
+    <a href="welcome.html">ご予約の方へ</a>
+  </nav>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMenu()">ホーム</a>
+  <a href="menu.html" onclick="toggleMenu()">メニュー</a>
+  <a href="henna.html" onclick="toggleMenu()">ヘナ</a>
+  <a href="shampoo.html" onclick="toggleMenu()">シャンプー</a>
+  <a href="welcome.html" onclick="toggleMenu()">ご予約の方へ</a>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">ホーム</a> &rsaquo; ヘナについて
+</div>
+
+<section class="hero">
+  <p class="hero-eyebrow">HENNA</p>
+  <h1>ヘナ</h1>
+  <p>数千年の歴史をもつ植物染料。<br>髪と地肌にやさしく、白髪をナチュラルにカバーします。</p>
+</section>
+
+<div class="content">
+
+  <!-- ヘナってなに？ -->
+  <section class="intro">
+    <p class="section-label">WHAT IS HENNA?</p>
+    <h2>ヘナってなに？</h2>
+
+    <p>ヘナ（Henna）は、ミソハギ科の植物「ローソニア」の葉を乾燥・粉末にした天然染料です。数千年前から中東・インド・アフリカで髪や皮膚を染めるために使われてきた、歴史ある植物成分。あのボディアートに使われるものと同じです。</p>
+
+    <p>一般的なヘアカラーは化学染料で髪の内部に色を入れますが、ヘナは髪の表面のタンパク質と結合して色をつけます。だから髪を傷つけずに、むしろコーティングしてツヤを与えながら染まるのが特徴です。</p>
+
+    <div class="callout">
+      つむぎで使っているのは天然100%手選別の<strong>ハナヘナ</strong>。市販品に多い「化学染料混じりのヘナ」とは全く別物です。白髪ケアはもちろん、頭皮ケア・トリートメントとしても大活躍します🌿
+    </div>
+
+    <p>気になる方は下のページから詳しく読んでみてください😊</p>
+  </section>
+
+  <!-- ページ一覧 -->
+  <section style="animation: fadeUp .5s ease .1s both;">
+    <p class="section-label">CONTENTS</p>
+    <h2>ヘナについてもっと知る</h2>
+
+    <div class="page-list">
+      <a class="page-card" href="henna-about.html">
+        <div class="card-icon">🌱</div>
+        <div class="card-text">
+          <h3>ヘナってなに？</h3>
+          <p>ヘナの基礎知識・普通のカラーとの違い・色の種類</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="page-card" href="menu.html">
+        <div class="card-icon">🌿</div>
+        <div class="card-text">
+          <h3>つむぎのヘナ施術</h3>
+          <p>料金・所要時間・ヘナレッスンについて</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="page-card" href="henna-home.html">
+        <div class="card-icon">🖌️</div>
+        <div class="card-text">
+          <h3>おうちヘナのやり方</h3>
+          <p>セルフヘナの手順・くるみさんの動画・塗り方のコツ</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="page-card" href="#">
+        <div class="card-icon">📖</div>
+        <div class="card-text">
+          <h3>ヘナのあれこれ（準備中）</h3>
+          <p>においの消し方・事例・ブログなど</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="page-card" href="#">
+        <div class="card-icon">❓</div>
+        <div class="card-text">
+          <h3>よくある質問（準備中）</h3>
+          <p>ヘナについてよく聞かれること</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>ヘナのこと、もっと聞きたい方へ🌿</h3>
+    <p>どんな些細なことでもお気軽にご相談ください😊</p>
+    <a class="cta-btn" href="https://lin.ee/9ADwREL">LINEで相談する</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>つむぎの自然派美容教室｜自然派美容室 つむぎ・大阪 心斎橋</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
