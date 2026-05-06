@@ -540,6 +540,124 @@
     nav:not(.mobile-nav) { display: none; }
     .hamburger { display: flex; }
   }
+
+  /* ── 食の実践セクション ── */
+  .food-section {
+    background: linear-gradient(135deg, #2a1a0a 0%, #4a3020 100%);
+    padding: 4rem 2rem;
+    margin-top: 1rem;
+  }
+
+  .food-section-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .food-section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .food-section-header .eyebrow {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .25em;
+    color: #c8a878;
+    margin-bottom: .8rem;
+  }
+
+  .food-section-header h2 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    color: #f5f0e8;
+    letter-spacing: .08em;
+    margin-bottom: .8rem;
+    border: none;
+    padding: 0;
+  }
+
+  .food-section-header p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    color: rgba(245,240,232,.7);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.9;
+  }
+
+  .food-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .food-card {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(200,168,120,.25);
+    border-radius: 10px;
+    padding: 1.6rem;
+    text-decoration: none;
+    color: var(--cream);
+    transition: background .2s, transform .2s;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    animation: fadeUp .5s ease both;
+  }
+
+  .food-card:hover {
+    background: rgba(255,255,255,.1);
+    transform: translateY(-2px);
+  }
+
+  .food-card .f-icon {
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .food-card .f-cat {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .65rem;
+    letter-spacing: .15em;
+    color: #c8a878;
+  }
+
+  .food-card h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1rem;
+    color: #f5f0e8;
+    line-height: 1.5;
+    letter-spacing: .04em;
+  }
+
+  .food-card p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .76rem;
+    color: rgba(245,240,232,.7);
+    line-height: 1.8;
+    flex: 1;
+    margin: 0;
+  }
+
+  .food-card .f-link {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    color: #c8a878;
+    letter-spacing: .08em;
+    margin-top: .3rem;
+  }
+
+  @media (max-width: 700px) {
+    .food-cards { grid-template-columns: 1fr; }
+  }
+
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 </style>
 </head>
 <body>
@@ -593,7 +711,7 @@
 
       <!-- フィーチャー記事 -->
       <article class="article-card featured" onclick="openModal()">
-        <div class="card-image">🎨</div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="ヘアカラー"></div>
         <div class="card-body">
           <div class="card-meta">
             <span class="card-cat">ヘアカラー・白髪染め</span>
@@ -609,7 +727,7 @@
 
       <!-- 記事カード2 -->
       <article class="article-card" style="animation-delay:.1s" onclick="location.href='soap-shampoo.html'">
-        <div class="card-image" style="height:160px;font-size:3rem">🧴</div>
+        <div class="card-image" style="height:160px;"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80" alt="シャンプー"></div>
         <div class="card-body">
           <div class="card-meta">
             <span class="card-cat">シャンプー・成分</span>
@@ -622,8 +740,8 @@
       </article>
 
       <!-- 記事カード3 -->
-      <article class="article-card" style="animation-delay:.2s">
-        <div class="card-image" style="height:160px;font-size:3rem">🌱</div>
+      <article class="article-card" style="animation-delay:.2s" onclick="location.href='scalp-farm.html'">
+        <div class="card-image" style="height:160px;"><img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80" alt="畑・土"></div>
         <div class="card-body">
           <div class="card-meta">
             <span class="card-cat">頭皮ケア・育毛</span>
@@ -632,6 +750,21 @@
           <h2 class="card-title">頭皮は「畑」——土が豊かじゃないと、いい毛は育たない</h2>
           <p class="card-excerpt">髪の悩みの多くは、実は頭皮の環境が原因です。農業でいう「土づくり」と同じ考え方で、頭皮ケアをとらえ直してみましょう。</p>
           <a class="read-more" href="scalp-farm.html">続きを読む →</a>
+        </div>
+      </article>
+
+
+      <!-- 記事カード4 -->
+      <article class="article-card" style="animation-delay:.3s" onclick="location.href='bone-broth.html'">
+        <div class="card-image" style="height:160px;"><img src="bone-broth-soup.jpg" alt="骨髄スープ"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-cat">食事と髪</span>
+            <span class="card-date">2025年5月</span>
+          </div>
+          <h2 class="card-title">髪は内側からつくられる——鹿骨髄スープと頭皮の話</h2>
+          <p class="card-excerpt">外側からどんなケアをしても、材料が届いていなければ髪は育たない。京北の狩猟から生まれた骨髄スープが、なぜ髪にいいのか。</p>
+          <a class="read-more" href="bone-broth.html">続きを読む →</a>
         </div>
       </article>
 
@@ -669,6 +802,44 @@
     </div>
   </aside>
 </div>
+
+
+<!-- 食の実践セクション -->
+<section class="food-section">
+  <div class="food-section-inner">
+    <div class="food-section-header">
+      <p class="eyebrow">FOOD &amp; HAIR PRACTICE</p>
+      <h2>食の実践</h2>
+      <p>髪と頭皮は、内側からつくられます。「何を食べるか」という視点で、日々の実践を積み重ねています。</p>
+    </div>
+
+    <div class="food-cards">
+      <a class="food-card" href="bone-broth.html">
+        <span class="f-icon">🦌</span>
+        <span class="f-cat">ボーンブロス・出汁</span>
+        <h3>鹿骨髄スープ——命を丸ごと、髪と体へ</h3>
+        <p>京北で獲れた鹿の骨髄を山水でことこと炊いたスープ。コラーゲン・ミネラルが凝縮した、シンプルで滋養あふれる一杯。</p>
+        <span class="f-link">読む →</span>
+      </a>
+
+      <div class="food-card" style="opacity:.5;cursor:default;">
+        <span class="f-icon">🫙</span>
+        <span class="f-cat">発酵・腸活（近日公開）</span>
+        <h3>発酵食品と頭皮の意外な関係</h3>
+        <p>腸内環境は頭皮環境にもつながっています。味噌・糠床・麹——日本の発酵文化と髪の健康の話。</p>
+        <span class="f-link">準備中</span>
+      </div>
+
+      <div class="food-card" style="opacity:.5;cursor:default;">
+        <span class="f-icon">🌾</span>
+        <span class="f-cat">旬の食材（近日公開）</span>
+        <h3>季節の食材で髪を整える</h3>
+        <p>春の山菜、秋のきのこ、冬の根菜——旬のものを食べることが、なぜ体と髪にとって大切なのか。</p>
+        <span class="f-link">準備中</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- フッター -->
 <footer>
