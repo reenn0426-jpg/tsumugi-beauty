@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>発酵の力——酵素ジュース・柿酢・味噌と髪の話 | つむぎの自然派美容教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --moss:    #4a5240;
+    --sage:    #7a8c6e;
+    --cream:   #f5f0e8;
+    --warm:    #ede6d6;
+    --earth:   #9c7c5a;
+    --charcoal:#2c2c28;
+    --dust:    #c8b99a;
+    --accent:  #7c6348;
+    --henna:   #c45c1a;
+    --ferment: #5a7a3a;
+    --ferment-light: #eaf2e0;
+    --vinegar: #8a6a20;
+    --vinegar-light: #f5f0d8;
+    --miso:    #7a4a20;
+    --miso-light: #f5e8d8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Serif JP', serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.9;
+  }
+
+  header {
+    background: var(--moss);
+    color: var(--cream);
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid var(--sage);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .site-name {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.1rem;
+    letter-spacing: .15em;
+    text-decoration: none;
+    color: var(--cream);
+  }
+  .site-name span {
+    font-size: .7rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    opacity: .75;
+    display: block;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100vw - 80px);
+  }
+
+  nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    margin-left: 1.8rem;
+    opacity: .85;
+    transition: opacity .2s;
+  }
+  nav a:hover { opacity: 1; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: .5rem;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--cream);
+    border-radius: 2px;
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    background: var(--moss);
+    z-index: 99;
+    padding-top: 70px;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--sage);
+  }
+  .mobile-nav.open { display: block; }
+  .mobile-nav a {
+    display: block;
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .9rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    padding: .8rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  .breadcrumb {
+    padding: 1rem 2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: var(--earth);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .breadcrumb a { color: var(--sage); text-decoration: none; }
+
+  /* ── ヒーロー ── */
+  .hero {
+    background: linear-gradient(135deg, #1a2a0a 0%, #3a5a20 100%);
+    color: var(--cream);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '🫙';
+    position: absolute;
+    font-size: 12rem;
+    opacity: .07;
+    top: -1rem; right: -1rem;
+    line-height: 1;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 100%; height: 50px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-eyebrow {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .15em;
+    color: #a8d888;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: clamp(1.5rem, 4.5vw, 2.6rem);
+    letter-spacing: .06em;
+    line-height: 1.6;
+    margin-bottom: .8rem;
+  }
+  .hero p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .88rem;
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto;
+    color: #d8f0c0;
+    line-height: 1.9;
+    text-align: left;
+  }
+
+  .article-meta {
+    display: flex;
+    gap: .8rem;
+    align-items: center;
+    padding: 1.5rem 2rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: #999;
+    flex-wrap: wrap;
+  }
+  .article-meta .cat {
+    background: rgba(90,122,58,.12);
+    color: var(--ferment);
+    padding: .2rem .7rem;
+    border-radius: 3px;
+    letter-spacing: .08em;
+  }
+
+  /* ── コンテンツ ── */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 5rem;
+  }
+
+  .section { margin-bottom: 3.5rem; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .2em;
+    color: var(--ferment);
+    margin-bottom: .8rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--ferment);
+  }
+  .section-label.vinegar { color: var(--vinegar); }
+  .section-label.vinegar::before { background: var(--vinegar); }
+  .section-label.miso { color: var(--miso); }
+  .section-label.miso::before { background: var(--miso); }
+
+  h2 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.35rem;
+    letter-spacing: .06em;
+    color: var(--charcoal);
+    margin-bottom: 1.2rem;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid var(--dust);
+  }
+
+  h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.05rem;
+    color: var(--moss);
+    margin: 2rem 0 .8rem;
+    padding-left: .8rem;
+    border-left: 3px solid var(--sage);
+  }
+
+  p {
+    font-size: .9rem;
+    line-height: 2.1;
+    color: #444;
+    margin-bottom: 1.2rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+    line-height: 2.2;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── callout各色 ── */
+  .callout {
+    border-left: 3px solid var(--ferment);
+    background: var(--ferment-light);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0;
+    font-family: 'Noto Serif JP', serif;
+    font-size: .88rem;
+    color: #2a4a1a;
+    line-height: 2;
+  }
+  .callout.vinegar {
+    border-left-color: var(--vinegar);
+    background: var(--vinegar-light);
+    color: #4a3a0a;
+  }
+  .callout.miso {
+    border-left-color: var(--miso);
+    background: var(--miso-light);
+    color: #4a2a0a;
+  }
+
+  /* ── 発酵アイテムカード ── */
+  .ferment-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(74,82,64,.08);
+    margin-bottom: 3rem;
+    animation: fadeUp .5s ease both;
+  }
+
+  .ferment-card .fc-header {
+    padding: 1.4rem 1.8rem 1.2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border-bottom: 1px solid var(--dust);
+  }
+  .ferment-card .fc-header.enzyme { background: var(--ferment-light); border-bottom-color: #c8e0a8; }
+  .ferment-card .fc-header.vinegar { background: var(--vinegar-light); border-bottom-color: #e0d4a0; }
+  .ferment-card .fc-header.miso { background: var(--miso-light); border-bottom-color: #e0c4a0; }
+
+  .fc-icon { font-size: 2.4rem; flex-shrink: 0; }
+
+  .fc-title-block h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.15rem;
+    color: var(--charcoal);
+    margin: 0 0 .2rem;
+    padding: 0;
+    border: none;
+  }
+  .fc-title-block .fc-sub {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: #888;
+    letter-spacing: .08em;
+  }
+
+  .ferment-card .fc-body {
+    padding: 1.6rem 1.8rem;
+  }
+
+  /* ── 効果タグ ── */
+  .effect-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin: 1rem 0 1.2rem;
+  }
+  .effect-tag {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    padding: .25rem .8rem;
+    border-radius: 999px;
+    letter-spacing: .05em;
+  }
+  .effect-tag.green { background: var(--ferment-light); color: var(--ferment); }
+  .effect-tag.yellow { background: var(--vinegar-light); color: var(--vinegar); }
+  .effect-tag.brown { background: var(--miso-light); color: var(--miso); }
+
+  /* ── 果実リスト ── */
+  .fruit-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    margin: .8rem 0 1.2rem;
+  }
+  .fruit-tag {
+    background: var(--ferment-light);
+    border: 1px solid #b0d890;
+    color: var(--ferment);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    padding: .3rem .9rem;
+    border-radius: 999px;
+    letter-spacing: .05em;
+  }
+
+  /* ── 写真プレースホルダー ── */
+  .photo-slot {
+    width: 100%;
+    height: 220px;
+    background: var(--warm);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    color: #bbb;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .08em;
+    border: 2px dashed var(--dust);
+    margin-top: 1.2rem;
+  }
+  .photo-slot .ph-icon { font-size: 2rem; opacity: .4; }
+  .photo-slot img {
+    width: 100%; height: 100%;
+    object-fit: cover; border-radius: 6px; display: block;
+  }
+
+  /* ── まとめセクション ── */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .summary-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1.2rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(74,82,64,.07);
+    animation: fadeUp .5s ease both;
+  }
+  .summary-item .s-icon { font-size: 2rem; margin-bottom: .5rem; }
+  .summary-item h4 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: .88rem;
+    color: var(--charcoal);
+    margin-bottom: .4rem;
+  }
+  .summary-item p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: #777;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ── 関連・CTA ── */
+  .related {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .related a {
+    background: white;
+    border-radius: 10px;
+    padding: 1.3rem 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(74,82,64,.06);
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--dust);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .related a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(74,82,64,.12); }
+  .r-icon { flex-shrink:0; width:48px; height:48px; border-radius:50%; background:var(--ferment-light); display:flex; align-items:center; justify-content:center; font-size:1.4rem; }
+  .related h4 { font-family:'Zen Antique Soft',serif; font-size:.95rem; color:var(--charcoal); margin-bottom:.2rem; }
+  .related p { font-family:'Noto Sans JP',sans-serif; font-size:.75rem; color:#888; margin:0; line-height:1.5; }
+  .arrow { margin-left:auto; color:var(--dust); font-size:1rem; flex-shrink:0; }
+
+  .cta {
+    background: var(--moss);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .cta h3 { font-family:'Zen Antique Soft',serif; font-size:1.2rem; color:var(--cream); margin:0 0 .6rem; }
+  .cta p { font-family:'Noto Sans JP',sans-serif; font-size:.82rem; opacity:.85; color:var(--cream); margin-bottom:1.2rem; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--moss);
+    padding: .7rem 2rem;
+    border-radius: 999px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .cta-btn:hover { background: var(--warm); }
+
+  .author-line {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .78rem;
+    color: #aaa;
+    margin-top: 2rem;
+    text-align: right;
+  }
+
+  footer {
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    letter-spacing: .1em;
+  }
+
+  @media (max-width: 700px) {
+    nav:not(.mobile-nav) { display: none; }
+    .hamburger { display: flex; }
+    .summary-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="site-name" href="index.html">
+    つむぎの自然派美容教室
+    <span>Hair Salon Tsumugu / Natural Beauty Guide</span>
+  </a>
+  <nav>
+    <a href="menu.html">メニュー</a>
+    <a href="henna.html">ヘナ</a>
+    <a href="shampoo.html">シャンプー</a>
+    <a href="welcome.html">ご予約の方へ</a>
+    <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener">ショップ</a>
+  </nav>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMenu()">ホーム</a>
+  <a href="menu.html" onclick="toggleMenu()">メニュー</a>
+  <a href="henna.html" onclick="toggleMenu()">ヘナ</a>
+  <a href="shampoo.html" onclick="toggleMenu()">シャンプー</a>
+  <a href="welcome.html" onclick="toggleMenu()">ご予約の方へ</a>
+  <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener" onclick="toggleMenu()">ショップ</a>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">ホーム</a> &rsaquo; 発酵の力
+</div>
+
+<section class="hero">
+  <p class="hero-eyebrow">FERMENTATION &amp; HAIR</p>
+  <h1>発酵の力——<br>酵素ジュース・柿酢・味噌と<br>髪の話</h1>
+  <p>腸が整うと、頭皮も変わる。京北の自然から生まれた発酵食品が、髪と体にもたらすものを語ります。</p>
+</section>
+
+<div class="article-meta">
+  <span class="cat">発酵・腸活</span>
+  <span>2025年5月</span>
+</div>
+
+<div class="content">
+
+  <!-- 導入 -->
+  <section class="section" style="animation: fadeUp .5s ease both;">
+    <p class="lead">「腸は第二の脳」とよく言われますが、腸と頭皮の関係はあまり知られていません。腸内環境が乱れると、栄養の吸収が落ち、炎症が起きやすくなり、それが頭皮や髪の状態にも影響します。</p>
+
+    <p>発酵食品には、腸内の善玉菌を育てる乳酸菌・酵素・有機酸が豊富に含まれています。薬や補助食品ではなく、毎日の食事の中に自然に発酵を取り入れていく——それが一番続けやすくて、体にも無理がない方法です。</p>
+
+    <p>私が京北で実践している発酵食品を3つご紹介します。どれも、野生や自然農の素材から手づくりしているものです。</p>
+
+    <div class="callout">
+      骨髄スープが「外からの栄養補給」だとしたら、発酵食品は「腸という土台を整える」役割。両方が揃ってはじめて、髪が育つ環境がつくられます🌱
+    </div>
+  </section>
+
+  <!-- 酵素ジュース -->
+  <section class="section" style="animation: fadeUp .5s ease .1s both;">
+    <p class="section-label">ENZYME JUICE</p>
+    <h2>① 野生果実の酵素ジュース</h2>
+
+    <div class="ferment-card">
+      <div class="fc-header enzyme">
+        <span class="fc-icon">🍋</span>
+        <div class="fc-title-block">
+          <h3>協生農法・野生採集の果実で仕込む</h3>
+          <p class="fc-sub">梅・ウスラウメ・はっさく・きいちご など</p>
+        </div>
+      </div>
+      <div class="fc-body">
+        <p>酵素ジュースは、生の果実と砂糖を発酵させてつくる飲み物です。果実が持つ天然の酵素・ビタミン・ポリフェノールが、発酵によってさらに体に吸収されやすい形になります。</p>
+
+        <p>私が使う果実は、京北の協生農法の畑や山で採集したもの。農薬も化学肥料も使わない土地で育った果実は、香りが濃くて生命力が違います。梅のほかにも、ウスラウメ・はっさく・きいちごなど、季節に採れたものをそのまま仕込みます。</p>
+
+        <h3>使っている果実</h3>
+        <div class="fruit-list">
+          <span class="fruit-tag">🌸 梅</span>
+          <span class="fruit-tag">🫐 ウスラウメ</span>
+          <span class="fruit-tag">🍊 はっさく</span>
+          <span class="fruit-tag">🍓 きいちご</span>
+        </div>
+
+        <h3>髪と頭皮への働き</h3>
+        <div class="effect-tags">
+          <span class="effect-tag green">酵素補給</span>
+          <span class="effect-tag green">腸内環境を整える</span>
+          <span class="effect-tag green">ビタミンC・ポリフェノール</span>
+          <span class="effect-tag green">抗酸化作用</span>
+        </div>
+        <p>酵素は食べ物の消化・吸収を助け、栄養が髪の毛根まで届きやすくなります。ビタミンCはコラーゲン合成に欠かせない成分で、頭皮の弾力を保つのに重要。ポリフェノールの抗酸化作用は、頭皮の酸化（老化）を穏やかに抑えてくれます。</p>
+
+        <div class="callout">
+          市販のジュースと決定的に違うのは「生きた酵素が入っていること」。加熱処理されたものには酵素は残りません。手づくりだからこそ、生のままの力を体に届けられます🌿
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=800&q=80" alt="酵素ジュース" style="width:100%;height:220px;object-fit:cover;border-radius:8px;display:block;margin-top:1.2rem;">
+        <p style="font-family:'Noto Sans JP',sans-serif;font-size:.65rem;color:#aaa;text-align:right;margin-top:.3rem;">Photo: Unsplash / Kaizen Nguyễn</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 柿酢 -->
+  <section class="section" style="animation: fadeUp .5s ease .15s both;">
+    <p class="section-label vinegar">PERSIMMON VINEGAR</p>
+    <h2>② 柿酢</h2>
+
+    <div class="ferment-card">
+      <div class="fc-header vinegar">
+        <span class="fc-icon">🍂</span>
+        <div class="fc-title-block">
+          <h3>柿から生まれる、やさしい酸味</h3>
+          <p class="fc-sub">柿 → アルコール発酵 → 酢酸発酵の2段階</p>
+        </div>
+      </div>
+      <div class="fc-body">
+        <p>柿酢は、熟した柿をそのまま発酵させてつくる果実酢です。柿がアルコール発酵し、さらに酢酸発酵することで、やさしい酸味とともに豊かな栄養が生まれます。</p>
+
+        <p>市販の醸造酢と違い、柿酢には柿由来のタンニン・ポリフェノール・ミネラルがそのまま含まれています。味もまろやかで、毎日の料理や飲み物に使いやすいのが特徴です。</p>
+
+        <h3>髪と頭皮への働き</h3>
+        <div class="effect-tags">
+          <span class="effect-tag yellow">酢酸で血流促進</span>
+          <span class="effect-tag yellow">タンニンで頭皮収れん</span>
+          <span class="effect-tag yellow">ミネラル補給</span>
+          <span class="effect-tag yellow">腸内pH調整</span>
+        </div>
+        <p>酢酸は血行を促進し、毛根への栄養が届きやすい状態をつくります。柿に含まれるタンニンには収れん作用があり、頭皮の引き締めにも。腸のpHを整えることで、ミネラルの吸収率も上がります。</p>
+
+        <h3>日常での使い方</h3>
+        <p>水で薄めてそのまま飲む「酢ドリンク」が一番シンプル。ドレッシング・酢の物・炒め物の隠し味としても使えます。毎日少量を続けることが大切で、「今日も飲んだ」という小さな積み重ねが、じわじわと体を変えていきます。</p>
+
+        <div class="callout vinegar">
+          石けんシャンプー後のクエン酸リンスと同じように、「弱酸性」は頭皮にとって大切なキーワード。柿酢を飲むことで体の内側からも酸・アルカリバランスを整えることができます🍂
+        </div>
+
+        <!-- 写真プレースホルダー -->
+        <div class="photo-slot">
+          <!-- 写真が用意できたら: <img src="kaki-su.jpg" alt="柿酢"> に差し替え -->
+          <span class="ph-icon">🍂</span>
+          <span>柿酢の写真<br>（準備中）</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 味噌 -->
+  <section class="section" style="animation: fadeUp .5s ease .2s both;">
+    <p class="section-label miso">MISO</p>
+    <h2>③ 手前味噌</h2>
+
+    <div class="ferment-card">
+      <div class="fc-header miso">
+        <span class="fc-icon">🫙</span>
+        <div class="fc-title-block">
+          <h3>日本が誇る発酵食品の王様</h3>
+          <p class="fc-sub">大豆 × 塩 × 麹 → 時間が生み出す深い味</p>
+        </div>
+      </div>
+      <div class="fc-body">
+        <p>味噌は日本の発酵食品の中でも、もっとも歴史が深く、栄養バランスに優れたものの一つです。大豆・塩・麹というシンプルな材料から、時間をかけて無数の栄養素が生まれます。</p>
+
+        <p>手前味噌（自家製）の良さは、麹菌が生きていること。市販の加熱処理された味噌と違い、酵素・乳酸菌が活きたまま体に届きます。毎日の味噌汁一杯が、腸内環境の最強の味方です。</p>
+
+        <h3>髪と頭皮への働き</h3>
+        <div class="effect-tags">
+          <span class="effect-tag brown">良質なタンパク質・アミノ酸</span>
+          <span class="effect-tag brown">乳酸菌・麹菌</span>
+          <span class="effect-tag brown">ビタミンB群</span>
+          <span class="effect-tag brown">亜鉛・鉄</span>
+        </div>
+        <p>大豆由来のタンパク質は、髪の主成分ケラチンの材料になります。ビタミンB群は頭皮の細胞代謝を助け、亜鉛・鉄は毛母細胞の働きをサポート。乳酸菌・麹菌は腸内環境を整え、これらの栄養素が体にしっかり吸収される土台をつくります。</p>
+
+        <h3>手前味噌が特別な理由</h3>
+        <p>市販の味噌は流通の都合上、加熱処理されているものが多く、酵素・乳酸菌が失活しています。手前味噌は麹が生きたままなので、食べるたびに生きた菌を腸に届けることができます。また、素材の配合や塩加減を自分で決められるのも自家製の大きな魅力です。</p>
+
+        <div class="callout miso">
+          「一汁三菜」という日本の食文化は、髪と体にとって理にかなった食べ方です。毎日の味噌汁を手前味噌でつくる——それだけで、食事全体の質が変わってきます🫙
+        </div>
+
+        <!-- 写真プレースホルダー -->
+        <div class="photo-slot">
+          <!-- 写真が用意できたら: <img src="miso.jpg" alt="手前味噌"> に差し替え -->
+          <span class="ph-icon">🫙</span>
+          <span>手前味噌の写真<br>（準備中）</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- まとめ -->
+  <section class="section" style="animation: fadeUp .5s ease .25s both;">
+    <p class="section-label">SUMMARY</p>
+    <h2>3つの発酵食品が体にもたらすこと</h2>
+
+    <div class="summary-grid">
+      <div class="summary-item">
+        <div class="s-icon">🍋</div>
+        <h4>酵素ジュース</h4>
+        <p>生きた酵素・ビタミンCで消化吸収力を上げる</p>
+      </div>
+      <div class="summary-item" style="animation-delay:.1s">
+        <div class="s-icon">🍂</div>
+        <h4>柿酢</h4>
+        <p>血行促進・頭皮収れん・腸のpH調整</p>
+      </div>
+      <div class="summary-item" style="animation-delay:.2s">
+        <div class="s-icon">🫙</div>
+        <h4>手前味噌</h4>
+        <p>良質なタンパク質と生きた乳酸菌で腸を整える</p>
+      </div>
+    </div>
+
+    <p>3つに共通するのは「腸内環境を整える」という働きです。腸が元気だと栄養の吸収が上がり、免疫が整い、頭皮の炎症が起きにくくなります。髪のケアは外側だけではなく、内側の環境づくりから——発酵食品はその最初の一歩です。</p>
+  </section>
+
+  <!-- 圭子さんの言葉 -->
+  <section class="section" style="animation: fadeUp .5s ease .3s both;">
+    <p class="section-label">FROM KEIKO</p>
+    <h2>自然のリズムの中で発酵と生きる</h2>
+
+    <p>京北に移り住んでから、季節ごとに何かを仕込む生活が当たり前になりました。梅が採れたら酵素ジュース、柿が落ちたら柿酢、冬の手前には味噌仕込み。</p>
+
+    <p>発酵は「待つ」ことが必要です。急かせず、温度と時間に任せる。その感覚が、美容の仕事にも通じると感じています。頭皮も髪も、急に変わることはない。でも、正しい方向に続けていけば、必ず変わる。</p>
+
+    <p>「体の外側にいいものを使う」だけでなく、「内側から整える」という視点を持つと、美容との向き合い方がまるごと変わります。まずは毎日の食事から、ひとつだけ発酵を取り入れてみてください。</p>
+
+    <p class="author-line">つむぎ・野下圭子</p>
+  </section>
+
+  <!-- 関連ページ -->
+  <section class="section">
+    <p class="section-label">NEXT</p>
+    <h2>あわせて読む</h2>
+    <div class="related">
+      <a href="bone-broth.html">
+        <div class="r-icon">🦌</div>
+        <div>
+          <h4>鹿骨髄スープと頭皮の話</h4>
+          <p>髪は内側からつくられる——食の実践、第一弾</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="scalp-farm.html">
+        <div class="r-icon">🌱</div>
+        <div>
+          <h4>頭皮は「畑」</h4>
+          <p>土が豊かじゃないと、いい毛は育たない</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="shampoo.html">
+        <div class="r-icon">🧴</div>
+        <div>
+          <h4>シャンプーについて</h4>
+          <p>外側のケアと内側のケアを両方整える</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>発酵生活、一緒に始めてみませんか🌿</h3>
+    <p>「何から始めればいい？」気になることはLINEでお気軽に。</p>
+    <a class="cta-btn" href="https://lin.ee/9ADwREL" target="_blank" rel="noopener">LINEで相談する</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>つむぎの自然派美容教室｜自然派美容室 つむぎ・大阪 心斎橋</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
