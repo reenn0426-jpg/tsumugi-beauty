@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>「ノンシリコン」は本当にいいの？シャンプー成分を読む基本 | つむぎの自然派美容教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --moss:    #4a5240;
+    --sage:    #7a8c6e;
+    --cream:   #f5f0e8;
+    --warm:    #ede6d6;
+    --earth:   #9c7c5a;
+    --charcoal:#2c2c28;
+    --dust:    #c8b99a;
+    --accent:  #7c6348;
+    --teal:    #3a7a6a;
+    --teal-light: #e0f0ec;
+    --warn:    #c45c1a;
+    --warn-light: #fdf0e8;
+    --good:    #4a7a3a;
+    --good-light: #eaf2e0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Serif JP', serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.9;
+  }
+
+  header {
+    background: var(--moss);
+    color: var(--cream);
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid var(--sage);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .site-name {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.1rem;
+    letter-spacing: .15em;
+    text-decoration: none;
+    color: var(--cream);
+  }
+  .site-name span {
+    font-size: .7rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    opacity: .75;
+    display: block;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100vw - 80px);
+  }
+
+  nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    margin-left: 1.8rem;
+    opacity: .85;
+    transition: opacity .2s;
+  }
+  nav a:hover { opacity: 1; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: .5rem;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--cream);
+    border-radius: 2px;
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    background: var(--moss);
+    z-index: 99;
+    padding-top: 70px;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--sage);
+  }
+  .mobile-nav.open { display: block; }
+  .mobile-nav a {
+    display: block;
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .9rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    padding: .8rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  .breadcrumb {
+    padding: 1rem 2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: var(--earth);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .breadcrumb a { color: var(--sage); text-decoration: none; }
+
+  /* ── ヒーロー ── */
+  .hero {
+    background: linear-gradient(135deg, #1a2a28 0%, var(--teal) 100%);
+    color: var(--cream);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '🧴';
+    position: absolute;
+    font-size: 12rem;
+    opacity: .07;
+    top: -1rem; right: -1rem;
+    line-height: 1;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 100%; height: 50px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-eyebrow {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .15em;
+    color: #a8d8c8;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: clamp(1.5rem, 4.5vw, 2.6rem);
+    letter-spacing: .06em;
+    line-height: 1.6;
+    margin-bottom: .8rem;
+  }
+  .hero p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .88rem;
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto;
+    color: #c8ede4;
+    line-height: 1.9;
+    text-align: left;
+  }
+
+  .article-meta {
+    display: flex;
+    gap: .8rem;
+    align-items: center;
+    padding: 1.5rem 2rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: #999;
+    flex-wrap: wrap;
+  }
+  .article-meta .cat {
+    background: rgba(58,122,106,.12);
+    color: var(--teal);
+    padding: .2rem .7rem;
+    border-radius: 3px;
+    letter-spacing: .08em;
+  }
+
+  /* ── コンテンツ ── */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 5rem;
+  }
+
+  .section { margin-bottom: 3rem; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .2em;
+    color: var(--teal);
+    margin-bottom: .8rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--teal);
+  }
+
+  h2 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.35rem;
+    letter-spacing: .06em;
+    color: var(--charcoal);
+    margin-bottom: 1.2rem;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid var(--dust);
+  }
+
+  h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.05rem;
+    color: var(--teal);
+    margin: 2rem 0 .8rem;
+    padding-left: .8rem;
+    border-left: 3px solid var(--teal);
+  }
+
+  p {
+    font-size: .9rem;
+    line-height: 2.1;
+    color: #444;
+    margin-bottom: 1.2rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+    line-height: 2.2;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+
+  .callout {
+    background: var(--teal-light);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0;
+    font-family: 'Noto Serif JP', serif;
+    font-size: .88rem;
+    color: #1a3a30;
+    line-height: 2;
+  }
+  .callout.warn {
+    background: var(--warn-light);
+    border-left-color: var(--warn);
+    color: #5a2a0a;
+  }
+
+  /* ── 成分表ラベル説明 ── */
+  .label-demo {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 16px rgba(74,82,64,.08);
+    margin: 1.5rem 0;
+    border: 1px solid var(--dust);
+  }
+  .label-demo .l-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .7rem;
+    letter-spacing: .15em;
+    color: #999;
+    margin-bottom: .8rem;
+  }
+  .label-demo .ingredient-list {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    line-height: 2.2;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    background: #fafafa;
+  }
+  .label-demo .ing-highlight {
+    background: #fff0b0;
+    padding: .1rem .3rem;
+    border-radius: 3px;
+    font-weight: 400;
+  }
+  .label-demo .ing-soap {
+    background: #d0f0e8;
+    padding: .1rem .3rem;
+    border-radius: 3px;
+  }
+  .label-demo .label-note {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: #888;
+    margin-top: .8rem;
+    line-height: 1.8;
+  }
+
+  /* ── 洗浄成分一覧表 ── */
+  .ingredient-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    box-shadow: 0 2px 12px rgba(74,82,64,.08);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .ingredient-table thead tr {
+    background: var(--moss);
+    color: var(--cream);
+  }
+
+  .ingredient-table thead th {
+    padding: .9rem 1rem;
+    text-align: left;
+    letter-spacing: .08em;
+    font-weight: 400;
+  }
+
+  .ingredient-table tbody tr {
+    border-bottom: 1px solid #e8e0d0;
+  }
+
+  .ingredient-table tbody tr:last-child { border-bottom: none; }
+
+  .ingredient-table tbody tr:nth-child(even) {
+    background: rgba(245,240,232,.5);
+  }
+
+  .ingredient-table td {
+    padding: .85rem 1rem;
+    vertical-align: top;
+    line-height: 1.8;
+    color: #444;
+  }
+
+  .ingredient-table td:first-child {
+    font-size: .75rem;
+    color: #888;
+    white-space: nowrap;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: .65rem;
+    padding: .15rem .6rem;
+    border-radius: 999px;
+    letter-spacing: .06em;
+    white-space: nowrap;
+  }
+  .badge.ng { background: #fde8d8; color: #a03000; }
+  .badge.caution { background: #fff0b0; color: #806000; }
+  .badge.ok { background: var(--good-light); color: var(--good); }
+  .badge.best { background: #d0f0e8; color: #1a5a40; }
+
+  /* ── チェックポイント ── */
+  .check-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.4rem 1.6rem;
+    box-shadow: 0 2px 12px rgba(74,82,64,.07);
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    animation: fadeUp .5s ease both;
+  }
+  .check-card .c-icon {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    margin-top: .1rem;
+  }
+  .check-card .c-icon.ng { background: #fde8d8; }
+  .check-card .c-icon.ok { background: var(--good-light); }
+  .check-card h4 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: .98rem;
+    color: var(--charcoal);
+    margin-bottom: .3rem;
+  }
+  .check-card p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    color: #666;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  /* ── 関連・CTA ── */
+  .related {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .related a {
+    background: white;
+    border-radius: 10px;
+    padding: 1.3rem 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(74,82,64,.06);
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--dust);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .related a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(74,82,64,.12); }
+  .r-icon { flex-shrink:0; width:48px; height:48px; border-radius:50%; background:var(--teal-light); display:flex; align-items:center; justify-content:center; font-size:1.4rem; }
+  .related h4 { font-family:'Zen Antique Soft',serif; font-size:.95rem; color:var(--charcoal); margin-bottom:.2rem; }
+  .related p { font-family:'Noto Sans JP',sans-serif; font-size:.75rem; color:#888; margin:0; line-height:1.5; }
+  .arrow { margin-left:auto; color:var(--dust); font-size:1rem; flex-shrink:0; }
+
+  .cta {
+    background: var(--moss);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .cta h3 { font-family:'Zen Antique Soft',serif; font-size:1.2rem; color:var(--cream); margin:0 0 .6rem; }
+  .cta p { font-family:'Noto Sans JP',sans-serif; font-size:.82rem; opacity:.85; color:var(--cream); margin-bottom:1.2rem; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--moss);
+    padding: .7rem 2rem;
+    border-radius: 999px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .cta-btn:hover { background: var(--warm); }
+
+  .author-line {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .78rem;
+    color: #aaa;
+    margin-top: 2rem;
+    text-align: right;
+  }
+
+  footer {
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    letter-spacing: .1em;
+  }
+
+  @media (max-width: 700px) {
+    nav:not(.mobile-nav) { display: none; }
+    .hamburger { display: flex; }
+    .ingredient-table { font-size: .72rem; }
+    .ingredient-table td, .ingredient-table th { padding: .7rem .7rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="site-name" href="index.html">
+    つむぎの自然派美容教室
+    <span>Hair Salon Tsumugu / Natural Beauty Guide</span>
+  </a>
+  <nav>
+    <a href="menu.html">メニュー</a>
+    <a href="henna.html">ヘナ</a>
+    <a href="shampoo.html">シャンプー</a>
+    <a href="welcome.html">ご予約の方へ</a>
+    <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener">ショップ</a>
+  </nav>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMenu()">ホーム</a>
+  <a href="menu.html" onclick="toggleMenu()">メニュー</a>
+  <a href="henna.html" onclick="toggleMenu()">ヘナ</a>
+  <a href="shampoo.html" onclick="toggleMenu()">シャンプー</a>
+  <a href="welcome.html" onclick="toggleMenu()">ご予約の方へ</a>
+  <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener" onclick="toggleMenu()">ショップ</a>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">ホーム</a> &rsaquo; 「ノンシリコン」は本当にいいの？
+</div>
+
+<section class="hero">
+  <p class="hero-eyebrow">SHAMPOO INGREDIENTS</p>
+  <h1>「ノンシリコン」は<br>本当にいいの？<br>シャンプー成分を読む基本</h1>
+  <p>シャンプー選びで大切なのは、シリコンや防腐剤の「有無」ではありません。本当に見るべき場所は、成分表記の最初の数行です。</p>
+</section>
+
+<div class="article-meta">
+  <span class="cat">シャンプー・成分</span>
+  <span>2025年3月</span>
+</div>
+
+<div class="content">
+
+  <!-- 導入 -->
+  <section class="section" style="animation: fadeUp .5s ease both;">
+    <p class="lead">「ノンシリコンだから安心」「シリコン入りは髪に悪い」——そんな言葉を聞いたことはありませんか？</p>
+
+    <p>シャンプーを選ぶときに重要なのは、シリコンや防腐剤などの添加物の有無ではありません。ノンシリコンをうたっていても、地肌や髪の毛、自然環境に負担をかけるものはたくさんあります。</p>
+
+    <p>大切なのはまず、<strong>どんな成分でできているのか</strong>を知ること。そのための読み方をお伝えします。</p>
+
+    <div class="callout">
+      「ノンシリコン」「天然由来」「植物性」などのキャッチコピーは、あくまでマーケティングの言葉です。成分表記を自分で読めるようになると、シャンプー選びが根本から変わります🌿
+    </div>
+  </section>
+
+  <!-- 成分表の読み方 -->
+  <section class="section" style="animation: fadeUp .5s ease .1s both;">
+    <p class="section-label">HOW TO READ</p>
+    <h2>成分表記の読み方</h2>
+
+    <p>シャンプーのメインは<strong>洗浄剤</strong>です。洗浄剤はシャンプーの成分表記の最初に、水の次に書かれています。成分表記は<strong>配合量が多い順</strong>に記載されているので、最初の数種類が洗浄成分です。</p>
+
+    <p>後になるほど配合量は少なく、「ハーブエキス配合」などと書かれていても、実際には本当に気持ち程度しか入っていないことがほとんどです。</p>
+
+    <h3>成分表記の例</h3>
+    <div class="label-demo">
+      <p class="l-title">── 成分表示の例（一般的な市販シャンプー）──</p>
+      <div class="ingredient-list">
+        水、<span class="ing-highlight">ラウレス硫酸Na</span>、<span class="ing-highlight">ラウリル硫酸Na</span>、コカミドプロピルベタイン、塩化Na、クエン酸、グリセリン、パンテノール、ジメチコン、フェノキシエタノール、カミツレ花エキス、アロエベラ葉エキス、ローズヒップ果実エキス
+      </div>
+      <p class="label-note">
+        ⚠️ 黄色マーカー部分が洗浄成分です。水の次に来ているものが最も多く配合されています。<br>
+        ハーブエキス類は末尾にあるため、配合量はごくわずか。「ハーブ配合」の効果はほぼ期待できません。
+      </p>
+    </div>
+
+    <div class="callout">
+      成分表記で最初に確認すべきは「水の次に何が来ているか」。そこに書かれているのが、そのシャンプーの主役の洗浄成分です。
+    </div>
+  </section>
+
+  <!-- 洗浄成分の種類 -->
+  <section class="section" style="animation: fadeUp .5s ease .15s both;">
+    <p class="section-label">CLEANSING AGENTS</p>
+    <h2>よくある洗浄成分一覧</h2>
+
+    <p>洗浄成分が<strong>合成界面活性剤なのか、石けん系なのか</strong>——そこを確認することが大切です。</p>
+
+    <table class="ingredient-table">
+      <thead>
+        <tr>
+          <th>種類</th>
+          <th>成分名（例）</th>
+          <th>特徴</th>
+          <th>評価</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>硫酸系</td>
+          <td>ラウレス硫酸Na<br>ラウリル硫酸Na</td>
+          <td>洗浄力が非常に強く、頭皮の皮脂・常在菌を過剰に落とす。刺激が強く、肌荒れ・かゆみの原因になりやすい。環境負荷も高い。</td>
+          <td><span class="badge ng">要注意</span></td>
+        </tr>
+        <tr>
+          <td>スルホン酸系</td>
+          <td>オレフィン(C14-16)スルホン酸Na</td>
+          <td>硫酸系と同等の強い洗浄力。「硫酸フリー」製品に代替として使われることが多いが、刺激性は変わらない。</td>
+          <td><span class="badge ng">要注意</span></td>
+        </tr>
+        <tr>
+          <td>ベタイン系（両性）</td>
+          <td>コカミドプロピルベタイン<br>ラウラミドプロピルベタイン</td>
+          <td>刺激が比較的少なく、泡立ちをよくする補助剤として使われることが多い。単独使用より硫酸系との併用が多い。</td>
+          <td><span class="badge caution">中程度</span></td>
+        </tr>
+        <tr>
+          <td>アミノ酸系</td>
+          <td>ラウロイルメチルアラニンNa<br>コカミドメチルMEA<br>ラウロイルグルタミン酸Na</td>
+          <td>弱酸性で肌に近いpH。洗浄力はマイルドで頭皮への刺激が少ない。常在菌のバランスを保ちやすい。</td>
+          <td><span class="badge ok">比較的◎</span></td>
+        </tr>
+        <tr>
+          <td>石けん系</td>
+          <td>ラウリン酸K（カリ石けん素地）<br>ミリスチン酸K<br>パルミチン酸K</td>
+          <td>天然油脂から作られた洗浄成分。弱アルカリ性のためクエン酸リンスとセットで使う必要があるが、頭皮・環境への負荷が最も少ない。</td>
+          <td><span class="badge best">◎ 推奨</span></td>
+        </tr>
+        <tr>
+          <td>タウリン系</td>
+          <td>ラウロイルメチルタウリンNa<br>パーム核脂肪酸メチルタウリンNa</td>
+          <td>天然由来の成分に近く、低刺激。アミノ酸系と同様、頭皮にやさしい選択肢のひとつ。</td>
+          <td><span class="badge ok">比較的◎</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout warn">
+      「硫酸フリー」と書かれていても、スルホン酸系が使われていることがあります。名前が違うだけで刺激は同等です。成分名を直接確認する習慣をつけましょう。
+    </div>
+  </section>
+
+  <!-- 実践チェックポイント -->
+  <section class="section" style="animation: fadeUp .5s ease .2s both;">
+    <p class="section-label">CHECKLIST</p>
+    <h2>シャンプーを選ぶときのチェックポイント</h2>
+
+    <div class="check-card">
+      <div class="c-icon ng">🔍</div>
+      <div>
+        <h4>「水の次」に何が来ているか確認する</h4>
+        <p>成分表記の2番目・3番目が洗浄成分の主役です。「ラウレス硫酸Na」「ラウリル硫酸Na」が来ていたら、強い合成界面活性剤が主成分のシャンプーです。</p>
+      </div>
+    </div>
+
+    <div class="check-card" style="animation-delay:.1s">
+      <div class="c-icon ng">⚠️</div>
+      <div>
+        <h4>「ノンシリコン」「天然由来」に惑わされない</h4>
+        <p>シリコンが入っていなくても、強い合成界面活性剤が入っていれば頭皮への負担は同じです。パッケージのキャッチコピーではなく、成分表記を見ましょう。</p>
+      </div>
+    </div>
+
+    <div class="check-card" style="animation-delay:.2s">
+      <div class="c-icon ok">✅</div>
+      <div>
+        <h4>石けん系・アミノ酸系を選ぶ</h4>
+        <p>洗浄成分が石けん系（〜脂肪酸K、カリ石けん素地など）やアミノ酸系（〜グルタミン酸Na、〜アラニンNaなど）のものが、頭皮・環境への負担が少ない選択肢です。</p>
+      </div>
+    </div>
+
+    <div class="check-card" style="animation-delay:.3s">
+      <div class="c-icon ok">🌿</div>
+      <div>
+        <h4>ハーブエキスは「おまけ」と考える</h4>
+        <p>成分表記の末尾にあるハーブエキスや植物成分は、配合量がごく少量です。「○○エキス配合」に期待しすぎず、洗浄成分で選ぶことを優先しましょう。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 圭子さんのコメント -->
+  <section class="section" style="animation: fadeUp .5s ease .25s both;">
+    <p class="section-label">FROM KEIKO</p>
+    <h2>美容師として伝えたいこと</h2>
+
+    <p>「いいシャンプーを使っているはずなのに、頭皮の調子が悪い」という方が、成分表記を一緒に確認すると、メインの洗浄成分が強い硫酸系だったということはよくあります。</p>
+
+    <p>値段が高いから安心、有名ブランドだから安心——そういうわけではないのがシャンプーの世界です。1,000円のシャンプーでも、石けん系の洗浄成分を使ったものの方が頭皮にずっとやさしいことがあります。</p>
+
+    <p>まず一度、今使っているシャンプーの成分表記を見てみてください。「水の次」に何が書いてあるか——それだけで、かなりのことがわかります。</p>
+
+    <p class="author-line">つむぎ・野下圭子</p>
+  </section>
+
+  <!-- ショップ誘導 -->
+  <div style="background:#e0f0ec;border:1px solid #a8d0c8;border-radius:8px;padding:1.5rem 1.8rem;margin:2rem 0;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;">
+    <span style="font-size:2rem;flex-shrink:0;">🛒</span>
+    <div style="flex:1;min-width:180px;">
+      <p style="font-family:'Zen Antique Soft',serif;font-size:1rem;color:#1a3a30;margin-bottom:.3rem;">つむぎおすすめのシャンプーはショップで</p>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:#888;line-height:1.7;margin:0;">ゼノア洗髪せっけん・クエン酸リンスなど、石けん系の頭皮にやさしいアイテムを取り揃えています。</p>
+    </div>
+    <a href="https://salontumugi.shopselect.net/categories/731541" target="_blank" rel="noopener" style="flex-shrink:0;display:inline-block;background:#3a7a6a;color:#fff;padding:.6rem 1.4rem;border-radius:999px;font-family:'Noto Sans JP',sans-serif;font-size:.78rem;letter-spacing:.08em;text-decoration:none;">シャンプーをみる →</a>
+  </div>
+
+  <!-- 関連ページ -->
+  <section class="section">
+    <p class="section-label">NEXT</p>
+    <h2>あわせて読む</h2>
+    <div class="related">
+      <a href="shampoo.html">
+        <div class="r-icon">🧴</div>
+        <div>
+          <h4>シャンプーについて</h4>
+          <p>つむぎで選べる4種のシャンプーと、洗う頻度の話</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="soap-shampoo.html">
+        <div class="r-icon">🫧</div>
+        <div>
+          <h4>石けんシャンプー完全攻略</h4>
+          <p>正しい使い方・クエン酸リンスの必要性・よくある失敗</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="scalp-farm.html">
+        <div class="r-icon">🌱</div>
+        <div>
+          <h4>頭皮は「畑」</h4>
+          <p>土が豊かじゃないと、いい毛は育たない</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>シャンプー選び、一緒に考えましょう🌿</h3>
+    <p>「今使っているシャンプー、見てほしい」そんなご相談もLINEでどうぞ。</p>
+    <a class="cta-btn" href="https://lin.ee/9ADwREL" target="_blank" rel="noopener">LINEで相談する</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>つむぎの自然派美容教室｜自然派美容室 つむぎ・大阪 心斎橋</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
