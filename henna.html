@@ -370,6 +370,55 @@
     nav { display: none; }
     .hamburger { display: flex; }
   }
+
+  /* ── 文字サイズ切替 ── */
+  .font-toggle {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    margin-left: 1rem;
+    flex-shrink: 0;
+  }
+  .font-toggle-btn {
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.3);
+    color: var(--cream);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .7rem;
+    padding: .25rem .6rem;
+    border-radius: 999px;
+    cursor: pointer;
+    letter-spacing: .05em;
+    transition: background .2s;
+    white-space: nowrap;
+  }
+  .font-toggle-btn:hover { background: rgba(255,255,255,.25); }
+  .font-toggle-btn.active {
+    background: var(--cream);
+    color: var(--moss);
+    border-color: var(--cream);
+  }
+
+  /* ── 大文字モード ── */
+  body.font-large {
+    font-size: 112%;
+  }
+  body.font-large p,
+  body.font-large li,
+  body.font-large td,
+  body.font-large .card-excerpt,
+  body.font-large .card-text p,
+  body.font-large .faq-a,
+  body.font-large .read-card .card-text p {
+    font-size: 1rem !important;
+    line-height: 2.2 !important;
+  }
+  body.font-large h1 { font-size: clamp(1.8rem, 6vw, 3.2rem) !important; }
+  body.font-large h2 { font-size: 1.55rem !important; }
+  body.font-large h3 { font-size: 1.2rem !important; }
+  body.font-large .card-title { font-size: 1.1rem !important; }
+  body.font-large nav a { font-size: .9rem !important; }
+
 </style>
 </head>
 <body>
@@ -462,19 +511,19 @@
         <span class="arrow">→</span>
       </a>
 
-      <a class="page-card" href="henna-topics.html">
+      <a class="page-card" href="#">
         <div class="card-icon">📖</div>
         <div class="card-text">
-          <h3>ヘナのあれこれ</h3>
+          <h3>ヘナのあれこれ（準備中）</h3>
           <p>においの消し方・事例・ブログなど</p>
         </div>
         <span class="arrow">→</span>
       </a>
 
-      <a class="page-card" href="henna-faq.html">
+      <a class="page-card" href="#">
         <div class="card-icon">❓</div>
         <div class="card-text">
-          <h3>よくある質問</h3>
+          <h3>よくある質問（準備中）</h3>
           <p>ヘナについてよく聞かれること</p>
         </div>
         <span class="arrow">→</span>
@@ -504,6 +553,41 @@
 <footer>
   <p>つむぎの自然派美容教室｜自然派美容室 つむぎ・大阪 心斎橋</p>
 </footer>
+
+
+<script>
+function setFontSize(size) {
+  if (size === 'large') {
+    document.body.classList.add('font-large');
+    localStorage.setItem('tsumugi-font', 'large');
+    document.getElementById('fontLarge').classList.add('active');
+    document.getElementById('fontSmall').classList.remove('active');
+  } else {
+    document.body.classList.remove('font-large');
+    localStorage.setItem('tsumugi-font', 'small');
+    document.getElementById('fontSmall').classList.add('active');
+    document.getElementById('fontLarge').classList.remove('active');
+  }
+}
+// ページ読み込み時に設定を復元
+(function() {
+  var saved = localStorage.getItem('tsumugi-font');
+  if (saved === 'large') {
+    document.body.classList.add('font-large');
+    window.addEventListener('DOMContentLoaded', function() {
+      var fl = document.getElementById('fontLarge');
+      var fs = document.getElementById('fontSmall');
+      if (fl) fl.classList.add('active');
+      if (fs) fs.classList.remove('active');
+    });
+  } else {
+    window.addEventListener('DOMContentLoaded', function() {
+      var fs = document.getElementById('fontSmall');
+      if (fs) fs.classList.add('active');
+    });
+  }
+})();
+</script>
 
 <script>
 function toggleMenu() {
