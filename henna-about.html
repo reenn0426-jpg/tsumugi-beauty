@@ -48,6 +48,8 @@
     letter-spacing: .15em;
     text-decoration: none;
     color: var(--cream);
+    flex: 1;
+    min-width: 0;
   }
 
   .site-name span {
@@ -586,13 +588,13 @@
     <a href="welcome.html">ご予約の方へ</a>
     <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener">ショップ</a>
   </nav>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
-    <span></span><span></span><span></span>
-  </button>
   <div class="font-toggle">
     <button class="font-toggle-btn" id="fontSmall" onclick="setFontSize('small')">標準</button>
     <button class="font-toggle-btn" id="fontLarge" onclick="setFontSize('large')">大</button>
   </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
 <nav class="mobile-nav" id="mobileNav">
