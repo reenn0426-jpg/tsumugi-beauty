@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>つむぎのスキンケア | つむぎの自然派美容教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --moss:    #4a5240;
+    --sage:    #7a8c6e;
+    --cream:   #f5f0e8;
+    --warm:    #ede6d6;
+    --earth:   #9c7c5a;
+    --charcoal:#2c2c28;
+    --dust:    #c8b99a;
+    --accent:  #7c6348;
+    --rose:    #a06060;
+    --rose-light: #f5e8e8;
+    --cotton:  #bd9b97;
+    --cotton-light: #f8f0ef;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Serif JP', serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.9;
+  }
+
+  header {
+    background: var(--moss);
+    color: var(--cream);
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid var(--sage);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .site-name {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.1rem;
+    letter-spacing: .15em;
+    text-decoration: none;
+    color: var(--cream);
+    flex: 1;
+    min-width: 0;
+  }
+  .site-name span {
+    font-size: .7rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    opacity: .75;
+    display: block;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100vw - 80px);
+  }
+
+  nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .8rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    margin-left: 1.8rem;
+    opacity: .85;
+    transition: opacity .2s;
+  }
+  nav a:hover { opacity: 1; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: .5rem;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--cream);
+    border-radius: 2px;
+  }
+
+  /* ── 文字サイズ切替 ── */
+  .font-toggle {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    margin-left: .5rem;
+    flex-shrink: 0;
+  }
+  .font-toggle-btn {
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.3);
+    color: var(--cream);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .62rem;
+    padding: .2rem .45rem;
+    border-radius: 999px;
+    cursor: pointer;
+    letter-spacing: .03em;
+    transition: background .2s;
+    white-space: nowrap;
+    line-height: 1.4;
+  }
+  .font-toggle-btn:hover { background: rgba(255,255,255,.25); }
+  .font-toggle-btn.active { background: var(--cream); color: var(--moss); border-color: var(--cream); }
+
+  /* 大文字モード */
+  body.font-large p, body.font-large li, body.font-large td { font-size: 1rem !important; line-height: 2.2 !important; }
+  body.font-large h2 { font-size: 1.55rem !important; }
+  body.font-large h3 { font-size: 1.2rem !important; }
+
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    background: var(--moss);
+    z-index: 99;
+    padding-top: 70px;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--sage);
+  }
+  .mobile-nav.open { display: block; }
+  .mobile-nav a {
+    display: block;
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .9rem;
+    font-weight: 300;
+    letter-spacing: .1em;
+    padding: .8rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  .breadcrumb {
+    padding: 1rem 2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: var(--earth);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .breadcrumb a { color: var(--sage); text-decoration: none; }
+
+  /* ── ヒーロー ── */
+  .hero {
+    background: linear-gradient(135deg, #2a1a1a 0%, var(--rose) 100%);
+    color: var(--cream);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '🌸';
+    position: absolute;
+    font-size: 12rem;
+    opacity: .07;
+    top: -1rem; right: -1rem;
+    line-height: 1;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 100%; height: 50px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-eyebrow {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .15em;
+    color: #f0d0d0;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: clamp(1.5rem, 4.5vw, 2.6rem);
+    letter-spacing: .06em;
+    line-height: 1.6;
+    margin-bottom: .8rem;
+  }
+  .hero p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .88rem;
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto;
+    color: #f0d8d8;
+    line-height: 1.9;
+    text-align: left;
+  }
+
+  .article-meta {
+    display: flex;
+    gap: .8rem;
+    align-items: center;
+    padding: 1.5rem 2rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: #999;
+    flex-wrap: wrap;
+  }
+  .article-meta .cat {
+    background: rgba(160,96,96,.12);
+    color: var(--rose);
+    padding: .2rem .7rem;
+    border-radius: 3px;
+    letter-spacing: .08em;
+  }
+
+  /* ── コンテンツ ── */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 5rem;
+  }
+
+  .section { margin-bottom: 3rem; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .2em;
+    color: var(--rose);
+    margin-bottom: .8rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--rose);
+  }
+  .section-label.cotton { color: var(--cotton); }
+  .section-label.cotton::before { background: var(--cotton); }
+
+  h2 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.35rem;
+    letter-spacing: .06em;
+    color: var(--charcoal);
+    margin-bottom: 1.2rem;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid var(--dust);
+  }
+
+  h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.05rem;
+    color: var(--rose);
+    margin: 2rem 0 .8rem;
+    padding-left: .8rem;
+    border-left: 3px solid var(--rose);
+  }
+
+  p {
+    font-size: .9rem;
+    line-height: 2.1;
+    color: #444;
+    margin-bottom: 1.2rem;
+  }
+
+  .callout {
+    background: var(--rose-light);
+    border-left: 3px solid var(--rose);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0;
+    font-family: 'Noto Serif JP', serif;
+    font-size: .88rem;
+    color: #5a2020;
+    line-height: 2;
+  }
+  .callout.sage {
+    background: #edf2e8;
+    border-left-color: var(--sage);
+    color: #2a3a1a;
+  }
+
+  /* ── 手順ステップ ── */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+  }
+
+  .step-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 14px rgba(74,82,64,.08);
+    display: flex;
+    animation: fadeUp .5s ease both;
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 60px;
+    background: var(--rose);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.4rem;
+    letter-spacing: .05em;
+    padding: 1.2rem .5rem;
+  }
+  .step-num .step-label {
+    font-size: .55rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    letter-spacing: .1em;
+    opacity: .8;
+    margin-top: .2rem;
+  }
+
+  .step-body {
+    padding: 1.2rem 1.4rem;
+    flex: 1;
+  }
+
+  .step-body h4 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.05rem;
+    color: var(--charcoal);
+    margin-bottom: .4rem;
+  }
+
+  .step-body .product-name {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: var(--rose);
+    letter-spacing: .1em;
+    margin-bottom: .6rem;
+  }
+
+  .step-body p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    color: #555;
+    line-height: 1.9;
+    margin: 0;
+  }
+
+  .step-card:nth-child(2) .step-num { background: var(--earth); }
+  .step-card:nth-child(3) .step-num { background: var(--sage); }
+  .step-card:nth-child(4) .step-num { background: var(--moss); }
+
+  /* ── メイクアイテム ── */
+  .makeup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .makeup-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 10px rgba(74,82,64,.07);
+    border-top: 3px solid var(--rose);
+    animation: fadeUp .5s ease both;
+  }
+  .makeup-card:nth-child(2) { border-top-color: var(--earth); }
+  .makeup-card:nth-child(3) { border-top-color: var(--dust); }
+
+  .makeup-card .m-icon { font-size: 1.6rem; margin-bottom: .5rem; }
+  .makeup-card h4 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: .95rem;
+    color: var(--charcoal);
+    margin-bottom: .3rem;
+  }
+  .makeup-card p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .78rem;
+    color: #666;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  /* ── ショップ誘導 ── */
+  .shop-banner {
+    background: var(--rose-light);
+    border: 1px solid #e8c0c0;
+    border-radius: 8px;
+    padding: 1.5rem 1.8rem;
+    margin: 2rem 0;
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── 村上メリヤス ── */
+  .murameri-box {
+    background: var(--cotton-light);
+    border: 1px solid #e0cac8;
+    border-radius: 10px;
+    padding: 1.8rem;
+    margin: 1.5rem 0;
+  }
+
+  .murameri-box .brand-header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .murameri-box .brand-icon {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  }
+
+  .murameri-box .brand-title {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 1.1rem;
+    color: var(--charcoal);
+    margin-bottom: .2rem;
+  }
+
+  .murameri-box .brand-sub {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .72rem;
+    color: #999;
+    letter-spacing: .08em;
+  }
+
+  .murameri-box p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .83rem;
+    color: #555;
+    line-height: 1.9;
+    margin-bottom: 1rem;
+  }
+
+  .murameri-btn {
+    display: inline-block;
+    background: var(--cotton);
+    color: white;
+    padding: .65rem 1.5rem;
+    border-radius: 999px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .murameri-btn:hover { background: #a07870; }
+
+  /* ── 関連・CTA ── */
+  .related {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .related a {
+    background: white;
+    border-radius: 10px;
+    padding: 1.3rem 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(74,82,64,.06);
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--dust);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .related a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(74,82,64,.12); }
+  .r-icon { flex-shrink:0; width:48px; height:48px; border-radius:50%; background:var(--rose-light); display:flex; align-items:center; justify-content:center; font-size:1.4rem; }
+  .related h4 { font-family:'Zen Antique Soft',serif; font-size:.95rem; color:var(--charcoal); margin-bottom:.2rem; }
+  .related p { font-family:'Noto Sans JP',sans-serif; font-size:.75rem; color:#888; margin:0; line-height:1.5; }
+  .arrow { margin-left:auto; color:var(--dust); font-size:1rem; flex-shrink:0; }
+
+  .cta {
+    background: var(--moss);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .cta h3 { font-family:'Zen Antique Soft',serif; font-size:1.2rem; color:var(--cream); margin:0 0 .6rem; }
+  .cta p { font-family:'Noto Sans JP',sans-serif; font-size:.82rem; opacity:.85; color:var(--cream); margin-bottom:1.2rem; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--moss);
+    padding: .7rem 2rem;
+    border-radius: 999px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .82rem;
+    letter-spacing: .1em;
+    text-decoration: none;
+  }
+
+  .author-line {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .78rem;
+    color: #aaa;
+    margin-top: 2rem;
+    text-align: right;
+  }
+
+  footer {
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    letter-spacing: .1em;
+  }
+
+  @media (max-width: 700px) {
+    nav:not(.mobile-nav) { display: none; }
+    .hamburger { display: flex; }
+    .makeup-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="site-name" href="index.html">
+    つむぎの自然派美容教室
+    <span>Hair Salon Tsumugu / Natural Beauty Guide</span>
+  </a>
+  <nav>
+    <a href="menu.html">メニュー</a>
+    <a href="henna.html">ヘナ</a>
+    <a href="shampoo.html">シャンプー</a>
+    <a href="welcome.html">ご予約の方へ</a>
+    <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener">ショップ</a>
+  </nav>
+  <div class="font-toggle">
+    <button class="font-toggle-btn" id="fontSmall" onclick="setFontSize('small')">標準</button>
+    <button class="font-toggle-btn" id="fontLarge" onclick="setFontSize('large')">大</button>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMenu()">ホーム</a>
+  <a href="menu.html" onclick="toggleMenu()">メニュー</a>
+  <a href="henna.html" onclick="toggleMenu()">ヘナ</a>
+  <a href="shampoo.html" onclick="toggleMenu()">シャンプー</a>
+  <a href="welcome.html" onclick="toggleMenu()">ご予約の方へ</a>
+  <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener" onclick="toggleMenu()">ショップ</a>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">ホーム</a> &rsaquo; つむぎのスキンケア
+</div>
+
+<section class="hero">
+  <p class="hero-eyebrow">SKIN CARE</p>
+  <h1>つむぎのスキンケア——<br>肌のバリアを守ることから</h1>
+  <p>髪と同じように、肌も「引き算」が大切です。洗いすぎず、余分なものを入れすぎず、本来の力を引き出す。つむぎが選ぶスキンケアの考え方です。</p>
+</section>
+
+<div class="article-meta">
+  <span class="cat">スキンケア</span>
+</div>
+
+<div class="content">
+
+  <!-- 考え方 -->
+  <section class="section" style="animation: fadeUp .5s ease both;">
+    <p class="section-label">CONCEPT</p>
+    <h2>つむぎのスキンケアの考え方</h2>
+
+    <p>市販のスキンケア商品の多くには、合成界面活性剤・合成ポリマー・防腐剤などが含まれています。これらは使い続けることで肌のバリア機能（角質層）を少しずつ壊し、トラブルが出やすい肌を作ってしまうことがあります。</p>
+
+    <p>「しっとりする」「すぐ効く」という実感は、バリアが壊れて成分が浸透しやすくなっているサインのこともあるのです。</p>
+
+    <div class="callout">
+      つむぎがすすめるのは、肌本来のバリア機能を守りながら使い続けられるスキンケア。化粧品業界で長年研究を続けてきた東京美容科学研究所のゼノア化粧料が、その考え方と一致しています🌸
+    </div>
+
+    <p>合成界面活性剤・タール系色素・紫外線吸収剤を使わず、皮膚科学に基づいた処方で作られたゼノア。派手な効果をうたうのではなく、「肌が本来あるべき状態を保つ」ことを目的にしています。</p>
+  </section>
+
+  <!-- 基本ケアの手順 -->
+  <section class="section" style="animation: fadeUp .5s ease .1s both;">
+    <p class="section-label">ROUTINE</p>
+    <h2>基本のお手入れ手順</h2>
+
+    <p>朝・夜ともに、この4ステップが基本です。シンプルだけど、続けるほどに肌の土台が整ってきます。</p>
+
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">
+          1
+          <span class="step-label">STEP</span>
+        </div>
+        <div class="step-body">
+          <h4>コールドクリームでクレンジング</h4>
+          <p class="product-name">ゼノア・TOBIKEN　コールドクリーム</p>
+          <p>メイクや日中の汚れをオイルで包み込んで落とします。水を使わない無水処方だから肌への刺激が少なく、クレンジングしながら保湿もできます。クリームを顔全体になじませてから、コットンやティッシュでふき取るだけ。</p>
+        </div>
+      </div>
+
+      <div class="step-card" style="animation-delay:.08s">
+        <div class="step-num">
+          2
+          <span class="step-label">STEP</span>
+        </div>
+        <div class="step-body">
+          <h4>石けんで洗顔</h4>
+          <p class="product-name">TOBIKEN　BASEソープ・BIGANKO</p>
+          <p>泡立てネットでよく泡立てて、泡で肌を包むように洗います。石けん系なので洗い上がりはさっぱり。ぬるま湯でしっかりすすいだあとは、タオルで押さえるように水気を取ります。こすらないことが大切です。</p>
+        </div>
+      </div>
+
+      <div class="step-card" style="animation-delay:.16s">
+        <div class="step-num">
+          3
+          <span class="step-label">STEP</span>
+        </div>
+        <div class="step-body">
+          <h4>化粧水で整える</h4>
+          <p class="product-name">ゼノア　ローションA-30　／　TOBIKEN　BASEローション・CAREローション</p>
+          <p>洗顔後すぐに、肌が乾かないうちにつけます。弱酸性の処方で、石けん洗顔で一時的にアルカリ性になった肌のpHを穏やかに戻します。コットンでなじませるか、手でやさしく押さえるように。</p>
+        </div>
+      </div>
+
+      <div class="step-card" style="animation-delay:.24s">
+        <div class="step-num">
+          4
+          <span class="step-label">STEP</span>
+        </div>
+        <div class="step-body">
+          <h4>クリームで保護する</h4>
+          <p class="product-name">ゼノア　クリームA-30　／　TOBIKEN　BASEクリーム・CAREクリーム</p>
+          <p>最後に、皮脂膜に近い油分で肌をふたをするようにコーティング。外気や乾燥から守りながら、肌が自力で整えようとする力をサポートします。量は少量で十分。薄くのばすだけでOKです。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout sage">
+      週に1〜2回、コールドクリームを使ったマッサージやパックを取り入れると、さらに肌が整ってきます。詳しくはサロンでご相談ください😊
+    </div>
+  </section>
+
+  <!-- メイクアイテム -->
+  <section class="section" style="animation: fadeUp .5s ease .15s both;">
+    <p class="section-label">MAKEUP</p>
+    <h2>つむぎで扱うメイクアイテム</h2>
+
+    <p>スキンケアと同じ考え方で、肌に負担をかけないメイクアイテムを選んでいます。タール系色素・合成界面活性剤を使わない処方で、スキンケアと同じラインで統一して使えます。</p>
+
+    <div class="makeup-grid">
+      <div class="makeup-card">
+        <div class="m-icon">✨</div>
+        <h4>ファンデーション</h4>
+        <p>肌のトーンを自然に整えます。重ね塗りせず薄くのばすのがコツ。肌本来の質感を活かした仕上がりになります。</p>
+      </div>
+      <div class="makeup-card">
+        <div class="m-icon">🌸</div>
+        <h4>酸性パウダー</h4>
+        <p>石けん洗顔後の肌のpHを整えながらさらっとした仕上がりに。化粧崩れを防ぎながら、肌を弱酸性に保つ働きもあります。</p>
+      </div>
+      <div class="makeup-card">
+        <div class="m-icon">☀️</div>
+        <h4>日焼け止め</h4>
+        <p>紫外線吸収剤不使用の処方。肌への刺激を抑えながら紫外線をカット。スキンケアの最後にプラスできます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ショップ誘導 -->
+  <div class="shop-banner">
+    <span style="font-size:2rem;flex-shrink:0;">🛒</span>
+    <div style="flex:1;min-width:180px;">
+      <p style="font-family:'Zen Antique Soft',serif;font-size:1rem;color:#5a2020;margin-bottom:.3rem;">ゼノア化粧品はつむぎショップで</p>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:#888;line-height:1.7;margin:0;">コールドクリーム・クリームソープ・ローション・クリームなど、基本ラインを取り揃えています。</p>
+    </div>
+    <a href="https://salontumugi.shopselect.net/" target="_blank" rel="noopener" style="flex-shrink:0;display:inline-block;background:#a06060;color:#fff;padding:.6rem 1.4rem;border-radius:999px;font-family:'Noto Sans JP',sans-serif;font-size:.78rem;letter-spacing:.08em;text-decoration:none;">ショップをみる →</a>
+  </div>
+
+  <!-- 村上メリヤス -->
+  <section class="section" style="animation: fadeUp .5s ease .2s both;">
+    <p class="section-label cotton">MURAMERI</p>
+    <h2>村上メリヤス——肌に触れるものも、自然なものを</h2>
+
+    <p>スキンケアで肌を整えても、毎日長時間触れている衣類の素材が肌に影響することがあります。特に肌が敏感な方や乾燥しやすい方にとって、直接触れる肌着の素材選びはとても大切です。</p>
+
+    <p>つむぎがご紹介しているのは、奈良県大和高田市の小さな工房「村上メリヤス」のオーガニックコットン製品。アメリカのオーガニック認証コットンと、自社農園で育てた純奈良産の無農薬綿を使った肌着・衣料雑貨を、3人家族で手づくりされています。</p>
+
+    <div class="callout sage">
+      つむぎ店頭にて商品を手に取ってご覧いただけます。肌着のご試着はいただけませんが、スタッフが愛用していますので、サイズ感の説明はさせていただけます😊
+    </div>
+
+    <div class="murameri-box">
+      <div class="brand-header">
+        <div class="brand-icon">🌾</div>
+        <div>
+          <p class="brand-title">村上メリヤス</p>
+          <p class="brand-sub">オーガニックコットン100% ／ 奈良・大和高田市</p>
+        </div>
+      </div>
+      <p>オーガニック認証コットンのニット生地を使った肌着・インナー・ソックス・タオルなど。企画から糸の生地化・裁断・縫製・梱包まで、すべて自分たちの手でこなしている工房です。</p>
+      <p>「すごく気持ちよかった」「おばあちゃんにもプレゼントしたくて」——一度使った方がリピートし続けるのが、素材の良さを物語っています。</p>
+      <a class="murameri-btn" href="https://murameri.base.shop/" target="_blank" rel="noopener">村上メリヤスのショップを見る →</a>
+
+      <!-- 商品一覧 -->
+      <div style="margin-top:1.5rem;">
+        <p style="font-family:'Noto Sans JP',sans-serif;font-size:.72rem;letter-spacing:.15em;color:var(--cotton);margin-bottom:1rem;">── 商品ラインナップ（税込）──</p>
+
+        <!-- 肌着・インナー -->
+        <p style="font-family:'Zen Antique Soft',serif;font-size:.9rem;color:var(--charcoal);margin-bottom:.5rem;padding-left:.6rem;border-left:2px solid var(--cotton);">肌着・インナー</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.3rem .8rem;margin-bottom:1.2rem;font-family:'Noto Sans JP',sans-serif;font-size:.75rem;">
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:white;border-radius:4px;"><span style="color:#555;">丸首 長袖</span><span style="color:var(--cotton);white-space:nowrap;">¥6,050</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:#fdf8f7;border-radius:4px;"><span style="color:#555;">丸首 半袖</span><span style="color:var(--cotton);white-space:nowrap;">¥5,720</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:white;border-radius:4px;"><span style="color:#555;">タンクトップ</span><span style="color:var(--cotton);white-space:nowrap;">¥5,170</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:#fdf8f7;border-radius:4px;"><span style="color:#555;">ネックシャツ</span><span style="color:var(--cotton);white-space:nowrap;">¥6,050</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:white;border-radius:4px;"><span style="color:#555;">ゆったり丸首 長袖</span><span style="color:var(--cotton);white-space:nowrap;">¥6,380</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:#fdf8f7;border-radius:4px;"><span style="color:#555;">ゆったりタンクトップ</span><span style="color:var(--cotton);white-space:nowrap;">¥5,390</span></div>
+        </div>
+
+        <!-- ボトムス・レギンス -->
+        <p style="font-family:'Zen Antique Soft',serif;font-size:.9rem;color:var(--charcoal);margin-bottom:.5rem;padding-left:.6rem;border-left:2px solid var(--cotton);">ボトムス・レギンス</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.3rem .8rem;margin-bottom:1.2rem;font-family:'Noto Sans JP',sans-serif;font-size:.75rem;">
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:white;border-radius:4px;"><span style="color:#555;">ゆったり5分丈レギンス</span><span style="color:var(--cotton);white-space:nowrap;">¥4,730</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:#fdf8f7;border-radius:4px;"><span style="color:#555;">ゆったり7分丈レギンス</span><span style="color:var(--cotton);white-space:nowrap;">¥5,390</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:white;border-radius:4px;"><span style="color:#555;">ゆったり10分丈レギンス</span><span style="color:var(--cotton);white-space:nowrap;">¥6,270</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:#fdf8f7;border-radius:4px;"><span style="color:#555;">しあわせパンツ</span><span style="color:var(--cotton);white-space:nowrap;">¥3,850</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:white;border-radius:4px;"><span style="color:#555;">やわらかニットロングパンツ</span><span style="color:var(--cotton);white-space:nowrap;">¥7,920</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:#fdf8f7;border-radius:4px;"><span style="color:#555;">はらまき（シングル）</span><span style="color:var(--cotton);white-space:nowrap;">¥3,630</span></div>
+        </div>
+
+        <!-- ウォーマー・くつ下 -->
+        <p style="font-family:'Zen Antique Soft',serif;font-size:.9rem;color:var(--charcoal);margin-bottom:.5rem;padding-left:.6rem;border-left:2px solid var(--cotton);">ウォーマー・くつ下</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.3rem .8rem;margin-bottom:1.2rem;font-family:'Noto Sans JP',sans-serif;font-size:.75rem;">
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:white;border-radius:4px;"><span style="color:#555;">アームカバー</span><span style="color:var(--cotton);white-space:nowrap;">¥2,420</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:#fdf8f7;border-radius:4px;"><span style="color:#555;">レッグウォーマー</span><span style="color:var(--cotton);white-space:nowrap;">¥2,310</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:white;border-radius:4px;"><span style="color:#555;">手首・足首ウォーマー</span><span style="color:var(--cotton);white-space:nowrap;">¥1,100</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:#fdf8f7;border-radius:4px;"><span style="color:#555;">ネックウォーマー（ダブル）</span><span style="color:var(--cotton);white-space:nowrap;">¥1,650</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:white;border-radius:4px;"><span style="color:#555;">5本指くつ下</span><span style="color:var(--cotton);white-space:nowrap;">¥1,760</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:#fdf8f7;border-radius:4px;"><span style="color:#555;">足袋くつ下</span><span style="color:var(--cotton);white-space:nowrap;">¥1,980</span></div>
+        </div>
+
+        <!-- タオル・その他 -->
+        <p style="font-family:'Zen Antique Soft',serif;font-size:.9rem;color:var(--charcoal);margin-bottom:.5rem;padding-left:.6rem;border-left:2px solid var(--cotton);">タオル・その他</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.3rem .8rem;margin-bottom:1rem;font-family:'Noto Sans JP',sans-serif;font-size:.75rem;">
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:white;border-radius:4px;"><span style="color:#555;">ボディタオル</span><span style="color:var(--cotton);white-space:nowrap;">¥1,980</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:#fdf8f7;border-radius:4px;"><span style="color:#555;">やわらか赤ちゃんタオル</span><span style="color:var(--cotton);white-space:nowrap;">¥2,200</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:white;border-radius:4px;"><span style="color:#555;">布ナプキン</span><span style="color:var(--cotton);white-space:nowrap;">¥2,420〜</span></div>
+          <div style="display:flex;justify-content:space-between;padding:.4rem .5rem;background:#fdf8f7;border-radius:4px;"><span style="color:#555;">マスク（中）</span><span style="color:var(--cotton);white-space:nowrap;">¥1,540</span></div>
+        </div>
+
+        <p style="font-family:'Noto Sans JP',sans-serif;font-size:.7rem;color:#aaa;margin-top:.5rem;">※ 価格はすべて税込 ／ 無漂白オーガニックコットン・オフホワイト〜ベージュ</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 圭子さんのコメント -->
+  <section class="section" style="animation: fadeUp .5s ease .25s both;">
+    <p class="section-label">FROM KEIKO</p>
+    <h2>外側と内側、そして触れるものも</h2>
+
+    <p>スキンケアを変えると、肌が「素直」になってくるのを感じます。余分なものが減って、肌本来の力が戻ってくる感覚。最初は物足りなく感じることもありますが、続けていくうちに確実に変わってきます。</p>
+
+    <p>そして肌に直接触れるものとして、衣類も大切にしてほしいと思っています。オーガニックコットンのやさしい肌触りは、一度知るとなかなか手放せなくなります。</p>
+
+    <p>実は、肌へのやさしい感触は脳のリラックスにもつながっています。チクチクする素材や化学繊維が肌に触れていると、気づかないうちに脳が緊張状態を続けています。やわらかく心地よい素材に包まれることは、それだけで自律神経を整え、体と心をゆるめる助けになります。</p>
+
+    <p>スキンケアのこと、商品の選び方など、気になることはサロンで気軽に聞いてください。</p>
+
+    <p class="author-line">つむぎ・野下圭子</p>
+  </section>
+
+  <!-- 関連ページ -->
+  <section class="section">
+    <p class="section-label">NEXT</p>
+    <h2>あわせて読む</h2>
+    <div class="related">
+      <a href="shampoo-ingredients.html">
+        <div class="r-icon">🧴</div>
+        <div>
+          <h4>「ノンシリコン」は本当にいいの？</h4>
+          <p>シャンプー成分の読み方——スキンケアにも共通する考え方</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="scalp-farm.html">
+        <div class="r-icon">🌱</div>
+        <div>
+          <h4>頭皮は「畑」</h4>
+          <p>頭皮も肌のひとつ——土台を整える考え方</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="shampoo.html">
+        <div class="r-icon">🫧</div>
+        <div>
+          <h4>シャンプーについて</h4>
+          <p>石けんシャンプーとゼノア——同じ哲学でヘアケアも</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>スキンケアのこと、相談してみてください🌸</h3>
+    <p>「今の肌に何が合うか」一緒に考えます。LINEでお気軽にどうぞ。</p>
+    <a class="cta-btn" href="https://lin.ee/9ADwREL" target="_blank" rel="noopener">LINEで相談する</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>つむぎの自然派美容教室｜自然派美容室 つむぎ・大阪 心斎橋</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+function setFontSize(size) {
+  if (size === 'large') {
+    document.body.classList.add('font-large');
+    localStorage.setItem('tsumugi-font', 'large');
+    document.getElementById('fontLarge').classList.add('active');
+    document.getElementById('fontSmall').classList.remove('active');
+  } else {
+    document.body.classList.remove('font-large');
+    localStorage.setItem('tsumugi-font', 'small');
+    document.getElementById('fontSmall').classList.add('active');
+    document.getElementById('fontLarge').classList.remove('active');
+  }
+}
+(function() {
+  var saved = localStorage.getItem('tsumugi-font');
+  if (saved === 'large') {
+    document.body.classList.add('font-large');
+    window.addEventListener('DOMContentLoaded', function() {
+      var fl = document.getElementById('fontLarge');
+      var fs = document.getElementById('fontSmall');
+      if (fl) fl.classList.add('active');
+      if (fs) fs.classList.remove('active');
+    });
+  } else {
+    window.addEventListener('DOMContentLoaded', function() {
+      var fs = document.getElementById('fontSmall');
+      if (fs) fs.classList.add('active');
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
