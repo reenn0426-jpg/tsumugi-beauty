@@ -376,6 +376,62 @@
     white-space: nowrap;
   }
 
+  /* ── スマホ：表をカード形式に変換 ── */
+  @media (max-width: 600px) {
+    .ingredient-table thead { display: none; }
+
+    .ingredient-table tbody tr {
+      display: block;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(74,82,64,.09);
+      margin-bottom: 1rem;
+      border: 1px solid #e8e0d0;
+      padding: .8rem 1rem 1rem;
+    }
+
+    .ingredient-table tbody tr:nth-child(even) {
+      background: white;
+    }
+
+    .ingredient-table td {
+      display: flex;
+      align-items: flex-start;
+      gap: .5rem;
+      padding: .35rem 0;
+      border: none;
+      font-size: .8rem;
+      line-height: 1.7;
+    }
+
+    .ingredient-table td::before {
+      content: attr(data-label);
+      font-size: .65rem;
+      color: var(--teal);
+      background: var(--teal-light);
+      padding: .15rem .5rem;
+      border-radius: 3px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: .15rem;
+      letter-spacing: .05em;
+    }
+
+    .ingredient-table td:first-child {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      white-space: normal;
+      border-bottom: 1px solid #f0e8d8;
+      padding-bottom: .5rem;
+      margin-bottom: .2rem;
+    }
+
+    .ingredient-table td:first-child::before {
+      display: none;
+    }
+  }
+
   .badge {
     display: inline-block;
     font-size: .65rem;
@@ -660,39 +716,39 @@
       <tbody>
         <tr>
           <td>硫酸系</td>
-          <td>ラウレス硫酸Na<br>ラウリル硫酸Na</td>
-          <td>洗浄力が非常に強く、頭皮の皮脂・常在菌を過剰に落とす。刺激が強く、肌荒れ・かゆみの原因になりやすい。環境負荷も高い。</td>
-          <td><span class="badge ng">要注意</span></td>
+          <td data-label="成分名">ラウレス硫酸Na<br>ラウリル硫酸Na</td>
+          <td data-label="特徴">洗浄力が非常に強く、頭皮の皮脂・常在菌を過剰に落とす。刺激が強く、肌荒れ・かゆみの原因になりやすい。環境負荷も高い。</td>
+          <td data-label="評価"><span class="badge ng">要注意</span></td>
         </tr>
         <tr>
           <td>スルホン酸系</td>
-          <td>オレフィン(C14-16)スルホン酸Na</td>
-          <td>硫酸系と同等の強い洗浄力。「硫酸フリー」製品に代替として使われることが多いが、刺激性は変わらない。</td>
-          <td><span class="badge ng">要注意</span></td>
+          <td data-label="成分名">オレフィン(C14-16)スルホン酸Na</td>
+          <td data-label="特徴">硫酸系と同等の強い洗浄力。「硫酸フリー」製品に代替として使われることが多いが、刺激性は変わらない。</td>
+          <td data-label="評価"><span class="badge ng">要注意</span></td>
         </tr>
         <tr>
           <td>ベタイン系（両性）</td>
-          <td>コカミドプロピルベタイン<br>ラウラミドプロピルベタイン</td>
-          <td>刺激が比較的少なく、泡立ちをよくする補助剤として使われることが多い。単独使用より硫酸系との併用が多い。</td>
-          <td><span class="badge caution">中程度</span></td>
+          <td data-label="成分名">コカミドプロピルベタイン<br>ラウラミドプロピルベタイン</td>
+          <td data-label="特徴">刺激が比較的少なく、泡立ちをよくする補助剤として使われることが多い。単独使用より硫酸系との併用が多い。</td>
+          <td data-label="評価"><span class="badge caution">中程度</span></td>
         </tr>
         <tr>
           <td>アミノ酸系</td>
-          <td>ラウロイルメチルアラニンNa<br>コカミドメチルMEA<br>ラウロイルグルタミン酸Na</td>
-          <td>弱酸性で肌に近いpH。洗浄力はマイルドで頭皮への刺激が少ない。常在菌のバランスを保ちやすい。</td>
-          <td><span class="badge ok">比較的◎</span></td>
+          <td data-label="成分名">ラウロイルメチルアラニンNa<br>コカミドメチルMEA<br>ラウロイルグルタミン酸Na</td>
+          <td data-label="特徴">弱酸性で肌に近いpH。洗浄力はマイルドで頭皮への刺激が少ない。常在菌のバランスを保ちやすい。</td>
+          <td data-label="評価"><span class="badge ok">比較的◎</span></td>
         </tr>
         <tr>
           <td>石けん系</td>
-          <td>ラウリン酸K（カリ石けん素地）<br>ミリスチン酸K<br>パルミチン酸K</td>
-          <td>天然油脂から作られた洗浄成分。弱アルカリ性のためクエン酸リンスとセットで使う必要があるが、頭皮・環境への負荷が最も少ない。</td>
-          <td><span class="badge best">◎ 推奨</span></td>
+          <td data-label="成分名">ラウリン酸K（カリ石けん素地）<br>ミリスチン酸K<br>パルミチン酸K</td>
+          <td data-label="特徴">天然油脂から作られた洗浄成分。弱アルカリ性のためクエン酸リンスとセットで使う必要があるが、頭皮・環境への負荷が最も少ない。</td>
+          <td data-label="評価"><span class="badge best">◎ 推奨</span></td>
         </tr>
         <tr>
           <td>タウリン系</td>
-          <td>ラウロイルメチルタウリンNa<br>パーム核脂肪酸メチルタウリンNa</td>
-          <td>天然由来の成分に近く、低刺激。アミノ酸系と同様、頭皮にやさしい選択肢のひとつ。</td>
-          <td><span class="badge ok">比較的◎</span></td>
+          <td data-label="成分名">ラウロイルメチルタウリンNa<br>パーム核脂肪酸メチルタウリンNa</td>
+          <td data-label="特徴">天然由来の成分に近く、低刺激。アミノ酸系と同様、頭皮にやさしい選択肢のひとつ。</td>
+          <td data-label="評価"><span class="badge ok">比較的◎</span></td>
         </tr>
       </tbody>
     </table>
