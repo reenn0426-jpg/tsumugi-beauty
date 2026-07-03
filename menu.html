@@ -29,6 +29,8 @@
   }
 
   header {
+    position: relative;
+    z-index: 100;
     background: var(--moss);
     color: var(--cream);
     padding: 0 1.5rem;
@@ -105,7 +107,7 @@
     width: 100%;
     background: var(--moss);
     z-index: 99;
-    padding: .5rem 0 1rem;
+    padding-bottom: 1rem;
     border-bottom: 2px solid var(--sage);
   }
   .mobile-nav.open { display: block; }
@@ -124,7 +126,8 @@
 
   @media (max-width: 700px) {
     nav:not(.mobile-nav) { display: none; }
-    .hamburger { display: flex; }
+    .hamburger { display: flex; padding: .65rem .6rem; }
+    .font-toggle .font-toggle-btn { font-size: .72rem; padding: .45rem .75rem; }
   }
 
   .breadcrumb {

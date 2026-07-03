@@ -479,7 +479,8 @@
 
   @media (max-width: 700px) {
     nav:not(.mobile-nav) { display: none; }
-    .hamburger { display: flex; }
+    .hamburger { display: flex; padding: .65rem .6rem; }
+    .font-toggle .font-toggle-btn { font-size: .72rem; padding: .45rem .75rem; }
     .nutrient-grid { grid-template-columns: 1fr 1fr; }
     .product-box { flex-direction: column; }
     .product-box .p-icon { width: 60px; height: 60px; font-size: 2rem; }
@@ -506,7 +507,6 @@
   .recipe-steps-block ol li::before { content:counter(step); flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--venison); color:white; font-size:.65rem; display:flex; align-items:center; justify-content:center; margin-top:.15rem; }
   .recipe-point { background:var(--venison-light); border-left:3px solid var(--venison); border-radius:0 4px 4px 0; padding:.7rem 1rem; font-family:'Noto Sans JP',sans-serif; font-size:.78rem; color:var(--venison); line-height:1.8; }
   @media (max-width:600px) { .recipe-two-col { grid-template-columns:1fr; } }
-
 
   /* ── 文字サイズ切替 ── */
   .font-toggle {
@@ -688,7 +688,7 @@
         <p class="p-price">¥6,000（税込）</p>
         <a class="product-btn" href="https://chikyuraba.theshop.jp/items/48689804" target="_blank" rel="noopener">購入ページへ →</a>
         <div style="margin-top:1.2rem;display:flex;gap:1rem;align-items:stretch;background:#faf7f2;border-radius:8px;padding:1rem;border:1px solid #e8d8c0;">
-          <img src="bone-broth-pack.jpg" alt="鹿骨髄スープ配送パック" style="width:120px;height:120px;object-fit:cover;object-position:center 60%;border-radius:6px;flex-shrink:0;">
+          <img src="bone-broth-pack.jpg" width="360" height="480" loading="lazy" decoding="async" alt="鹿骨髄スープ配送パック" style="width:120px;height:120px;object-fit:cover;object-position:center 60%;border-radius:6px;flex-shrink:0;">
           <div style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:#666;line-height:2;display:flex;flex-direction:column;justify-content:center;">
             <p style="margin:0;">📦 冷凍パックで配送</p>
             <p style="margin:0;">200ml × 8個セット</p>
@@ -705,7 +705,7 @@
     <div class="callout-sage">
       髪のためのケアは「毎日少しずつ続けること」が一番大切です。シャンプーを変えるのと同じように、毎日の食事に骨髄スープを加える習慣が、半年後・1年後の髪質の変化につながります🌿
     </div>
-    <img src="bone-broth-soup.jpg" alt="京北産 鹿骨髄スープ" style="width:100%;height:220px;object-fit:cover;border-radius:8px;display:block;margin-top:1.2rem;">
+    <img src="bone-broth-soup.jpg" srcset="bone-broth-soup-800.jpg 800w, bone-broth-soup.jpg 1600w" sizes="(max-width: 800px) 100vw, 770px" width="1600" height="1600" loading="lazy" decoding="async" alt="京北産 鹿骨髄スープ" style="width:100%;height:220px;object-fit:cover;border-radius:8px;display:block;margin-top:1.2rem;">
   </section>
 
 
@@ -750,7 +750,7 @@
             </div>
           </div>
           <div class="recipe-point">💡 朝イチの空腹時に飲むのが一番吸収されやすいと言われています。起き抜けに温めて、一日のスタートに。</div>
-          <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&q=80" alt="シンプルスープ" style="width:100%;height:220px;object-fit:cover;border-radius:8px;display:block;margin-top:1.2rem;">
+          <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&q=80" loading="lazy" decoding="async" alt="シンプルスープ" style="width:100%;height:220px;object-fit:cover;border-radius:8px;display:block;margin-top:1.2rem;">
           <p style="font-family:'Noto Sans JP',sans-serif;font-size:.65rem;color:#aaa;text-align:right;margin-top:.3rem;">Photo: Unsplash</p>
         </div>
       </div>
@@ -790,7 +790,7 @@
             </div>
           </div>
           <div class="recipe-point">💡 鹿骨髄スープは旨みが濃いので、だしをわざわざ取らなくてよいのが楽。醤油・みりんを調整するだけで本格的な割り下になります。</div>
-          <img src="https://images.unsplash.com/photo-1534482421-64566f976cfa?w=800&q=80" alt="すき焼き・鍋" style="width:100%;height:220px;object-fit:cover;border-radius:8px;display:block;margin-top:1.2rem;">
+          <img src="https://images.unsplash.com/photo-1534482421-64566f976cfa?w=800&q=80" loading="lazy" decoding="async" alt="すき焼き・鍋" style="width:100%;height:220px;object-fit:cover;border-radius:8px;display:block;margin-top:1.2rem;">
           <p style="font-family:'Noto Sans JP',sans-serif;font-size:.65rem;color:#aaa;text-align:right;margin-top:.3rem;">Photo: Unsplash</p>
         </div>
       </div>
@@ -832,7 +832,7 @@
             </div>
           </div>
           <div class="recipe-point">💡 体調が悪いときは野菜なしで米とスープだけのシンプル版で。あっさりしていて体に染みます。</div>
-          <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=800&q=80" alt="リゾット" style="width:100%;height:220px;object-fit:cover;border-radius:8px;display:block;margin-top:1.2rem;">
+          <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=800&q=80" loading="lazy" decoding="async" alt="リゾット" style="width:100%;height:220px;object-fit:cover;border-radius:8px;display:block;margin-top:1.2rem;">
           <p style="font-family:'Noto Sans JP',sans-serif;font-size:.65rem;color:#aaa;text-align:right;margin-top:.3rem;">Photo: Unsplash</p>
         </div>
       </div>
@@ -898,7 +898,6 @@
 <footer>
   <p>つむぎの自然派美容教室｜自然派美容室 つむぎ・大阪 心斎橋</p>
 </footer>
-
 
 <script>
 function setFontSize(size) {

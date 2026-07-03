@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>おうちヘナのやり方 | つむぎの自然派美容教室</title>
+<title>つむぎのヘナ施術 | つむぎの自然派美容教室</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -152,7 +152,7 @@
 
   /* ── ヒーロー ── */
   .hero {
-    background: linear-gradient(135deg, var(--moss) 0%, #3a4832 100%);
+    background: linear-gradient(135deg, #3a2a1a 0%, #5a3a20 100%);
     color: var(--cream);
     padding: 4rem 2rem 3.5rem;
     text-align: center;
@@ -228,6 +228,7 @@
   .section:nth-child(3) { animation-delay: .2s; }
   .section:nth-child(4) { animation-delay: .3s; }
   .section:nth-child(5) { animation-delay: .4s; }
+  .section:nth-child(6) { animation-delay: .5s; }
 
   .section-label {
     display: inline-flex;
@@ -236,7 +237,7 @@
     font-family: 'Noto Sans JP', sans-serif;
     font-size: .68rem;
     letter-spacing: .2em;
-    color: var(--sage);
+    color: var(--henna);
     margin-bottom: .8rem;
   }
 
@@ -245,7 +246,7 @@
     display: block;
     width: 24px;
     height: 1px;
-    background: var(--sage);
+    background: var(--henna);
   }
 
   h2 {
@@ -258,15 +259,6 @@
     border-bottom: 1px solid var(--dust);
   }
 
-  h3 {
-    font-family: 'Zen Antique Soft', serif;
-    font-size: 1.05rem;
-    color: var(--moss);
-    margin: 1.8rem 0 .7rem;
-    padding-left: .8rem;
-    border-left: 3px solid var(--sage);
-  }
-
   p {
     font-size: .88rem;
     line-height: 2;
@@ -274,72 +266,18 @@
     margin-bottom: 1rem;
   }
 
-  /* ── 動画エリア ── */
-  .video-wrap {
-    background: var(--charcoal);
-    border-radius: 8px;
-    overflow: hidden;
-    margin: 1.5rem 0;
-    position: relative;
-    max-width: 360px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .video-wrap iframe {
-    display: block;
-    width: 100%;
-    aspect-ratio: 9/16;
-    border: none;
-  }
-
-  .video-caption {
-    text-align: center;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: .75rem;
-    color: var(--earth);
-    margin-top: .6rem;
-    letter-spacing: .05em;
-  }
-
-  /* ── 準備物リスト ── */
-  .prep-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 1rem;
-    margin: 1.2rem 0;
-  }
-
-  .prep-item {
-    background: var(--warm);
-    border-radius: 6px;
-    padding: 1rem;
-    text-align: center;
-    border: 1px solid var(--dust);
-  }
-
-  .prep-item .icon { font-size: 1.8rem; margin-bottom: .4rem; }
-
-  .prep-item p {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: .78rem;
-    font-weight: 400;
-    color: var(--charcoal);
-    margin: 0;
-    line-height: 1.5;
-  }
-
   /* ── ステップ ── */
-  .steps { margin: 1.2rem 0; }
+  .step-flow { margin: 1.2rem 0; }
 
-  .step {
+  .step-block {
     display: flex;
-    gap: 1.2rem;
-    padding: 1.2rem 0;
+    gap: 1.4rem;
+    padding: 1.6rem 0;
     border-bottom: 1px dashed var(--dust);
+    align-items: flex-start;
   }
 
-  .step:last-child { border-bottom: none; }
+  .step-block:last-child { border-bottom: none; }
 
   .step-num {
     flex-shrink: 0;
@@ -357,18 +295,46 @@
     margin-top: .2rem;
   }
 
-  .step-body h4 {
+  .step-body { flex: 1; min-width: 0; }
+
+  .step-body h3 {
     font-family: 'Zen Antique Soft', serif;
-    font-size: .95rem;
+    font-size: 1.05rem;
     color: var(--charcoal);
-    margin-bottom: .3rem;
+    margin-bottom: .5rem;
   }
 
   .step-body p {
-    font-size: .83rem;
-    color: #666;
-    margin: 0;
-    line-height: 1.8;
+    font-size: .85rem;
+    color: #555;
+    margin: 0 0 1rem;
+    line-height: 1.9;
+  }
+
+  .step-photos {
+    display: flex;
+    gap: .8rem;
+    flex-wrap: wrap;
+    margin-top: .6rem;
+  }
+
+  .step-photos img {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    box-shadow: 0 3px 14px rgba(74,82,64,.14);
+  }
+
+  .step-photos.single img { max-width: 320px; }
+
+  .photo-caption {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .7rem;
+    color: var(--earth);
+    margin-top: .4rem;
+    letter-spacing: .03em;
   }
 
   /* ── ポイント吹き出し ── */
@@ -376,7 +342,7 @@
     background: var(--henna-light);
     border-left: 3px solid var(--henna);
     border-radius: 0 6px 6px 0;
-    padding: 1rem 1.2rem;
+    padding: 1.2rem 1.4rem;
     margin: 1.5rem 0;
   }
 
@@ -385,7 +351,7 @@
     font-size: .72rem;
     letter-spacing: .15em;
     color: var(--henna);
-    margin-bottom: .5rem;
+    margin-bottom: .6rem;
   }
 
   .point-box ul {
@@ -431,6 +397,36 @@
     letter-spacing: .1em;
     color: var(--moss);
   }
+
+  /* ── リンクカード ── */
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 12px rgba(74,82,64,.07);
+    border-left: 4px solid var(--sage);
+    margin: 1.5rem 0;
+  }
+  .link-card .card-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .link-card .card-text h4 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: .95rem;
+    color: var(--charcoal);
+    margin-bottom: .2rem;
+  }
+  .link-card .card-text p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    color: #888;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .link-card .arrow { margin-left: auto; color: var(--dust); flex-shrink: 0; }
 
   /* ── CTAバナー ── */
   .cta {
@@ -488,8 +484,8 @@
   }
 
   @media (max-width: 600px) {
-    .prep-grid { grid-template-columns: repeat(2, 1fr); }
-    .video-wrap { max-width: 100%; }
+    .step-block { flex-direction: column; }
+    .step-photos img, .step-photos.single img { max-width: 100%; }
   }
 
   /* ── 文字サイズ切替 ── */
@@ -551,6 +547,7 @@
     <span>Hair Salon Tsumugu / Natural Beauty Guide</span>
   </a>
   <nav>
+    <a href="index.html">ホーム</a>
     <a href="menu.html">メニュー</a>
     <a href="henna.html" aria-current="page">ヘナ</a>
     <a href="shampoo.html">シャンプー</a>
@@ -576,168 +573,178 @@
 </nav>
 
 <div class="breadcrumb">
-  <a href="index.html">ホーム</a> &rsaquo; <a href="henna.html">ヘナ</a> &rsaquo; おうちヘナのやり方
+  <a href="index.html">ホーム</a> &rsaquo; <a href="henna.html">ヘナ</a> &rsaquo; つむぎのヘナ施術
 </div>
 
 <section class="hero">
-  <p class="hero-eyebrow">SELF HENNA AT HOME</p>
-  <h1>おうちヘナのやり方</h1>
-  <p>生え際をきれいに、ムラなく。<br>つむぎ流セルフヘナのコツをお伝えします。</p>
+  <p class="hero-eyebrow">SALON HENNA TREATMENT</p>
+  <h1>つむぎのヘナ施術</h1>
+  <p>カウンセリングから仕上げまで。<br>プロの目で見極める、つむぎのヘナ施術の流れをご紹介します。</p>
 </section>
 
 <div class="content">
 
-  <!-- 動画セクション -->
+  <!-- カウンセリング -->
   <section class="section">
-    <p class="section-label">VIDEO</p>
-    <h2>まず動画でイメージをつかもう</h2>
-    <p>自然派美容室つむぎのくるみが、生え際をきれいに染めるハケの使い方をわかりやすく解説しています。読む前にまずサクッと見てみてください😊</p>
+    <p class="section-label">STEP 1 · COUNSELING</p>
+    <h2>カウンセリング</h2>
 
-    <div class="video-wrap">
-      <iframe
-        src="https://www.youtube.com/embed/j-R__lRfZaQ"
-        title="セルフヘナ 生え際キレイに染める塗り方"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <p class="video-caption">「セルフヘナ 生え際キレイに染める塗り方」by やまもとくるみ</p>
-
-    <div class="point-box">
-      <p class="point-title">✦ 動画のポイントまとめ</p>
-      <ul>
-        <li>ハケの先端だけを使ってヘナをすくう</li>
-        <li>ヘナは「塗る」より「置く」イメージ</li>
-        <li>ハケは回転させない</li>
-        <li>ヘナを置いたら後ろにスっと引いて頭皮から離す</li>
-        <li>もみあげは細かく塗る</li>
-        <li>慣れてきたら、細かいところはハケの角を使う</li>
-      </ul>
-    </div>
-
-    <p style="font-size:.82rem;color:#888;font-family:'Noto Sans JP',sans-serif;">💡 塗り始める前に、ハケで「素振り」をしてみると感覚がつかみやすくなりますよ！</p>
-  </section>
-
-  <!-- 準備するもの -->
-  <section class="section">
-    <p class="section-label">PREPARATION</p>
-    <h2>準備するもの</h2>
-
-    <div class="prep-grid">
-      <div class="prep-item">
-        <div class="icon">🌿</div>
-        <p>ハナヘナパウダー<br>（つむぎ取扱）</p>
-      </div>
-      <div class="prep-item">
-        <div class="icon">🖌️</div>
-        <p>ヘナ用ハケ<br>（専用がおすすめ）</p>
-      </div>
-      <div class="prep-item">
-        <div class="icon">🥣</div>
-        <p>混ぜるボウル<br>（金属製はNG）</p>
-      </div>
-      <div class="prep-item">
-        <div class="icon">🧤</div>
-        <p>手袋<br>（使い捨て）</p>
-      </div>
-      <div class="prep-item">
-        <div class="icon">♨️</div>
-        <p>お湯<br>（50〜60℃くらい）</p>
-      </div>
-      <div class="prep-item">
-        <div class="icon">🧣</div>
-        <p>ラップ＋タオル<br>（保温用）</p>
-      </div>
-    </div>
-
-    <div class="callout">
-      <strong>🌿 つむぎで使っているヘナについて</strong>
-      つむぎでは天然100%の<strong>ハナヘナ</strong>を使用しています。市販の「ヘナ」の中には化学染料が混ざっているものもあるので、成分に注意して選んでください。天然100%のヘナなら、後から脱色して明るくすることも可能です。
-    </div>
-  </section>
-
-  <!-- 染め方の手順 -->
-  <section class="section">
-    <p class="section-label">HOW TO</p>
-    <h2>染め方の手順</h2>
-
-    <h3>ヘナを溶く</h3>
-    <div class="steps">
-      <div class="step">
+    <div class="step-flow">
+      <div class="step-block">
         <div class="step-num">1</div>
         <div class="step-body">
-          <h4>ヘナパウダーをボウルに入れる</h4>
-          <p>金属製のボウルは使わないこと。プラスチックや陶器がおすすめ。</p>
+          <h3>白髪の量・生え際の状態をチェック</h3>
+          <p>まずは分け目や生え際の白髪の量、髪質、頭皮の状態をしっかり確認。お客さまのなりたいイメージや、白髪をどれくらいカバーしたいかをお伺いしながら、ヘナの配合や置き時間をご提案します。</p>
+          <div class="step-photos single">
+            <div>
+              <img src="henna-treatment-before-2.jpg" srcset="henna-treatment-before-2-800.jpg 450w, henna-treatment-before-2.jpg 900w" sizes="(max-width: 600px) 100vw, 320px" width="900" height="1600" decoding="async" alt="施術前の生え際・白髪の状態を確認している様子">
+              <p class="photo-caption">生え際・白髪の状態を確認</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="step">
+    </div>
+  </section>
+
+  <!-- 調合 -->
+  <section class="section">
+    <p class="section-label">STEP 2 · MIXING</p>
+    <h2>ヘナを溶く・配合する</h2>
+
+    <div class="step-flow">
+      <div class="step-block">
         <div class="step-num">2</div>
         <div class="step-body">
-          <h4>お湯を少しずつ加えて混ぜる</h4>
-          <p>50〜60℃くらいのお湯を少しずつ足しながら、マヨネーズくらいのとろみになるまで混ぜる。サラサラすぎると垂れるので注意。</p>
+          <h3>お客さまに合わせてヘナを調合</h3>
+          <p>天然100%のハナヘナを、白髪の量や希望の色味に合わせて配合。写真のように色の異なる2種類を用意し、部分によって使い分けることもあります。お湯の温度や濃さも毎回微調整しています。</p>
+          <div class="step-photos single">
+            <div>
+              <img src="henna-treatment-mix.jpg" srcset="henna-treatment-mix-800.jpg 450w, henna-treatment-mix.jpg 900w" sizes="(max-width: 600px) 100vw, 320px" width="900" height="1600" loading="lazy" decoding="async" alt="調合された2種類のヘナペースト">
+              <p class="photo-caption">お客さまに合わせて配合したヘナペースト</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <h3>塗る</h3>
-    <div class="steps">
-      <div class="step">
+  <!-- 塗布 -->
+  <section class="section">
+    <p class="section-label">STEP 3 · APPLICATION</p>
+    <h2>塗布</h2>
+
+    <div class="step-flow">
+      <div class="step-block">
         <div class="step-num">3</div>
         <div class="step-body">
-          <h4>生え際から塗り始める</h4>
-          <p>動画のポイントを参考に、ハケの先端だけを使って「置く」ように塗る。焦らず丁寧に。</p>
+          <h3>根元から毛先まで、ムラなく丁寧に</h3>
+          <p>スタッフが一束一束、生え際まで丁寧にヘナを塗布していきます。セルフでは塗りにくい後頭部や生え際も、プロの手ならムラなく均一に。頭皮への負担を抑えながら、しっかり色を入れていきます。</p>
+          <div class="step-photos single">
+            <div>
+              <img src="henna-treatment-apply.jpg" srcset="henna-treatment-apply-800.jpg 800w, henna-treatment-apply.jpg 1600w" sizes="(max-width: 600px) 100vw, 320px" width="1600" height="900" loading="lazy" decoding="async" alt="スタッフのくるみさんがヘナを塗布している様子">
+              <p class="photo-caption">スタッフのくるみが丁寧に塗布</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="step">
+    </div>
+  </section>
+
+  <!-- 放置・保温 -->
+  <section class="section">
+    <p class="section-label">STEP 4 · PROCESSING</p>
+    <h2>放置・保温</h2>
+
+    <div class="step-flow">
+      <div class="step-block">
         <div class="step-num">4</div>
         <div class="step-body">
-          <h4>全体に塗り広げる</h4>
-          <p>生え際が終わったら分け目をずらしながら頭全体に塗る。白髪が多いところは多めにヘナを置くイメージで。</p>
+          <h3>ラップで包んで、じっくり色を入れる</h3>
+          <p>塗り終わったらラップで包んで保温し、1〜2時間ほど置いて色を定着させます。この待ち時間に、体の中から巡りを整える「ゴッドクリーナー」を同時に受けられるお客さまも多いです。</p>
+          <div class="step-photos single">
+            <div>
+              <img src="henna-treatment-wrapped.jpg" srcset="henna-treatment-wrapped-800.jpg 800w, henna-treatment-wrapped.jpg 1600w" sizes="(max-width: 600px) 100vw, 320px" width="1600" height="900" loading="lazy" decoding="async" alt="ヘナを塗り終えてラップで保温している様子">
+              <p class="photo-caption">塗り終えて保温している状態</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="step">
+    </div>
+
+    <div class="point-box">
+      <p class="point-title">✦ サロン施術だからできること</p>
+      <ul>
+        <li>白髪の量に合わせてヘナの配合・濃さを毎回調整</li>
+        <li>生え際・後頭部までムラのない均一な塗布</li>
+        <li>頭皮への負担を抑えた塗り方・置き時間の管理</li>
+        <li>待ち時間にゴッドクリーナーなど+αのケアも可能</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 洗い流し・仕上げ -->
+  <section class="section">
+    <p class="section-label">STEP 5 · FINISH</p>
+    <h2>洗い流し・仕上げ</h2>
+
+    <div class="step-flow">
+      <div class="step-block">
         <div class="step-num">5</div>
         <div class="step-body">
-          <h4>ラップで包んでタオルを巻く</h4>
-          <p>塗り終わったらラップを巻いて保温。さらにタオルを巻くと色の入りがよくなる。</p>
+          <h3>しっかり洗い流して、自然なツヤに</h3>
+          <p>お湯と石けんシャンプーでしっかり洗い流し、ドライ・スタイリングして完成。ヘナは染めながら髪をコーティングするので、白髪をぼかしながら自然なツヤとまとまりのある仕上がりになります。</p>
+          <div class="step-photos">
+            <div>
+              <img src="henna-treatment-after.jpg" width="1108" height="1477" loading="lazy" decoding="async" alt="ヘナ施術後のツヤのある髪の仕上がり">
+              <p class="photo-caption">施術後の仕上がり</p>
+            </div>
+            <div>
+              <img src="henna-treatment-before-1.jpg" width="1108" height="1477" loading="lazy" decoding="async" alt="ヘナ施術後、生え際は自然にぼかされた仕上がり">
+              <p class="photo-caption">生え際は自然にぼかされた仕上がり</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-    <h3>放置・洗い流す</h3>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">6</div>
-        <div class="step-body">
-          <h4>1〜2時間放置する</h4>
-          <p>白髪が多い方や濃く染めたい方は2時間以上置くと色が入りやすい。体を温めながら待つのがコツ。</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">7</div>
-        <div class="step-body">
-          <h4>お湯でしっかり洗い流す</h4>
-          <p>シャンプーは使わずお湯だけで流してもOK。石けんシャンプーと相性がいいので、使う場合は石けんシャンプーがおすすめ。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ヘナ髪×ハイライト -->
-  <section class="section">
-    <p class="section-label">PLUS ALPHA</p>
-    <h2>おうちヘナ×サロンで明るく楽しむ</h2>
-
-    <p>「ヘナで染めたら明るくできない」と思っていませんか？天然100%のハナヘナやインディゴなら、塗り重ねすぎていなければ脱色剤を使って明るくすることができます。</p>
-
-    <p>おうちでセルフヘナをしながら、白髪の少ない部分だけサロンでハイライトを入れるお客さまも増えています。ヘナのオレンジ色に黒髪が混ざると、ハイライトが入ったときに自然な仕上がりになりやすいんです😊</p>
 
     <div class="callout">
-      <strong>⚠️ ただし注意が必要なケース</strong>
-      インディゴを何度も重ねて塗っているところは、脱色が難しくなることがあります。「明るくしたい」という希望がある方は、使っているヘナの種類や染め方を美容師に相談してから判断するのがおすすめです。
+      <strong>🌿 つむぎのハナヘナについて</strong>
+      つむぎで使用しているのは天然100%手選別の<strong>ハナヘナ</strong>。市販品に多い化学染料混じりのヘナとは別物です。白髪ケアだけでなく、頭皮ケア・トリートメントとしても人気です。
     </div>
   </section>
 
+  <!-- 関連ページ -->
+  <section class="section">
+    <p class="section-label">MORE</p>
+    <h2>もっと知りたい方へ</h2>
+
+    <a class="link-card" href="menu.html">
+      <div class="card-icon">💰</div>
+      <div class="card-text">
+        <h4>料金・所要時間を見る</h4>
+        <p>ハナヘナ・2度染め・ヘナレッスンの料金一覧</p>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-card" href="henna-home.html">
+      <div class="card-icon">🖌️</div>
+      <div class="card-text">
+        <h4>おうちヘナのやり方</h4>
+        <p>セルフヘナの手順・塗り方のコツ</p>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-card" href="henna-about.html">
+      <div class="card-icon">🌱</div>
+      <div class="card-text">
+        <h4>ヘナってなに？</h4>
+        <p>ヘナの基礎知識・普通のカラーとの違い</p>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </section>
 
   <!-- ショップ誘導 -->
   <div style="background:#fef6f0;border:1px solid #e8c4a8;border-radius:8px;padding:1.5rem 1.8rem;margin:2rem 0;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;">
@@ -748,11 +755,12 @@
     </div>
     <a href="https://salontumugi.shopselect.net/categories/731540" target="_blank" rel="noopener" style="flex-shrink:0;display:inline-block;background:#c45c1a;color:#fff;padding:.6rem 1.4rem;border-radius:999px;font-family:'Noto Sans JP',sans-serif;font-size:.78rem;letter-spacing:.08em;text-decoration:none;">ヘナをみる →</a>
   </div>
+
   <!-- CTA -->
   <div class="cta">
-    <h3>もっと詳しく知りたい方へ</h3>
-    <p>ヘナの種類・自分の髪に合う染め方など<br>お気軽につむぎにご相談ください🌿</p>
-    <a class="cta-btn" href="https://lin.ee/9ADwREL" target="_blank" rel="noopener">LINEで相談する</a>
+    <h3>ヘナ施術のご予約はこちらから</h3>
+    <p>完全予約制・少人数制です。<br>気になることはお気軽にご相談ください🌿</p>
+    <a class="cta-btn" href="https://lin.ee/9ADwREL" target="_blank" rel="noopener">LINEで予約・相談する</a>
   </div>
 
 </div>

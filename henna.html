@@ -30,6 +30,8 @@
   }
 
   header {
+    position: relative;
+    z-index: 100;
     background: var(--moss);
     color: var(--cream);
     padding: 0 1.5rem;
@@ -107,7 +109,7 @@
     width: 100%;
     background: var(--moss);
     z-index: 99;
-    padding: .5rem 0 1rem;
+    padding-bottom: 1rem;
     border-bottom: 2px solid var(--sage);
   }
   .mobile-nav.open { display: block; }
@@ -370,7 +372,8 @@
 
   @media (max-width: 700px) {
     nav { display: none; }
-    .hamburger { display: flex; }
+    .hamburger { display: flex; padding: .65rem .6rem; }
+    .font-toggle .font-toggle-btn { font-size: .72rem; padding: .45rem .75rem; }
   }
 
   /* ── 文字サイズ切替 ── */
@@ -500,11 +503,11 @@
         <span class="arrow">→</span>
       </a>
 
-      <a class="page-card" href="menu.html">
+      <a class="page-card" href="henna-treatment.html">
         <div class="card-icon">🌿</div>
         <div class="card-text">
           <h3>つむぎのヘナ施術</h3>
-          <p>料金・所要時間・ヘナレッスンについて</p>
+          <p>カウンセリングから仕上げまで、施術の流れをご紹介</p>
         </div>
         <span class="arrow">→</span>
       </a>
